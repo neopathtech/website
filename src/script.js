@@ -331,95 +331,6 @@
     }
   }
 
-  // ====== Horizontal Testimonials Slider ======
-  function initTestimonialsSlider() {
-    var track = document.getElementById("testimonials-track");
-    if (!track) return;
-
-    var prevBtn = document.getElementById("testimonials-prev");
-    var nextBtn = document.getElementById("testimonials-next");
-    var progressBar = document.getElementById("testimonials-progress");
-
-    function getStep() {
-      var item = track.querySelector(".testimonial-item");
-      return item ? item.getBoundingClientRect().width : 380;
-    }
-
-    function updateControls() {
-      var maxScroll = track.scrollWidth - track.clientWidth;
-      if (maxScroll <= 0) {
-        if (prevBtn) prevBtn.disabled = true;
-        if (nextBtn) nextBtn.disabled = true;
-        if (progressBar) progressBar.style.width = "100%";
-        return;
-      }
-
-      var current = track.scrollLeft;
-      if (prevBtn) prevBtn.disabled = current <= 4;
-      if (nextBtn) nextBtn.disabled = current >= maxScroll - 4;
-
-      if (progressBar) {
-        var percent = Math.min(100, Math.max(12, ((current + track.clientWidth) / track.scrollWidth) * 100));
-        progressBar.style.width = percent.toFixed(1) + "%";
-      }
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        track.scrollBy({ left: -getStep(), behavior: "smooth" });
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        track.scrollBy({ left: getStep(), behavior: "smooth" });
-      });
-    }
-
-    track.addEventListener("scroll", updateControls, { passive: true });
-    window.addEventListener("resize", updateControls, { passive: true });
-
-    // Drag-to-scroll for desktop
-    var isDown = false;
-    var startX = 0;
-    var scrollLeft = 0;
-
-    track.addEventListener("mousedown", function (e) {
-      if (e.button !== 0) return;
-      isDown = true;
-      track.classList.add("is-dragging");
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-    });
-
-    window.addEventListener("mouseup", function () {
-      if (!isDown) return;
-      isDown = false;
-      track.classList.remove("is-dragging");
-    });
-
-    track.addEventListener("mousemove", function (e) {
-      if (!isDown) return;
-      e.preventDefault();
-      var x = e.pageX - track.offsetLeft;
-      var walk = (x - startX) * 1.2;
-      track.scrollLeft = scrollLeft - walk;
-    });
-
-    // Keyboard navigation
-    track.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        track.scrollBy({ left: -getStep(), behavior: "smooth" });
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        track.scrollBy({ left: getStep(), behavior: "smooth" });
-      }
-    });
-
-    updateControls();
-  }
-
   // ====== Dark/Light Mockup Toggle (follows site theme) ======
   function initMockupToggle() {
     var toggleGroup = document.querySelector("[data-mockup-toggle]");
@@ -443,11 +354,11 @@
 
       function swap() {
         if (mode === "dark") {
-          targetImg.src = "assets/PowerCampusMobile-Dark.png";
-          targetImg.alt = "PowerCampus Mobile App Dark Mode Interface";
+          targetImg.src = "assets/gallery/powercampus-mobile-dark.webp";
+          targetImg.alt = "PowerCampus mobile app in dark mode";
         } else {
-          targetImg.src = "assets/PowerCampusMobile-Light.png";
-          targetImg.alt = "PowerCampus Mobile App Light Mode Interface";
+          targetImg.src = "assets/gallery/powercampus-mobile-light.webp";
+          targetImg.alt = "PowerCampus mobile app in light mode";
         }
         targetImg.style.opacity = "1";
         targetImg.style.transform = "translateY(0)";
@@ -505,20 +416,6 @@
     });
   }
 
-  // ====== Product Tab Switcher ======
-  function initProductTabs() {
-    var tabs = document.querySelectorAll(".product-tab-btn");
-    if (!tabs.length) return;
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function (e) {
-        // Don't prevent default — let anchor navigation work
-        tabs.forEach(function (t) { t.classList.remove("active"); });
-        tab.classList.add("active");
-      });
-    });
-  }
-
   // ====== Smooth Element Entrance via Intersection Observer ======
   function initEntranceAnimations() {
     var elements = document.querySelectorAll("[data-animate]");
@@ -564,18 +461,161 @@
     sync();
   }
 
+  // ====== Category Filters (Gallery & Blog) ======
+  function initFilters() {
+    document.querySelectorAll("[data-filter-group]").forEach(function (group) {
+      var name = group.getAttribute("data-filter-group");
+      var target = document.querySelector('[data-filter-target="' + name + '"]');
+      var status = document.querySelector('[data-filter-status="' + name + '"]');
+      if (!target) return;
+
+      var chips = group.querySelectorAll(".filter-chip");
+      var items = target.querySelectorAll("[data-category]");
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var filter = chip.getAttribute("data-filter");
+          var shown = 0;
+
+          chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+          items.forEach(function (item) {
+            var match = filter === "all" || item.getAttribute("data-category") === filter;
+            item.hidden = !match;
+            if (match) shown++;
+          });
+
+          if (status) {
+            var label = chip.firstChild.textContent.trim();
+            status.textContent = "Showing " + shown + (filter === "all" ? " items" : " in " + label);
+          }
+        });
+      });
+    });
+  }
+
+  // ====== Lightbox (Gallery grid & NEo Social stories) ======
+  function initLightbox() {
+    var dialog = document.querySelector(".lightbox");
+    if (!dialog || typeof dialog.showModal !== "function") return;
+
+    var img = dialog.querySelector(".lightbox-img");
+    var title = dialog.querySelector(".lightbox-caption strong");
+    var label = dialog.querySelector(".lightbox-caption span");
+    var prev = dialog.querySelector(".lightbox-prev");
+    var next = dialog.querySelector(".lightbox-next");
+    var items = [];
+    var index = 0;
+
+    // items: [{ src, alt, title, label }]; a story shows "n of total" after its label
+    function show(i) {
+      index = (i + items.length) % items.length;
+      var item = items[index];
+      img.src = item.src;
+      img.alt = item.alt;
+      title.textContent = item.title;
+      label.textContent = item.label + (item.counter && items.length > 1 ? " \u00b7 " + (index + 1) + " of " + items.length : "");
+    }
+
+    function open(list, start) {
+      items = list;
+      prev.hidden = next.hidden = items.length < 2;
+      show(start);
+      dialog.showModal();
+    }
+
+    // Gallery page: step through whatever the current filter shows
+    var grid = document.querySelector(".gallery-grid");
+    if (grid) {
+      grid.querySelectorAll(".gallery-open").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var visible = Array.prototype.filter.call(grid.querySelectorAll(".gallery-item"), function (it) { return !it.hidden; });
+          open(visible.map(function (it) {
+            var source = it.querySelector("img");
+            return {
+              src: source.currentSrc || source.src,
+              alt: source.alt,
+              title: it.querySelector("figcaption strong").textContent,
+              label: it.querySelector("figcaption span").textContent
+            };
+          }), visible.indexOf(btn.closest(".gallery-item")));
+        });
+      });
+    }
+
+    // Services page: each NEo Social story opens its own slides
+    document.querySelectorAll(".post-open").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var slides = JSON.parse(btn.getAttribute("data-slides"));
+        open(slides.map(function (slide) {
+          return { src: slide.src, alt: slide.alt, title: btn.getAttribute("data-title"), label: btn.getAttribute("data-label"), counter: true };
+        }), 0);
+      });
+    });
+
+    dialog.querySelector(".lightbox-close").addEventListener("click", function () { dialog.close(); });
+    prev.addEventListener("click", function () { show(index - 1); });
+    next.addEventListener("click", function () { show(index + 1); });
+
+    dialog.addEventListener("keydown", function (e) {
+      if (items.length < 2) return;
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
+    });
+
+    // Click on the dimmed backdrop closes the viewer
+    dialog.addEventListener("click", function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
+  // ====== Horizontal Scrollers (Client stories, NEo Social stories) ======
+  // A scroller is any .h-scroller; its buttons point at it with data-scroll-target="<id>".
+  function initScrollers() {
+    document.querySelectorAll(".h-scroller").forEach(function (track) {
+      var buttons = document.querySelectorAll('[data-scroll-target="' + track.id + '"]');
+      if (!buttons.length) return;
+
+      // Move by as many whole cards as fit on screen (at least one), so none are skipped
+      function step() {
+        var card = track.firstElementChild;
+        if (!card) return track.clientWidth;
+        var width = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+        return Math.max(1, Math.floor(track.clientWidth / width)) * width;
+      }
+
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        buttons.forEach(function (btn) {
+          btn.disabled = btn.getAttribute("data-scroll") === "prev" ? track.scrollLeft <= 4 : track.scrollLeft >= max - 4;
+        });
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var dir = btn.getAttribute("data-scroll") === "prev" ? -1 : 1;
+          track.scrollBy({ left: dir * step(), behavior: "smooth" });
+        });
+      });
+
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update, { passive: true });
+      update();
+    });
+  }
+
   // ====== Initialize All ======
   function initApp() {
     initStickyHeader();
     initThemeToggle();
     initScrollProgress();
     initLusionTextAnimations();
-    initTestimonialsSlider();
+    initScrollers();
     initMockupToggle();
     initFaqAccordion();
-    initProductTabs();
     initStatCounters();
     initEntranceAnimations();
+    initFilters();
+    initLightbox();
   }
 
   if (document.readyState === "loading") {

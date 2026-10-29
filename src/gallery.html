@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery | Neopath Technologies</title>
+    <meta name="description"
+        content="A look inside Neopath Technologies: our team in Imphal, the PowerCampus and NeoEventize products, and our brand.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem("theme"); } catch (e) { }
+            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Site Header (Full Width) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
+            <span>Neopath Technologies</span>
+        </a>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Products
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="powercampus.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
+                    <a href="neoeventize.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a class="active" href="gallery.html">Gallery</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+            <a class="header-cta" href="contact.html">Contact Us</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Toggle menu"><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="site-container">
+
+        <!-- Page Hero -->
+        <section class="rule page-hero" data-lusion-hero>
+            <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                <span class="badge badge-muted">Gallery</span>
+            </div>
+            <h1 class="page-hero-title">
+                Inside<br>Neopath.
+            </h1>
+            <p class="page-hero-desc">
+                The people, products and brand behind our work, from our team in Imphal to the platforms schools and
+                event organisers use every day.
+            </p>
+        </section>
+
+        <!-- Gallery
+             To add photos: copy a <figure class="gallery-item"> below, set data-category, and add a matching
+             filter chip (e.g. data-filter="events") with its count. Use .gallery-item--wide for landscape shots. -->
+        <section class="rule" style="padding:56px 0 120px">
+            <div class="filter-bar" role="group" aria-label="Filter gallery" data-filter-group="gallery">
+                <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="filter-count">19</span></button>
+                <button class="filter-chip" type="button" data-filter="team" aria-pressed="false">Team <span class="filter-count">15</span></button>
+                <button class="filter-chip" type="button" data-filter="products" aria-pressed="false">Products <span class="filter-count">3</span></button>
+                <button class="filter-chip" type="button" data-filter="brand" aria-pressed="false">Brand <span class="filter-count">1</span></button>
+            </div>
+            <p class="sr-only" role="status" data-filter-status="gallery"></p>
+
+            <div class="gallery-grid" data-filter-target="gallery">
+                <figure class="gallery-item gallery-item--wide gallery-item--contain" data-category="products">
+                    <button class="gallery-open" type="button" aria-label="View larger: PowerCampus web console">
+                        <img src="assets/gallery/powercampus-web.webp" alt="PowerCampus web dashboard with attendance and fee overview" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>PowerCampus web console</strong><span>Products</span></figcaption>
+                </figure>
+                <figure class="gallery-item gallery-item--contain gallery-item--dark" data-category="brand">
+                    <button class="gallery-open" type="button" aria-label="View larger: The Neopath mark">
+                        <img src="assets/neopath-logo-3d.webp" alt="Neopath brand mark rendered in 3D glass" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>The Neopath mark</strong><span>Brand</span></figcaption>
+                </figure>
+                <figure class="gallery-item gallery-item--contain" data-category="products">
+                    <button class="gallery-open" type="button" aria-label="View larger: PowerCampus app, light">
+                        <img src="assets/gallery/powercampus-mobile-light.webp" alt="PowerCampus mobile app in light mode" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>PowerCampus app, light</strong><span>Products</span></figcaption>
+                </figure>
+                <figure class="gallery-item gallery-item--contain" data-category="products">
+                    <button class="gallery-open" type="button" aria-label="View larger: PowerCampus app, dark">
+                        <img src="assets/gallery/powercampus-mobile-dark.webp" alt="PowerCampus mobile app in dark mode" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>PowerCampus app, dark</strong><span>Products</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Chingakham Priyobrata Singh">
+                        <img src="assets/team/priyobrata.webp" alt="Chingakham Priyobrata Singh" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Chingakham Priyobrata Singh</strong><span>Managing Director</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Khogen Khoibam">
+                        <img src="assets/team/khogen.webp" alt="Khogen Khoibam" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Khogen Khoibam</strong><span>Creative Director</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Ngangom Rocky Singh">
+                        <img src="assets/team/rocky.webp" alt="Ngangom Rocky Singh" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Ngangom Rocky Singh</strong><span>Senior System Analyst</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Nikhil Khumujam">
+                        <img src="assets/team/nikhil.webp" alt="Nikhil Khumujam" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Nikhil Khumujam</strong><span>Digital Marketing Manager</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Sanasam Ratan">
+                        <img src="assets/team/ratan.webp" alt="Sanasam Ratan" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Sanasam Ratan</strong><span>Creative Lead</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: MKM Muzzammil">
+                        <img src="assets/team/muzzammil.webp" alt="MKM Muzzammil" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>MKM Muzzammil</strong><span>Software Engineer</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Nongmaithem Chitananda">
+                        <img src="assets/team/chitananda.webp" alt="Nongmaithem Chitananda" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Nongmaithem Chitananda</strong><span>Software Engineer</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Konjengbam Rohenba Meitei">
+                        <img src="assets/team/rohenba.webp" alt="Konjengbam Rohenba Meitei" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Konjengbam Rohenba Meitei</strong><span>Software Engineer</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Yumnam Bageshree">
+                        <img src="assets/team/bageshree.webp" alt="Yumnam Bageshree" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Yumnam Bageshree</strong><span>Digital Marketing Strategist</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Mangalsana Rajkumari">
+                        <img src="assets/team/mangalsana.webp" alt="Mangalsana Rajkumari" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Mangalsana Rajkumari</strong><span>Marketing &amp; Content Strategist</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Takhellambam Lawrence Singh">
+                        <img src="assets/team/lawrence.webp" alt="Takhellambam Lawrence Singh" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Takhellambam Lawrence Singh</strong><span>Visual Creator</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Thounaojam Preety">
+                        <img src="assets/team/preety.webp" alt="Thounaojam Preety" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Thounaojam Preety</strong><span>Social Media Executive</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Thounaojam Vikash">
+                        <img src="assets/team/vikash.webp" alt="Thounaojam Vikash" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Thounaojam Vikash</strong><span>Social Media Executive</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Khwairakpam Nobin Singh">
+                        <img src="assets/team/nobin.webp" alt="Khwairakpam Nobin Singh" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Khwairakpam Nobin Singh</strong><span>Social Media Executive</span></figcaption>
+                </figure>
+                <figure class="gallery-item" data-category="team">
+                    <button class="gallery-open" type="button" aria-label="View larger: Sagolsem Peebanaha Singh">
+                        <img src="assets/team/peebanaha.webp" alt="Sagolsem Peebanaha Singh" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption><strong>Sagolsem Peebanaha Singh</strong><span>Admin Associate</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="rule" style="padding:104px 0;text-align:center" data-lusion-reveal>
+            <h2 style="font-size:clamp(36px,5.5vw,72px);letter-spacing:-.03em;margin:0 0 24px">Want to work<br>with this team?</h2>
+            <p style="color:var(--color-text-secondary);font-size:18px;max-width:560px;margin:0 auto 40px;line-height:1.6">
+                Tell us what you are building or launching, and we will put the right people on it.</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+                <a class="btn btn-primary" href="contact.html">Start a Conversation</a>
+                <a class="btn" href="about.html#team">Meet the Team</a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="fgrid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand" style="font-size:22px">
+                        <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
+                        <span>Neopath Technologies</span>
+                    </a>
+                    <p style="margin:12px 0 0;line-height:1.7;max-width:280px;color:var(--color-text-secondary)">Technology that works. Marketing that moves.</p>
+                    <address class="footer-links footer-address">
+                        <p class="footer-address-line">RIMS Road, Canara Bank Building,<br>3rd Floor, Imphal West &ndash; 795001,<br>Manipur, INDIA</p>
+                        <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+                        <a class="link" href="tel:+918257000220">+91 8257000220</a>
+                    </address>
+                    <div class="footer-social">
+                        <a class="social-link" href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a class="social-link" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+                    </div>
+                </div>
+                <nav aria-label="Tech">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Tech</p>
+                    <div class="footer-links">
+                        <a class="link" href="powercampus.html">PowerCampus ERP</a>
+                        <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
+                        <a class="link" href="services.html#software-development">Software Development</a>
+                        <a class="link" href="services.html#it-infrastructure">IT Infrastructure</a>
+                        <a class="link" href="services.html#management-consulting">Management Consulting</a>
+                    </div>
+                </nav>
+                <nav aria-label="Digital Marketing">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">Digital Marketing</p>
+                    <div class="footer-links">
+                        <a class="link2" href="services.html#branding">Branding</a>
+                        <a class="link2" href="services.html#video-production">Video Production</a>
+                        <a class="link2" href="services.html#seo">SEO Services</a>
+                        <a class="link2" href="services.html#social-media-marketing">Social Media Marketing</a>
+                        <a class="link2" href="services.html#influencer-marketing">Influencer Marketing</a>
+                    </div>
+                </nav>
+                <nav aria-label="Company">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">Company</p>
+                    <div class="footer-links">
+                        <a class="link" href="index.html">Home</a>
+                        <a class="link" href="services.html">Services</a>
+                        <a class="link" href="powercampus.html">PowerCampus</a>
+                        <a class="link" href="neoeventize.html">NeoEventize</a>
+                        <a class="link" href="about.html">About Us</a>
+                        <a class="link" href="about.html#team">Our Team</a>
+                        <a class="link" href="gallery.html">Gallery</a>
+                        <a class="link" href="blog.html">Blog</a>
+                        <a class="link" href="contact.html">Contact Us</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="year">2026</span> Neopath Technologies Pvt. Ltd.</span>
+                <nav class="footer-legal" aria-label="Legal"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></nav>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <dialog class="lightbox" aria-label="Image viewer">
+        <div class="lightbox-inner">
+            <img class="lightbox-img" alt="">
+            <p class="lightbox-caption"><strong></strong><span></span></p>
+        </div>
+        <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" type="button" aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

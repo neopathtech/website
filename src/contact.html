@@ -32,6 +32,7 @@
         </a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
             <div class="nav-dropdown">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
                     Products
@@ -40,10 +41,11 @@
                 <div class="nav-dropdown-menu">
                     <a href="powercampus.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
                     <a href="neoeventize.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
-                    <a href="products.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg> All Products <span class="nav-dropdown-label">Overview &amp; Plans</span></a>
                 </div>
             </div>
             <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blog</a>
             <a class="active" href="contact.html">Contact</a>
         </nav>
         <div class="header-actions">
@@ -165,16 +167,13 @@
                         </div>
                     </div>
 
-                    <!-- TODO: restore once Facebook / Instagram / LinkedIn URLs are available
                     <div class="contact-info-item" style="border-bottom:none">
                         <div class="contact-info-label">FOLLOW &amp; ENGAGE</div>
-                        <div style="display:flex;gap:20px;margin-top:8px">
-                            <a class="link" href="#" style="font-size:16px">Facebook</a>
-                            <a class="link" href="#" style="font-size:16px">Instagram</a>
-                            <a class="link" href="#" style="font-size:16px">LinkedIn</a>
+                        <div class="contact-social">
+                            <a href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+                            <a href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>Instagram<span class="sr-only"> (opens in a new tab)</span></a>
                         </div>
                     </div>
-                    -->
                 </div>
             </div>
         </section>
@@ -206,7 +205,7 @@
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
-                        Yes. NeoEventize has powered multi-day festivals such as POP CITY (thousands of attendees across 7 zones) and medical conclaves like AHPICON. With sub-500ms cryptographic QR scans, our mobile gate apps operate with instant local validation and eliminate queue bottlenecks even under patchy internet conditions.
+                        Yes. NeoEventize has ticketed the three-day POP CITY festival across 7 zones and the AHPICON healthcare conclave for 650+ delegates. Mobile and camera-based QR check-in validates each pass in under 500ms, which stops fraudulent passes and keeps entry queues short.
                     </div>
                 </div>
 
@@ -245,58 +244,61 @@
         <!-- Shared Footer -->
         <footer class="rule" style="padding: 104px 0 56px; font-size: 15px; color: var(--color-text-secondary); padding-bottom: 34px">
             <div class="fgrid">
-                <div>
+                <div class="footer-brand">
                     <a href="index.html" class="brand" style="font-weight:800;font-size:22px;color:var(--color-text)">
                         <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
                         <span>Neopath Technologies</span>
                     </a>
                     <p style="margin:12px 0 0;line-height:1.7;max-width:280px">Technology that works. Marketing that moves.</p>
+                    <address class="footer-links footer-address">
+                        <p class="footer-address-line">RIMS Road, Canara Bank Building,<br>3rd Floor, Imphal West &ndash; 795001,<br>Manipur, INDIA</p>
+                        <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+                        <a class="link" href="tel:+918257000220">+91 8257000220</a>
+                    </address>
+                    <div class="footer-social">
+                        <a class="social-link" href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a class="social-link" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+                    </div>
                 </div>
                 <nav aria-label="Tech">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Tech</p>
                     <div class="footer-links">
-                        <a class="link" href="products.html#powercampus">PowerCampus ERP</a>
-                        <a class="link" href="products.html#neoeventize">NeoEventize Ticketing</a>
-                        <a class="link" href="index.html#tech">Software Development</a>
-                        <a class="link" href="index.html#tech">IT Infrastructure</a>
-                        <a class="link" href="index.html#tech">Management Consulting</a>
+                        <a class="link" href="powercampus.html">PowerCampus ERP</a>
+                        <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
+                        <a class="link" href="services.html#software-development">Software Development</a>
+                        <a class="link" href="services.html#it-infrastructure">IT Infrastructure</a>
+                        <a class="link" href="services.html#management-consulting">Management Consulting</a>
                     </div>
                 </nav>
                 <nav aria-label="Digital Marketing">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">Digital Marketing</p>
                     <div class="footer-links">
-                        <a class="link2" href="index.html#marketing">Branding</a>
-                        <a class="link2" href="index.html#marketing">Video Production</a>
-                        <a class="link2" href="index.html#marketing">SEO Services</a>
-                        <a class="link2" href="index.html#marketing">Social Media Marketing</a>
-                        <a class="link2" href="index.html#marketing">Influencer Marketing</a>
+                        <a class="link2" href="services.html#branding">Branding</a>
+                        <a class="link2" href="services.html#video-production">Video Production</a>
+                        <a class="link2" href="services.html#seo">SEO Services</a>
+                        <a class="link2" href="services.html#social-media-marketing">Social Media Marketing</a>
+                        <a class="link2" href="services.html#influencer-marketing">Influencer Marketing</a>
                     </div>
                 </nav>
                 <nav aria-label="Company">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-secondary)">Company</p>
                     <div class="footer-links">
                         <a class="link" href="index.html">Home</a>
+                        <a class="link" href="services.html">Services</a>
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link" href="about.html">About Us</a>
+                        <a class="link" href="about.html#team">Our Team</a>
+                        <a class="link" href="gallery.html">Gallery</a>
+                        <a class="link" href="blog.html">Blog</a>
                         <a class="link active" href="contact.html">Contact Us</a>
-                        <a class="link" href="index.html#work">Selected Work</a>
                     </div>
                 </nav>
-                <address style="font-style:normal">
-                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-secondary)">Contact</p>
-                    <div class="footer-links footer-contact">
-                        <span>RIMS Road, Canara Bank Building, 3rd Floor,<br>Imphal West – 795001, Manipur, INDIA</span>
-                        <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
-                        <span><a class="link" href="tel:+918257000220">+91 8257000220</a></span>
-                        <!-- TODO: add Facebook / Instagram URLs <span style="display:flex;gap:16px"><a class="link" href="#">Facebook</a><a class="link" href="#">Instagram</a></span> -->
-                    </div>
-                </address>
             </div>
             <div class="rule"
                 style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:96px;padding-top:32px;font-size:13px;color:var(--color-text-secondary)">
                 <span>© <span id="year">2026</span> Neopath Technologies Pvt. Ltd.</span>
-                <!-- TODO: add Privacy Policy / Terms pages <span style="display:flex;gap:24px"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></span> -->
+                <nav class="footer-legal" aria-label="Legal"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></nav>
             </div>
         </footer>
     </div>

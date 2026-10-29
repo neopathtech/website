@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services | Software, IT Support &amp; Digital Marketing — Neopath Technologies</title>
+    <meta name="description"
+        content="Software development, IT infrastructure support, management consulting, branding, video production, SEO, social media and influencer marketing from Neopath Technologies in Imphal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem("theme"); } catch (e) { }
+            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Site Header (Full Width) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
+            <span>Neopath Technologies</span>
+        </a>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a class="active" href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Products
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="powercampus.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
+                    <a href="neoeventize.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+            <a class="header-cta" href="contact.html">Contact Us</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Toggle menu"><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="site-container">
+
+        <!-- Page Hero -->
+        <section class="rule page-hero" data-lusion-hero>
+            <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                <span class="badge badge-tech">Tech</span>
+                <span class="badge badge-marketing">Digital Marketing</span>
+            </div>
+            <h1 class="page-hero-title">
+                Two teams.<br>One partner.
+            </h1>
+            <p class="page-hero-desc">
+                Software, infrastructure and consulting from our Tech division; branding, video and growth marketing from
+                our Digital Marketing division. Pick one service or bring us the whole project.
+            </p>
+            <nav class="service-jump" aria-label="Jump to a service"><a class="filter-chip" href="#software-development">Software Development</a><a class="filter-chip" href="#it-infrastructure">IT Infrastructure Support</a><a class="filter-chip" href="#management-consulting">Management Consulting</a><a class="filter-chip" href="#branding">Branding</a><a class="filter-chip" href="#video-production">Video Production</a><a class="filter-chip" href="#seo">Search Engine Optimisation</a><a class="filter-chip" href="#social-media-marketing">Social Media Marketing</a><a class="filter-chip" href="#influencer-marketing">Influencer Marketing</a><a class="filter-chip" href="#neo-social">NEo Social</a></nav>
+        </section>
+
+        <!-- Tech Division -->
+        <section id="tech" class="rule" style="padding:96px 0 48px" data-lusion-reveal>
+            <div class="split-head">
+                <div>
+                    <p class="section-kicker" style="color:var(--color-cyan)">01 &mdash; TECH DIVISION</p>
+                    <h2 class="section-title" style="margin-bottom:0">Practical technology, powerful business outcomes.</h2>
+                </div>
+                <p class="split-intro">From the first line of code to the servers it runs on and the plan behind it, we
+                    build and look after the technology your business depends on.</p>
+            </div>
+        </section>
+            <article class="service" id="software-development">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-cyan)">01</span>
+                    <h3>Software Development</h3>
+                    <p>We first seek to understand your needs and pain points, then add the value gained from years of experience to deliver the best applications and services.</p>
+                    <a class="btn" href="contact.html?division=Tech%3A+Custom+Software+Development">Discuss a project <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Website design and development</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Custom software development</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Web and mobile applications</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>ERP solutions</span></li>
+                    </ul>
+                        <h4>Why Neopath</h4>
+                        <ul class="service-list service-list--why">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>15+ years of project management</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>A highly qualified, experienced team</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>International best practices</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Top quality at a competitive price</span></li>
+                        </ul>
+                </div>
+            </article>
+            <article class="service" id="it-infrastructure">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-cyan)">02</span>
+                    <h3>IT Infrastructure Support</h3>
+                    <p>Seamless 24&times;7 access to all your systems, by eliminating every single point of failure and risk. Our motto: <em>maintenance@ZeroDownTime</em>.</p>
+                    <a class="btn" href="contact.html?division=Tech%3A+IT+Infrastructure+%26+Cloud">Talk to our support team <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Network troubleshooting</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Systems monitoring and maintenance</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Infrastructure setup</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cloud hosting management</span></li>
+                    </ul>
+                        <h4>Why Neopath</h4>
+                        <ul class="service-list service-list--why">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cloud hosting management and services</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Extensive experience on AWS and DigitalOcean</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>International best practices</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Significant savings on maintenance cost</span></li>
+                        </ul>
+                </div>
+            </article>
+            <article class="service" id="management-consulting">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-cyan)">03</span>
+                    <h3>Management Consulting</h3>
+                    <p>Our consultants team up with you, dive deep into your business and its challenges, analyse them well and present the best solutions.</p>
+                    <a class="btn" href="contact.html?division=Tech%3A+Management+Consulting">Book a consultation <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Technology strategy</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Project management</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clear, executable plans for complex projects</span></li>
+                    </ul>
+                        <h4>Why Neopath</h4>
+                        <ul class="service-list service-list--why">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Expertise in salvaging failing projects and businesses</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Extensive experience in retail and project management</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>International best practices</span></li>
+                        </ul>
+                </div>
+            </article>
+
+        <!-- Digital Marketing Division -->
+        <section id="marketing" class="rule accent-coral" style="padding:96px 0" data-lusion-reveal>
+            <div class="split-head">
+                <div>
+                    <p class="section-kicker" style="color:var(--color-coral)">02 &mdash; DIGITAL MARKETING DIVISION</p>
+                    <h2 class="section-title" style="margin-bottom:0">Make your brand impossible to ignore.</h2>
+                </div>
+                <p class="split-intro">We focus on raising your brand awareness, boosting conversion rates and maximising
+                    your return on investment, for businesses across North-East India.</p>
+            </div>
+            <div class="pillars pillars--4">
+                <div class="pillar">
+                    <span class="pillar-num">FREE IDEATION</span>
+                    <h3>Complimentary consultation</h3>
+                    <p>We start with a free consultation to shape ideas before you commit.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-num">ALL IN ONE</span>
+                    <h3>From filming to social</h3>
+                    <p>One team covers everything from filming to social media management.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-num">CUSTOMER FOCUS</span>
+                    <h3>Built around you</h3>
+                    <p>Extensive teamwork and research with you before anything goes live.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-num">FLEXIBLE PACKAGES</span>
+                    <h3>Plans that adapt</h3>
+                    <p>Switch plans as your situation and goals change.</p>
+                </div>
+            </div>
+        </section>
+            <article class="service" id="branding">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-coral)">04</span>
+                    <h3>Branding</h3>
+                    <p>A clear, consistent brand that people recognise and remember, from the first idea to the guidelines your team works from.</p>
+                    <a class="btn" href="contact.html?division=Digital+Marketing%3A+Full+Service">Start a campaign <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Brand strategy</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Visual identity and logo design</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Messaging</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Brand guidelines</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="service" id="video-production">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-coral)">05</span>
+                    <h3>Video Production</h3>
+                    <p>Video that tells your story well, whether it is a launch film, a corporate profile or a series of short clips for social media.</p>
+                    <a class="btn" href="contact.html?division=Digital+Marketing%3A+Full+Service">Start a campaign <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Promotional video</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Corporate video</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Short-form video</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pre-production through to the final edit</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="service" id="seo">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-coral)">06</span>
+                    <h3>Search Engine Optimisation</h3>
+                    <p>Help the right people find you on search, with a plan built on research and progress you can measure.</p>
+                    <a class="btn" href="contact.html?division=Digital+Marketing%3A+Full+Service">Start a campaign <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO audits</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Keyword research</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>On-page and technical SEO</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Performance reporting</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="service" id="social-media-marketing">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-coral)">07</span>
+                    <h3>Social Media Marketing</h3>
+                    <p>Consistent, on-brand social channels that build an audience and turn attention into enquiries.</p>
+                    <a class="btn" href="contact.html?division=Digital+Marketing%3A+Full+Service">Start a campaign <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Social media strategy</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Content calendars</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Creative production</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Analytics reporting</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="service" id="influencer-marketing">
+                <div class="service-main">
+                    <span class="service-num" style="color:var(--color-coral)">08</span>
+                    <h3>Influencer Marketing</h3>
+                    <p>Campaigns with creators your audience already follows, planned and tracked from brief to results.</p>
+                    <a class="btn" href="contact.html?division=Digital+Marketing%3A+Full+Service">Start a campaign <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-side">
+                    <h4>What&rsquo;s included</h4>
+                    <ul class="service-list">
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Creator discovery</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Campaign briefs</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Collaboration management</span></li>
+                            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Performance tracking</span></li>
+                    </ul>
+                </div>
+            </article>
+
+        <!-- NEo Social (facts from facebook.com/neosoc) -->
+        <section id="neo-social" class="rule accent-coral" style="padding:96px 0" data-lusion-reveal>
+            <div class="neo-social">
+                <div>
+                    <p class="section-kicker" style="color:var(--color-coral)">OUR OWN CHANNEL</p>
+                    <h2 class="section-title">NEo Social</h2>
+                    <p class="neo-social-tagline">&ldquo;Sharing the good, celebrating people &amp; stories that matter.&rdquo;</p>
+                </div>
+                <div class="neo-social-body">
+                    <p>NEo Social is a social media initiative of Neopath Technologies, with one simple aim: let&rsquo;s make
+                        the world a better place. Because inspiration is all around us, it shares positive stories and
+                        celebrates the people behind them.</p>
+                    <ul class="service-list">
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Positive stories from our community</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Celebrating people who inspire</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Broadcasting &amp; media production</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Based in Imphal, Manipur</span></li>
+                    </ul>
+                    <a class="btn btn-primary" href="https://www.facebook.com/neosoc" target="_blank" rel="noopener">Follow on Facebook <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+            </div>
+            <div class="post-rail-head">
+                <div>
+                    <h3>Recent stories</h3>
+                    <p>13 stories from the NEo Social page. Select one to view every slide.</p>
+                </div>
+                <div class="scroll-controls">
+                    <button type="button" class="scroll-btn" data-scroll="prev" data-scroll-target="neo-stories" aria-label="Scroll stories back">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" class="scroll-btn" data-scroll="next" data-scroll-target="neo-stories" aria-label="Scroll stories forward">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="post-rail h-scroller" id="neo-stories" role="region" aria-label="NEo Social stories" tabindex="0">
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: 7 Fashion Labels from Manipur, 9 slides"
+                        data-title="7 Fashion Labels from Manipur" data-label="Fashion" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/10.webp&quot;, &quot;alt&quot;: &quot;7 Fashion Labels from Manipur: seven homegrown labels bringing Manipuri identity to contemporary fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/15.webp&quot;, &quot;alt&quot;: &quot;From tradition to contemporary: a new generation of Manipuri designers, and seven labels worth discovering&quot;}, {&quot;src&quot;: &quot;assets/neo-social/07.webp&quot;, &quot;alt&quot;: &quot;House of Ali, a contemporary fashion label from Manipur founded by Alimuddin and Daya Oinam&quot;}, {&quot;src&quot;: &quot;assets/neo-social/08.webp&quot;, &quot;alt&quot;: &quot;11 Tareng, founded by Jayshree Koijam and Reena Ahanthem, bringing Manipuri textiles into contemporary design&quot;}, {&quot;src&quot;: &quot;assets/neo-social/09.webp&quot;, &quot;alt&quot;: &quot;Khumanthem, the label by designer Richana Khumanthem, weaving Manipuri heritage into contemporary fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/11.webp&quot;, &quot;alt&quot;: &quot;EAST by Easternlight Zimik, rooted in the indigenous textile traditions of Ukhrul&quot;}, {&quot;src&quot;: &quot;assets/neo-social/12.webp&quot;, &quot;alt&quot;: &quot;Designer Robert Naorem, known for contemporary interpretations of Manipuri traditional attire&quot;}, {&quot;src&quot;: &quot;assets/neo-social/13.webp&quot;, &quot;alt&quot;: &quot;NUPI, founded by Potsangbam Susma Shija, a contemporary voice of Manipuri fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/14.webp&quot;, &quot;alt&quot;: &quot;Sailex, founded by designer Sailex Ngairangbam: contemporary fashion with a Manipuri identity&quot;}]">
+                        <img src="assets/neo-social/thumb/10.webp" alt="7 Fashion Labels from Manipur: seven homegrown labels bringing Manipuri identity to contemporary fashion" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>9</span>
+                    </button>
+                    <figcaption><strong>7 Fashion Labels from Manipur</strong><span>Fashion</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: The history of the polo shirt, 8 slides"
+                        data-title="The history of the polo shirt" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/20.webp&quot;, &quot;alt&quot;: &quot;The history of the polo shirt, from sport to style, a story with a deep connection to Manipur&quot;}, {&quot;src&quot;: &quot;assets/neo-social/26.webp&quot;, &quot;alt&quot;: &quot;Before the shirt there was polo: Sagol Kangjei, the traditional Manipuri game regarded as the indigenous form of modern polo&quot;}, {&quot;src&quot;: &quot;assets/neo-social/22.webp&quot;, &quot;alt&quot;: &quot;1896: Brooks Brothers introduces the button-down collar for polo players&quot;}, {&quot;src&quot;: &quot;assets/neo-social/27.webp&quot;, &quot;alt&quot;: &quot;1920s: tennis champion Ren\u00e9 Lacoste introduces the short-sleeved piqu\u00e9 shirt&quot;}, {&quot;src&quot;: &quot;assets/neo-social/23.webp&quot;, &quot;alt&quot;: &quot;1933: the Lacoste L.12.12 arrives, and sport officially enters fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/21.webp&quot;, &quot;alt&quot;: &quot;1952: Fred Perry&#x27;s tennis shirt becomes a symbol of British style and youth culture&quot;}, {&quot;src&quot;: &quot;assets/neo-social/25.webp&quot;, &quot;alt&quot;: &quot;1972: Ralph Lauren turns the polo shirt into a lifestyle icon&quot;}, {&quot;src&quot;: &quot;assets/neo-social/24.webp&quot;, &quot;alt&quot;: &quot;The polo shirt today: a sport, a shirt and a global icon, from Manipur to the world&quot;}]">
+                        <img src="assets/neo-social/thumb/20.webp" alt="The history of the polo shirt, from sport to style, a story with a deep connection to Manipur" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>8</span>
+                    </button>
+                    <figcaption><strong>The history of the polo shirt</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Bhumeshwory Devi wins bronze, 2 slides"
+                        data-title="Bhumeshwory Devi wins bronze" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/01.webp&quot;, &quot;alt&quot;: &quot;Bhumeshwory Devi, from Manipur, wins bronze at the Asian U-23 Championships&quot;}, {&quot;src&quot;: &quot;assets/neo-social/02.webp&quot;, &quot;alt&quot;: &quot;Newspaper clipping on Bhumeshwory Devi: today she stands on the podium, tomorrow she hopes to stand on the Olympic stage&quot;}]">
+                        <img src="assets/neo-social/thumb/01.webp" alt="Bhumeshwory Devi, from Manipur, wins bronze at the Asian U-23 Championships" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>2</span>
+                    </button>
+                    <figcaption><strong>Bhumeshwory Devi wins bronze</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: The pride of Manipur shines again"
+                        data-title="The pride of Manipur shines again" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/03.webp&quot;, &quot;alt&quot;: &quot;Mirabai Chanu celebrating her third consecutive Commonwealth Games gold, under the headline The Pride of Manipur Shines Again&quot;}]">
+                        <img src="assets/neo-social/thumb/03.webp" alt="Mirabai Chanu celebrating her third consecutive Commonwealth Games gold, under the headline The Pride of Manipur Shines Again" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>The pride of Manipur shines again</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: From Shillong to Tashkent"
+                        data-title="From Shillong to Tashkent" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/16.webp&quot;, &quot;alt&quot;: &quot;Phoebe Dale Nongrum, from Shillong, represents India at the Asia Auto Gymkhana Championship in Tashkent&quot;}]">
+                        <img src="assets/neo-social/thumb/16.webp" alt="Phoebe Dale Nongrum, from Shillong, represents India at the Asia Auto Gymkhana Championship in Tashkent" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>From Shillong to Tashkent</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Manipur-made fashion in Parliament"
+                        data-title="Manipur-made fashion in Parliament" data-label="Fashion" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/05.webp&quot;, &quot;alt&quot;: &quot;Kangana Ranaut at Parliament in a saree by Manipuri label NUPI&quot;}]">
+                        <img src="assets/neo-social/thumb/05.webp" alt="Kangana Ranaut at Parliament in a saree by Manipuri label NUPI" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Manipur-made fashion in Parliament</strong><span>Fashion</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: ANGH at TIFF"
+                        data-title="ANGH at TIFF" data-label="Film" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/18.webp&quot;, &quot;alt&quot;: &quot;Poster for ANGH, a film by Theja Rio and an official selection at the Toronto International Film Festival&quot;}]">
+                        <img src="assets/neo-social/thumb/18.webp" alt="Poster for ANGH, a film by Theja Rio and an official selection at the Toronto International Film Festival" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>ANGH at TIFF</strong><span>Film</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Remembering Shongtham Vikram"
+                        data-title="Remembering Shongtham Vikram" data-label="Music" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/19.webp&quot;, &quot;alt&quot;: &quot;Tribute to Shongtham Vikram, a pioneering guitarist from Manipur&#x27;s early rock scene&quot;}]">
+                        <img src="assets/neo-social/thumb/19.webp" alt="Tribute to Shongtham Vikram, a pioneering guitarist from Manipur&#x27;s early rock scene" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Remembering Shongtham Vikram</strong><span>Music</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: A new era of myopia care"
+                        data-title="A new era of myopia care" data-label="Community" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/04.webp&quot;, &quot;alt&quot;: &quot;Myopia screening machine: Eastern Eye Foundation &amp; Research Centre introduces the first OCULUS Myopia Master in Northeast India&quot;}]">
+                        <img src="assets/neo-social/thumb/04.webp" alt="Myopia screening machine: Eastern Eye Foundation &amp; Research Centre introduces the first OCULUS Myopia Master in Northeast India" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>A new era of myopia care</strong><span>Community</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Patriots&#x27; Day"
+                        data-title="Patriots&#x27; Day" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/06.webp&quot;, &quot;alt&quot;: &quot;13th August Patriots&#x27; Day, remembering the heroes of the Anglo-Manipuri War of 1891&quot;}]">
+                        <img src="assets/neo-social/thumb/06.webp" alt="13th August Patriots&#x27; Day, remembering the heroes of the Anglo-Manipuri War of 1891" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Patriots&#x27; Day</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Irabot Day"
+                        data-title="Irabot Day" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/28.webp&quot;, &quot;alt&quot;: &quot;Irabot Day, 30 September: remembering Hijam Irabot, leader, revolutionary and poet&quot;}]">
+                        <img src="assets/neo-social/thumb/28.webp" alt="Irabot Day, 30 September: remembering Hijam Irabot, leader, revolutionary and poet" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Irabot Day</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Krishna Janmashtami"
+                        data-title="Krishna Janmashtami" data-label="Culture" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/17.webp&quot;, &quot;alt&quot;: &quot;Krishna Janmashtami: in Manipur, Krishna became dance, music, movement and culture&quot;}]">
+                        <img src="assets/neo-social/thumb/17.webp" alt="Krishna Janmashtami: in Manipur, Krishna became dance, music, movement and culture" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Krishna Janmashtami</strong><span>Culture</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Gandhi Jayanti"
+                        data-title="Gandhi Jayanti" data-label="Culture" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/29.webp&quot;, &quot;alt&quot;: &quot;Happy Gandhi Jayanti, 2nd October: truth, non-violence and self-reliance&quot;}]">
+                        <img src="assets/neo-social/thumb/29.webp" alt="Happy Gandhi Jayanti, 2nd October: truth, non-violence and self-reliance" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Gandhi Jayanti</strong><span>Culture</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Client Quotes -->
+        <section class="rule" style="padding:96px 0" data-lusion-reveal>
+            <p class="section-kicker">CLIENT STORIES</p>
+            <h2 class="section-title">What working with us is like.</h2>
+            <div class="cards-grid-3">
+                <figure class="service-quote" style="border-left-color:var(--color-cyan)">
+                    <blockquote>&ldquo;Excellent customer service, very dependable team! Thank you guys.&rdquo;</blockquote>
+                    <figcaption><strong>Lakeshwar</strong><span>Head, Admin, JCRE Global College</span><span class="testimonial-tag" style="color:var(--color-cyan)">Software</span></figcaption>
+                </figure>
+                <figure class="service-quote" style="border-left-color:var(--color-cyan)">
+                    <blockquote>&ldquo;Outstanding service to customers! Thank you team for seamless 24&times;7 cloud infrastructure support.&rdquo;</blockquote>
+                    <figcaption><strong>Manohar S</strong><span>Chief Tech Advisor, GFA Consulting</span><span class="testimonial-tag" style="color:var(--color-cyan)">IT Support</span></figcaption>
+                </figure>
+                <figure class="service-quote" style="border-left-color:var(--color-coral)">
+                    <blockquote>&ldquo;Well done team, your creative and marketing ideas are generating visible positive outcomes.&rdquo;</blockquote>
+                    <figcaption><strong>Dr Athouba</strong><span>Managing Director, Imphal Heart Institute</span><span class="testimonial-tag" style="color:var(--color-coral)">Digital Marketing</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="rule" style="padding:104px 0;text-align:center" data-lusion-reveal>
+            <h2 style="font-size:clamp(36px,5.5vw,72px);letter-spacing:-.03em;margin:0 0 24px">Not sure which<br>service you need?</h2>
+            <p style="color:var(--color-text-secondary);font-size:18px;max-width:560px;margin:0 auto 40px;line-height:1.6">
+                Tell us what you are trying to achieve. Our first conversation is free, and we will point you to the right team.</p>
+            <a class="btn btn-primary" href="contact.html">Start a Conversation <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </section>
+
+        <footer class="site-footer">
+            <div class="fgrid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand" style="font-size:22px">
+                        <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
+                        <span>Neopath Technologies</span>
+                    </a>
+                    <p style="margin:12px 0 0;line-height:1.7;max-width:280px;color:var(--color-text-secondary)">Technology that works. Marketing that moves.</p>
+                    <address class="footer-links footer-address">
+                        <p class="footer-address-line">RIMS Road, Canara Bank Building,<br>3rd Floor, Imphal West &ndash; 795001,<br>Manipur, INDIA</p>
+                        <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+                        <a class="link" href="tel:+918257000220">+91 8257000220</a>
+                    </address>
+                    <div class="footer-social">
+                        <a class="social-link" href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a class="social-link" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+                    </div>
+                </div>
+                <nav aria-label="Tech">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Tech</p>
+                    <div class="footer-links">
+                        <a class="link" href="powercampus.html">PowerCampus ERP</a>
+                        <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
+                        <a class="link" href="services.html#software-development">Software Development</a>
+                        <a class="link" href="services.html#it-infrastructure">IT Infrastructure</a>
+                        <a class="link" href="services.html#management-consulting">Management Consulting</a>
+                    </div>
+                </nav>
+                <nav aria-label="Digital Marketing">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">Digital Marketing</p>
+                    <div class="footer-links">
+                        <a class="link2" href="services.html#branding">Branding</a>
+                        <a class="link2" href="services.html#video-production">Video Production</a>
+                        <a class="link2" href="services.html#seo">SEO Services</a>
+                        <a class="link2" href="services.html#social-media-marketing">Social Media Marketing</a>
+                        <a class="link2" href="services.html#influencer-marketing">Influencer Marketing</a>
+                    </div>
+                </nav>
+                <nav aria-label="Company">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">Company</p>
+                    <div class="footer-links">
+                        <a class="link" href="index.html">Home</a>
+                        <a class="link" href="services.html">Services</a>
+                        <a class="link" href="powercampus.html">PowerCampus</a>
+                        <a class="link" href="neoeventize.html">NeoEventize</a>
+                        <a class="link" href="about.html">About Us</a>
+                        <a class="link" href="about.html#team">Our Team</a>
+                        <a class="link" href="gallery.html">Gallery</a>
+                        <a class="link" href="blog.html">Blog</a>
+                        <a class="link" href="contact.html">Contact Us</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="year">2026</span> Neopath Technologies Pvt. Ltd.</span>
+                <nav class="footer-legal" aria-label="Legal"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></nav>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Story / Gallery Lightbox -->
+    <dialog class="lightbox" aria-label="Image viewer">
+        <div class="lightbox-inner">
+            <img class="lightbox-img" alt="">
+            <p class="lightbox-caption"><strong></strong><span></span></p>
+        </div>
+        <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" type="button" aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

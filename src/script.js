@@ -1,4 +1,4 @@
-// Neopath Technologies — homepage behaviour
+// Neopath Technologies — Site Behaviour v2.0
 (function () {
   "use strict";
 
@@ -6,26 +6,145 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Mobile navigation
+  // ====== Smart Autohide Sticky Header ======
+  function initStickyHeader() {
+    var header = document.querySelector(".site-header");
+    var nav = document.getElementById("primary-nav");
+    if (!header) return;
+
+    var lastScroll = window.scrollY || window.pageYOffset;
+    var scrollThreshold = 8;
+
+    function onScroll() {
+      var currentScroll = window.scrollY || window.pageYOffset;
+      var delta = currentScroll - lastScroll;
+
+      // Backdrop blur when scrolled
+      if (currentScroll > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      // Don't hide header if mobile nav menu is open
+      if (nav && nav.classList.contains("open")) {
+        header.classList.remove("header-hidden");
+        lastScroll = currentScroll;
+        return;
+      }
+
+      // Always visible near top of page
+      if (currentScroll <= 60) {
+        header.classList.remove("header-hidden");
+        lastScroll = currentScroll;
+        return;
+      }
+
+      // Trigger hide / reveal based on scroll direction
+      if (Math.abs(delta) > scrollThreshold) {
+        if (delta > 0) {
+          // Scrolling down the page -> hide header
+          header.classList.add("header-hidden");
+          document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+            d.classList.remove("open");
+          });
+        } else {
+          // Scrolling up towards top -> reveal header
+          header.classList.remove("header-hidden");
+        }
+        lastScroll = currentScroll;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // ====== Scroll Progress Bar ======
+  function initScrollProgress() {
+    var bar = document.querySelector(".scroll-progress");
+    if (!bar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || window.pageYOffset;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = Math.min(100, progress).toFixed(1) + "%";
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ====== Mobile Navigation ======
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("primary-nav");
+
   function setMenu(open) {
+    if (!nav || !toggle) return;
     nav.classList.toggle("open", open);
     toggle.setAttribute("aria-expanded", String(open));
+
+    // Animate hamburger
+    var spans = toggle.querySelectorAll("span");
+    if (spans.length >= 2) {
+      if (open) {
+        spans[0].style.transform = "translateY(4px) rotate(45deg)";
+        spans[1].style.transform = "translateY(-4px) rotate(-45deg)";
+      } else {
+        spans[0].style.transform = "";
+        spans[1].style.transform = "";
+      }
+    }
   }
+
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
       setMenu(!nav.classList.contains("open"));
     });
     nav.addEventListener("click", function (e) {
+      if (e.target.closest(".nav-dropdown-trigger")) return; // handled by dropdown
       if (e.target.tagName === "A") setMenu(false);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") setMenu(false);
+      if (e.key === "Escape") {
+        setMenu(false);
+        closeAllDropdowns();
+      }
     });
   }
 
-  // Lusion.co Text Load & Scroll Reveal Animation
+  // ====== Nav Dropdown ======
+  function closeAllDropdowns() {
+    document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+      d.classList.remove("open");
+    });
+  }
+
+  document.querySelectorAll(".nav-dropdown-trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var dropdown = trigger.closest(".nav-dropdown");
+      var isOpen = dropdown.classList.contains("open");
+
+      // Close others first
+      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+        if (d !== dropdown) d.classList.remove("open");
+      });
+
+      dropdown.classList.toggle("open", !isOpen);
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav-dropdown")) {
+      closeAllDropdowns();
+    }
+  });
+
+  // ====== Lusion.co Text Load & Scroll Reveal Animation ======
   function initLusionTextAnimations() {
     var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -66,8 +185,8 @@
     var hero = document.querySelector("[data-lusion-hero]");
     if (hero) {
       var heroTagline = hero.querySelector(".hero-tagline");
-      var heroTitle = hero.querySelector(".hero-title");
-      var heroSubtext = hero.querySelector(".hero-subtext");
+      var heroTitle = hero.querySelector(".hero-title, .page-hero-title");
+      var heroSubtext = hero.querySelector(".hero-subtext, .page-hero-desc");
       var heroActions = hero.querySelector(".hero-actions");
 
       if (heroTagline) {
@@ -90,6 +209,13 @@
         heroActions.style.setProperty("--lusion-fade-delay", "0.78s");
       }
 
+      // Fade-in badges
+      var badges = hero.querySelectorAll(".badge");
+      badges.forEach(function (badge, i) {
+        badge.classList.add("lusion-fade-in");
+        badge.style.setProperty("--lusion-fade-delay", (0.04 + i * 0.08) + "s");
+      });
+
       if (prefersReducedMotion) {
         hero.classList.add("lusion-revealed");
       } else {
@@ -98,25 +224,6 @@
             hero.classList.add("lusion-revealed");
           }, 80);
         });
-
-        // Interactive subtle 3D mouse parallax on hero title
-        if (heroTitle && window.matchMedia("(hover: hover)").matches) {
-          hero.addEventListener("mousemove", function (e) {
-            var rect = hero.getBoundingClientRect();
-            var x = (e.clientX - rect.left) / rect.width - 0.5;
-            var y = (e.clientY - rect.top) / rect.height - 0.5;
-            heroTitle.style.transform =
-              "perspective(1000px) rotateY(" +
-              (x * 4).toFixed(2) +
-              "deg) rotateX(" +
-              (-y * 4).toFixed(2) +
-              "deg)";
-          });
-          hero.addEventListener("mouseleave", function () {
-            heroTitle.style.transform =
-              "perspective(1000px) rotateY(0deg) rotateX(0deg)";
-          });
-        }
       }
     }
 
@@ -155,7 +262,7 @@
               }
             });
           },
-          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+          { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
         );
 
         revealSections.forEach(function (sec) {
@@ -165,7 +272,62 @@
     }
   }
 
-  // Horizontal Testimonials Slider (Controls, Drag-to-scroll, Progress Bar)
+  // ====== Animated Stat Counters ======
+  function initStatCounters() {
+    var stats = document.querySelectorAll(".stat-number[data-count]");
+    if (!stats.length) return;
+
+    var observed = new Set();
+
+    function animateCounter(el) {
+      var target = el.getAttribute("data-count");
+      var suffix = el.getAttribute("data-suffix") || "";
+      var prefix = el.getAttribute("data-prefix") || "";
+      var numTarget = parseFloat(target);
+      var isNumber = !isNaN(numTarget);
+
+      if (!isNumber) {
+        el.textContent = prefix + target + suffix;
+        return;
+      }
+
+      var duration = 1800;
+      var startTime = null;
+      var startVal = 0;
+      var isFloat = target.includes(".");
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+        var current = startVal + (numTarget - startVal) * ease;
+        el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    if ("IntersectionObserver" in window) {
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !observed.has(entry.target)) {
+            observed.add(entry.target);
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      stats.forEach(function (el) {
+        counterObserver.observe(el);
+      });
+    } else {
+      stats.forEach(animateCounter);
+    }
+  }
+
+  // ====== Horizontal Testimonials Slider ======
   function initTestimonialsSlider() {
     var track = document.getElementById("testimonials-track");
     if (!track) return;
@@ -213,7 +375,7 @@
     track.addEventListener("scroll", updateControls, { passive: true });
     window.addEventListener("resize", updateControls, { passive: true });
 
-    // Drag-to-scroll for desktop mouse users
+    // Drag-to-scroll for desktop
     var isDown = false;
     var startX = 0;
     var scrollLeft = 0;
@@ -251,20 +413,10 @@
       }
     });
 
-    // Initial state
     updateControls();
   }
 
-  // Initialize interactive components
-  function initApp() {
-    initLusionTextAnimations();
-    initTestimonialsSlider();
-    initMockupToggle();
-    initFaqAccordion();
-    initProductTabs();
-  }
-
-  // Dark/Light mockup toggle
+  // ====== Dark/Light Mockup Toggle ======
   function initMockupToggle() {
     var toggleGroup = document.querySelector("[data-mockup-toggle]");
     if (!toggleGroup) return;
@@ -278,26 +430,36 @@
         btns.forEach(function (b) { b.classList.remove("active"); });
         btn.classList.add("active");
         var mode = btn.getAttribute("data-mode");
-        if (mode === "dark") {
-          targetImg.src = "assets/PowerCampusMobile-Dark.png";
-          targetImg.alt = "PowerCampus Mobile App Dark Mode Interface";
-        } else {
-          targetImg.src = "assets/PowerCampusMobile-Light.png";
-          targetImg.alt = "PowerCampus Mobile App Light Mode Interface";
-        }
+
+        // Fade transition
+        targetImg.style.opacity = "0";
+        targetImg.style.transform = "translateY(8px)";
+        setTimeout(function () {
+          if (mode === "dark") {
+            targetImg.src = "assets/PowerCampusMobile-Dark.png";
+            targetImg.alt = "PowerCampus Mobile App Dark Mode Interface";
+          } else {
+            targetImg.src = "assets/PowerCampusMobile-Light.png";
+            targetImg.alt = "PowerCampus Mobile App Light Mode Interface";
+          }
+          targetImg.style.opacity = "1";
+          targetImg.style.transform = "translateY(0)";
+        }, 250);
       });
     });
+
+    // Add transition style
+    targetImg.style.transition = "opacity 0.25s ease, transform 0.3s ease";
   }
 
-  // FAQ Accordion
+  // ====== FAQ Accordion ======
   function initFaqAccordion() {
     var triggers = document.querySelectorAll(".accordion-trigger");
     triggers.forEach(function (btn) {
       btn.addEventListener("click", function () {
         var item = btn.closest(".accordion-item");
         var isActive = item.classList.contains("active");
-        
-        // Optionally close other items in the same accordion
+
         var parent = item.parentElement;
         if (parent) {
           parent.querySelectorAll(".accordion-item").forEach(function (it) {
@@ -310,35 +472,55 @@
         if (!isActive) {
           item.classList.add("active");
           btn.setAttribute("aria-expanded", "true");
-        } else {
-          item.classList.remove("active");
-          btn.setAttribute("aria-expanded", "false");
         }
       });
     });
   }
 
-  // Product tab switcher
+  // ====== Product Tab Switcher ======
   function initProductTabs() {
     var tabs = document.querySelectorAll(".product-tab-btn");
     if (!tabs.length) return;
 
     tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
+      tab.addEventListener("click", function (e) {
+        // Don't prevent default — let anchor navigation work
         tabs.forEach(function (t) { t.classList.remove("active"); });
         tab.classList.add("active");
-        var targetId = tab.getAttribute("data-target");
-        
-        var sections = document.querySelectorAll(".product-view-section");
-        sections.forEach(function (sec) {
-          if (targetId === "all" || sec.id === targetId) {
-            sec.style.display = "block";
-          } else {
-            sec.style.display = "none";
-          }
-        });
       });
     });
+  }
+
+  // ====== Smooth Element Entrance via Intersection Observer ======
+  function initEntranceAnimations() {
+    var elements = document.querySelectorAll("[data-animate]");
+    if (!elements.length || !("IntersectionObserver" in window)) return;
+
+    var animObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+
+    elements.forEach(function (el) {
+      animObserver.observe(el);
+    });
+  }
+
+  // ====== Initialize All ======
+  function initApp() {
+    initStickyHeader();
+    initScrollProgress();
+    initLusionTextAnimations();
+    initTestimonialsSlider();
+    initMockupToggle();
+    initFaqAccordion();
+    initProductTabs();
+    initStatCounters();
+    initEntranceAnimations();
   }
 
   if (document.readyState === "loading") {
@@ -347,7 +529,7 @@
     initApp();
   }
 
-  // Form submission handler (supports both enquiry-form and contact-page-form)
+  // ====== Form Submission Handler ======
   function attachFormHandler(formId, statusId) {
     var form = document.getElementById(formId);
     var status = document.getElementById(statusId);
@@ -378,7 +560,7 @@
       );
       window.location.href = "mailto:contact@neopathtech.com?subject=" + subject + "&body=" + body;
 
-      status.textContent = "Thank you. Your email app should open with your enquiry ready to send.";
+      status.textContent = "Thank you! Your email app should open with your enquiry ready to send.";
       status.style.color = "#36B8D8";
       form.reset();
     });
@@ -387,4 +569,3 @@
   attachFormHandler("enquiry-form", "form-status");
   attachFormHandler("contact-page-form", "contact-form-status");
 })();
-

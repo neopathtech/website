@@ -9,33 +9,40 @@
         content="Learn about Neopath Technologies, an ISO 9001:2015 certified company led by industry veterans with over 50 collective man-years of global corporate experience.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div
-        style="max-width:1440px;margin:0 auto;box-sizing:border-box;padding:0 clamp(20px,4vw,56px);background:#0e0e0e;color:#f2f2f2;font-family:'Schibsted Grotesk',Helvetica,sans-serif">
+    <!-- Site Header (Full Width) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
+            <span>Neopath Technologies</span>
+        </a>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Products
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="powercampus.html">☁️ PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
+                    <a href="neoeventize.html">🎟️ NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
+                </div>
+            </div>
+            <a class="active" href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a class="header-cta" href="contact.html">Contact Us</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+            aria-label="Toggle menu"><span></span><span></span></button>
+    </header>
 
-        <!-- Site Header -->
-        <header class="site-header"
-            style="display:flex;justify-content:space-between;align-items:center;padding:44px 0">
-            <a href="index.html" class="brand" style="font-weight:800;font-size:20px;letter-spacing:-.01em">
-                <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
-                <span>Neopath Technologies</span>
-            </a>
-            <nav class="nav" id="primary-nav" aria-label="Primary" style="display:flex;gap:32px;font-size:15px">
-                <a class="link" href="index.html">Home</a>
-                <a class="link" href="products.html">Products</a>
-                <a class="link active" href="about.html">About</a>
-                <a class="link" href="contact.html">Contact</a>
-            </nav>
-            <a class="btn header-cta" href="contact.html" style="padding:12px 20px">Contact</a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-                aria-label="Toggle menu"><span></span><span></span></button>
-        </header>
+    <div class="site-container">
 
         <!-- Page Hero -->
         <section class="rule page-hero" data-lusion-hero>
@@ -261,7 +268,8 @@
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#b5b5b5">Company</p>
                     <div style="display:flex;flex-direction:column;gap:10px">
                         <a class="link" href="index.html">Home</a>
-                        <a class="link" href="products.html">Products</a>
+                        <a class="link" href="powercampus.html">PowerCampus</a>
+                        <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link active" href="about.html">About Us</a>
                         <a class="link" href="contact.html">Contact Us</a>
                         <a class="link" href="index.html#work">Selected Work</a>

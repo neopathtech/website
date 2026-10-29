@@ -45,9 +45,7 @@
         if (delta > 0) {
           // Scrolling down the page -> hide header
           header.classList.add("header-hidden");
-          document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-            d.classList.remove("open");
-          });
+          closeAllDropdowns();
         } else {
           // Scrolling up towards top -> reveal header
           header.classList.remove("header-hidden");
@@ -115,9 +113,15 @@
   }
 
   // ====== Nav Dropdown ======
+  function setDropdown(dropdown, open) {
+    dropdown.classList.toggle("open", open);
+    var trigger = dropdown.querySelector(".nav-dropdown-trigger");
+    if (trigger) trigger.setAttribute("aria-expanded", String(open));
+  }
+
   function closeAllDropdowns() {
     document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-      d.classList.remove("open");
+      setDropdown(d, false);
     });
   }
 
@@ -130,10 +134,10 @@
 
       // Close others first
       document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-        if (d !== dropdown) d.classList.remove("open");
+        if (d !== dropdown) setDropdown(d, false);
       });
 
-      dropdown.classList.toggle("open", !isOpen);
+      setDropdown(dropdown, !isOpen);
     });
   });
 
@@ -416,7 +420,7 @@
     updateControls();
   }
 
-  // ====== Dark/Light Mockup Toggle ======
+  // ====== Dark/Light Mockup Toggle (follows site theme) ======
   function initMockupToggle() {
     var toggleGroup = document.querySelector("[data-mockup-toggle]");
     if (!toggleGroup) return;
@@ -425,27 +429,51 @@
     var targetImg = document.getElementById("mobile-mockup-img");
     if (!targetImg) return;
 
+    var currentMode = null;
+
+    function setMode(mode, animate) {
+      if (mode === currentMode) return;
+      currentMode = mode;
+
+      btns.forEach(function (b) {
+        var isActive = b.getAttribute("data-mode") === mode;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-pressed", String(isActive));
+      });
+
+      function swap() {
+        if (mode === "dark") {
+          targetImg.src = "assets/PowerCampusMobile-Dark.png";
+          targetImg.alt = "PowerCampus Mobile App Dark Mode Interface";
+        } else {
+          targetImg.src = "assets/PowerCampusMobile-Light.png";
+          targetImg.alt = "PowerCampus Mobile App Light Mode Interface";
+        }
+        targetImg.style.opacity = "1";
+        targetImg.style.transform = "translateY(0)";
+      }
+
+      if (!animate) {
+        swap();
+        return;
+      }
+
+      // Fade transition
+      targetImg.style.opacity = "0";
+      targetImg.style.transform = "translateY(8px)";
+      setTimeout(swap, 250);
+    }
+
     btns.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        btns.forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        var mode = btn.getAttribute("data-mode");
-
-        // Fade transition
-        targetImg.style.opacity = "0";
-        targetImg.style.transform = "translateY(8px)";
-        setTimeout(function () {
-          if (mode === "dark") {
-            targetImg.src = "assets/PowerCampusMobile-Dark.png";
-            targetImg.alt = "PowerCampus Mobile App Dark Mode Interface";
-          } else {
-            targetImg.src = "assets/PowerCampusMobile-Light.png";
-            targetImg.alt = "PowerCampus Mobile App Light Mode Interface";
-          }
-          targetImg.style.opacity = "1";
-          targetImg.style.transform = "translateY(0)";
-        }, 250);
+        setMode(btn.getAttribute("data-mode"), true);
       });
+    });
+
+    // Start on, and keep following, the site's light/dark theme
+    setMode(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark", false);
+    document.addEventListener("themechange", function (e) {
+      setMode(e.detail.theme, true);
     });
 
     // Add transition style
@@ -510,9 +538,36 @@
     });
   }
 
+  // ====== Light / Dark Theme Toggle ======
+  function initThemeToggle() {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll(".theme-toggle");
+    if (!buttons.length) return;
+
+    function sync() {
+      var isLight = root.getAttribute("data-theme") === "light";
+      buttons.forEach(function (btn) {
+        btn.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+      });
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) { }
+        sync();
+        document.dispatchEvent(new CustomEvent("themechange", { detail: { theme: next } }));
+      });
+    });
+
+    sync();
+  }
+
   // ====== Initialize All ======
   function initApp() {
     initStickyHeader();
+    initThemeToggle();
     initScrollProgress();
     initLusionTextAnimations();
     initTestimonialsSlider();
@@ -546,7 +601,7 @@
 
       if (!name || !details || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         status.textContent = "Please enter your name, a valid email address and your project details.";
-        status.style.color = "#F06B52";
+        status.style.color = "var(--color-error)";
         return;
       }
 
@@ -561,10 +616,25 @@
       window.location.href = "mailto:contact@neopathtech.com?subject=" + subject + "&body=" + body;
 
       status.textContent = "Thank you! Your email app should open with your enquiry ready to send.";
-      status.style.color = "#36B8D8";
+      status.style.color = "var(--color-success)";
       form.reset();
     });
   }
+
+  // ====== Preselect Division from ?division= Links ======
+  function preselectDivision(selectId) {
+    var select = document.getElementById(selectId);
+    var wanted = new URLSearchParams(window.location.search).get("division");
+    if (!select || !wanted) return;
+
+    var options = Array.prototype.slice.call(select.options);
+    var keyword = wanted.split(/[\s:]+/)[0].toLowerCase();
+    var match = options.find(function (o) { return o.value === wanted; }) ||
+      options.find(function (o) { return o.value.toLowerCase().indexOf(keyword) !== -1; });
+    if (match) select.value = match.value;
+  }
+
+  preselectDivision("contact-division");
 
   attachFormHandler("enquiry-form", "form-status");
   attachFormHandler("contact-page-form", "contact-form-status");

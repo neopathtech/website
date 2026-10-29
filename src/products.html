@@ -13,6 +13,14 @@
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem("theme"); } catch (e) { }
+            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
 </head>
 
 <body>
@@ -29,19 +37,26 @@
             <div class="nav-dropdown active">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
                     Products
-                    <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg>
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="nav-dropdown-menu">
-                    <a href="powercampus.html">☁️ PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
-                    <a href="neoeventize.html">🎟️ NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
+                    <a href="powercampus.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> PowerCampus <span class="nav-dropdown-label">Educational ERP &amp; Pricing</span></a>
+                    <a href="neoeventize.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> NeoEventize <span class="nav-dropdown-label">Event Ticketing</span></a>
+                    <a class="active" href="products.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg> All Products <span class="nav-dropdown-label">Overview &amp; Plans</span></a>
                 </div>
             </div>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <a class="header-cta" href="contact.html?division=Product+Enquiry">Request Demo</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-            aria-label="Toggle menu"><span></span><span></span></button>
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+            <a class="header-cta" href="contact.html?division=Product+Enquiry">Request Demo</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Toggle menu"><span></span><span></span></button>
+        </div>
     </header>
 
     <div class="site-container">
@@ -78,7 +93,7 @@
                 </div>
                 <div style="display:flex;gap:16px;flex-wrap:wrap">
                     <a class="btn" href="contact.html?division=PowerCampus+Demo">Request Live Demo</a>
-                    <a class="btn btn-cyan" href="#pricing">View School Plans</a>
+                    <a class="btn btn-primary" href="#pricing">View School Plans</a>
                 </div>
             </div>
 
@@ -101,47 +116,47 @@
 
             <div class="cards-grid-3">
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">☁️</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span>
                     <h3>Cloud-Based Infrastructure</h3>
                     <p>Embrace digitization without the burden of server hardware costs. No on-premise maintenance required — seamless 24×7 cloud-based operation.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">⚡</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
                     <h3>Resilient &amp; 24×7 Accessible</h3>
                     <p>Enjoy round-the-clock availability with multi-region redundancy and zero single point of failure. Access vital school records anytime, from any device.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">🔒</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
                     <h3>Enhanced Privacy &amp; DRM</h3>
                     <p>Safeguard class lecture videos, exam papers, and student records with robust encryption, role-based access, and anti-leak watermarking.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">📊</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
                     <h3>Comprehensive Monitoring</h3>
                     <p>Real-time oversight of daily attendance trends, pending fee arrears, syllabus progression, and staff coverage across every branch.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">🛠️</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
                     <h3>Dedicated Local Support</h3>
                     <p>Benefit from direct onsite setup, teacher training, and immediate support from Neopath's engineering team stationed right in the region.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">🔌</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>
                     <h3>Seamless Integration</h3>
                     <p>Integrate out-of-the-box with biometric fingerprint/face scanners, online payment gateways, SMS gateways, and campus security CCTV.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">📱</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span>
                     <h3>Mobile-First Approach</h3>
                     <p>Native iOS and Android apps specifically tailored for parents and educators to drive friction-free daily engagement.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">⚙️</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
                     <h3>Tailored Modular Modules</h3>
                     <p>Pick only the modules your school needs today — expand to inventory, hostel, or online exams as your institution grows.</p>
                 </div>
                 <div class="card-box card-accent-tech">
-                    <span class="card-icon">⭐</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
                     <h3>Institutional Brand Reputation</h3>
                     <p>Stand out in the competitive educational landscape by delivering modern, paperless convenience that delights parents and staff alike.</p>
                 </div>
@@ -196,17 +211,17 @@
                 <p class="section-kicker">PROVEN TRACK RECORD IN EDUCATION</p>
                 <div class="cards-grid-3" style="margin-top:24px">
                     <div style="background:var(--color-bg-elevated);padding:28px;border-left:3px solid var(--color-cyan);border-radius:0 var(--radius-sm) var(--radius-sm) 0">
-                        <p style="margin:0 0 16px;font-style:italic;color:#e0e0e0">"I feel proud to be associated with PowerCampus team. Teachers' workload has been made significantly easier and organized."</p>
+                        <p style="margin:0 0 16px;font-style:italic;color:var(--color-text)">"I feel proud to be associated with PowerCampus team. Teachers' workload has been made significantly easier and organized."</p>
                         <strong style="display:block;color:var(--color-text);font-size:14px">Head Mistress</strong>
                         <span style="font-size:13px;color:var(--color-text-muted)">Little Flower School</span>
                     </div>
                     <div style="background:var(--color-bg-elevated);padding:28px;border-left:3px solid var(--color-cyan);border-radius:0 var(--radius-sm) var(--radius-sm) 0">
-                        <p style="margin:0 0 16px;font-style:italic;color:#e0e0e0">"PowerCampus is a true boon for our teaching and learning process. Everything from attendance to exam records is 100% efficient."</p>
+                        <p style="margin:0 0 16px;font-style:italic;color:var(--color-text)">"PowerCampus is a true boon for our teaching and learning process. Everything from attendance to exam records is 100% efficient."</p>
                         <strong style="display:block;color:var(--color-text);font-size:14px">Vice Principal</strong>
                         <span style="font-size:13px;color:var(--color-text-muted)">Comet School</span>
                     </div>
                     <div style="background:var(--color-bg-elevated);padding:28px;border-left:3px solid var(--color-cyan);border-radius:0 var(--radius-sm) var(--radius-sm) 0">
-                        <p style="margin:0 0 16px;font-style:italic;color:#e0e0e0">"A matured platform. Any institution that adopts PowerCampus will experience tremendous satisfaction and parent appreciation."</p>
+                        <p style="margin:0 0 16px;font-style:italic;color:var(--color-text)">"A matured platform. Any institution that adopts PowerCampus will experience tremendous satisfaction and parent appreciation."</p>
                         <strong style="display:block;color:var(--color-text);font-size:14px">Founder &amp; Administrator</strong>
                         <span style="font-size:13px;color:var(--color-text-muted)">Royal Academy of Science</span>
                     </div>
@@ -225,7 +240,7 @@
                     </p>
                 </div>
                 <div style="display:flex;gap:16px;flex-wrap:wrap">
-                    <a class="btn btn-coral" href="contact.html?division=NeoEventize+Partnership">Onboard Your Event</a>
+                    <a class="btn btn-primary" href="contact.html?division=NeoEventize+Partnership">Onboard Your Event</a>
                 </div>
             </div>
 
@@ -257,32 +272,32 @@
 
             <div class="cards-grid-3">
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">🎟️</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></span>
                     <h3>Multi-Tier Ticketing &amp; Passes</h3>
                     <p>Configure single-day passes, multi-day all-access badges, VIP/Platinum tiers, early bird pricing waves, and hidden sponsor promo codes with absolute ease.</p>
                 </div>
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">💳</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg></span>
                     <h3>Direct Indian &amp; Global Payments</h3>
                     <p>Integrate directly with Instamojo (UPI, RuPay, Netbanking, Credit Cards) and Stripe. Zero middleman fees and instant settlement into your designated bank account.</p>
                 </div>
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">📲</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg></span>
                     <h3>Lightning QR Gate Check-In</h3>
                     <p>High-speed camera-based scanner app for gate stewards. Cryptographically signed QR passes eliminate counterfeit entries and queue bottlenecks in sub-500ms.</p>
                 </div>
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">🎓</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
                     <h3>Automated Digital Certificates</h3>
                     <p>Automatically generate and dispatch personalized PDF attendance and participation certificates for academic conferences, symposia, and workshops.</p>
                 </div>
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">📅</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span>
                     <h3>Dynamic Agenda &amp; Zone Showcases</h3>
                     <p>Interactive multi-day timelines, hourly artist schedules, festival map overlays, and responsive carousels that captivate visitors.</p>
                 </div>
                 <div class="card-box card-accent-marketing">
-                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)">💬</span>
+                    <span class="card-icon" style="color:var(--color-coral);background:var(--color-coral-glow)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
                     <h3>SMS OTP &amp; Feedback Surveys</h3>
                     <p>Integrated MSG91 gateway for instant SMS verification, ticket re-delivery, and post-event attendee satisfaction questionnaires.</p>
                 </div>
@@ -381,7 +396,7 @@
                             <li>Priority Local Support</li>
                         </ul>
                     </div>
-                    <a class="btn btn-cyan" href="contact.html?plan=Standard" style="width:100%;text-align:center">Choose Standard</a>
+                    <a class="btn btn-primary" href="contact.html?plan=Standard" style="width:100%;text-align:center">Choose Standard</a>
                 </div>
 
                 <div class="pricing-card">
@@ -429,7 +444,7 @@
                 </div>
                 <nav aria-label="Tech">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Tech</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link" href="powercampus.html">PowerCampus ERP</a>
                         <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
                         <a class="link" href="index.html#tech">Software Development</a>
@@ -439,7 +454,7 @@
                 </nav>
                 <nav aria-label="Digital Marketing">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">Digital Marketing</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link2" href="index.html#marketing">Branding</a>
                         <a class="link2" href="index.html#marketing">Video Production</a>
                         <a class="link2" href="index.html#marketing">SEO Services</a>
@@ -449,7 +464,7 @@
                 </nav>
                 <nav aria-label="Company">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">Company</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link" href="index.html">Home</a>
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
@@ -459,17 +474,17 @@
                 </nav>
                 <address style="font-style:normal">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">Contact</p>
-                    <div style="display:flex;flex-direction:column;gap:10px;line-height:1.5">
+                    <div class="footer-links footer-contact">
                         <span>RIMS Road, Canara Bank Building, 3rd Floor,<br>Imphal West – 795001, Manipur, INDIA</span>
                         <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
-                        <span><a class="link" href="tel:+917005320086">+91 7005320086</a> / <a class="link" href="tel:+918257000220">+91 8257000220</a></span>
-                        <span style="display:flex;gap:16px"><a class="link" href="#">Facebook</a><a class="link" href="#">Instagram</a></span>
+                        <span><a class="link" href="tel:+918257000220">+91 8257000220</a></span>
+                        <!-- TODO: add Facebook / Instagram URLs <span style="display:flex;gap:16px"><a class="link" href="#">Facebook</a><a class="link" href="#">Instagram</a></span> -->
                     </div>
                 </address>
             </div>
             <div class="footer-bottom">
                 <span>© <span id="year">2026</span> Neopath Technologies Pvt. Ltd.</span>
-                <span style="display:flex;gap:24px"><a class="link" href="#">Privacy Policy</a><a class="link" href="#">Terms &amp; Conditions</a></span>
+                <!-- TODO: add Privacy Policy / Terms pages <span style="display:flex;gap:24px"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></span> -->
             </div>
         </footer>
     </div>

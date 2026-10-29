@@ -14,6 +14,14 @@
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem("theme"); } catch (e) { }
+            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
 </head>
 
 <body>
@@ -31,30 +39,38 @@
             <div class="nav-dropdown">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
                     Products
-                    <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor"
-                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M1 1l4 4 4-4" />
-                    </svg>
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="nav-dropdown-menu">
-                    <a href="powercampus.html">☁️ PowerCampus <span class="nav-dropdown-label">Educational ERP &amp;
+                    <a href="powercampus.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> PowerCampus <span class="nav-dropdown-label">Educational ERP &amp;
                             Pricing</span></a>
-                    <a href="neoeventize.html">🎟️ NeoEventize <span class="nav-dropdown-label">Event
+                    <a href="neoeventize.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg> NeoEventize <span class="nav-dropdown-label">Event
                             Ticketing</span></a>
+                    <a href="products.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg> All Products <span class="nav-dropdown-label">Overview &amp; Plans</span></a>
                 </div>
             </div>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <a class="header-cta" href="contact.html">Contact Us</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-            aria-label="Toggle menu"><span></span><span></span></button>
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+            <a class="header-cta" href="contact.html">Contact Us</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Toggle menu"><span></span><span></span></button>
+        </div>
     </header>
 
     <div class="site-container">
 
         <!-- ====== HERO ====== -->
         <section class="hero-section" data-lusion-hero>
+            <div class="hero-visual" aria-hidden="true">
+                <img src="assets/neopath-logo-3d.webp" alt="" width="780" height="738" fetchpriority="high"
+                    decoding="async">
+            </div>
             <p class="hero-tagline">Tech &amp; Digital Marketing</p>
             <h1 class="hero-title">
                 Technology <br> That Works.<br>Marketing <br> That Moves.
@@ -64,8 +80,8 @@
                     solutions and create marketing experiences that help businesses operate smarter, connect with
                     audiences, and grow.</p>
                 <div class="hero-actions">
-                    <a class="btn" href="powercampus.html">Explore Products</a>
-                    <a class="btn" href="contact.html">Discuss a Project</a>
+                    <a class="btn btn-primary" href="contact.html">Discuss a Project</a>
+                    <a class="btn" href="products.html">Explore Products</a>
                 </div>
             </div>
         </section>
@@ -81,32 +97,32 @@
                         business outcomes.</p>
                 </div>
                 <div>
-                    <a class="link service-link" href="#">
+                    <a class="link service-link" href="contact.html?division=Tech%3A+Custom+Software+Development">
                         <span>Software Development
                             <span class="desc">Websites, custom software, web and mobile applications, and ERP
                                 solutions.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link service-link" href="#">
+                    <a class="link service-link" href="contact.html?division=Tech%3A+IT+Infrastructure+%26+Cloud">
                         <span>IT Infrastructure Support
                             <span class="desc">Network troubleshooting, systems monitoring and maintenance, and
                                 infrastructure setup.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link service-link" href="#">
+                    <a class="link service-link" href="contact.html?division=Tech%3A+Management+Consulting">
                         <span>Management Consulting
                             <span class="desc">Technology strategy, project management, and clear, executable plans for
                                 complex projects.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
                     <a class="link service-link" href="powercampus.html">
                         <span>PowerCampus &amp; NeoEventize
                             <span class="desc">An educational ERP for schools, and an event management platform.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
                 </div>
             </div>
@@ -123,39 +139,39 @@
                         ignore.</p>
                 </div>
                 <div>
-                    <a class="link2 service-link" href="#">
+                    <a class="link2 service-link" href="contact.html?division=Digital+Marketing%3A+Full+Service">
                         <span>Branding
                             <span class="desc">Brand strategy, identity, logo design, messaging and guidelines.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link2 service-link" href="#">
+                    <a class="link2 service-link" href="contact.html?division=Digital+Marketing%3A+Full+Service">
                         <span>Video Production
                             <span class="desc">Promotional, corporate and short-form video, from pre-production to final
                                 edit.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link2 service-link" href="#">
+                    <a class="link2 service-link" href="contact.html?division=Digital+Marketing%3A+Full+Service">
                         <span>SEO
                             <span class="desc">Audits, keyword research, on-page and technical SEO, and performance
                                 reporting.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link2 service-link" href="#">
+                    <a class="link2 service-link" href="contact.html?division=Digital+Marketing%3A+Full+Service">
                         <span>Social Media Marketing
                             <span class="desc">Strategy, content calendars, creative production and analytics
                                 reporting.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
-                    <a class="link2 service-link" href="#">
+                    <a class="link2 service-link" href="contact.html?division=Digital+Marketing%3A+Full+Service">
                         <span>Influencer Marketing
                             <span class="desc">Creator discovery, campaign briefs, collaboration and performance
                                 tracking.</span>
                         </span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                        <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     </a>
                 </div>
             </div>
@@ -169,7 +185,7 @@
                     <p class="section-kicker">03 — PRODUCTS</p>
                     <h2 class="section-title" style="margin-bottom:0">Our Products</h2>
                 </div>
-                <a class="btn" href="powercampus.html">View All Products →</a>
+                <a class="btn" href="products.html">View All Products <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
             <div class="cols" style="gap:0;border-top:1px solid var(--color-border)">
                 <article style="padding:56px 48px 72px 0">
@@ -199,7 +215,7 @@
                     <p class="section-kicker">04 — ABOUT NEOPATH</p>
                     <h2 class="section-title" style="margin-bottom:0">Built around your business.</h2>
                 </div>
-                <a class="btn" href="about.html">About Company &amp; Awards →</a>
+                <a class="btn" href="about.html">About Company &amp; Awards <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
             <div class="cards-grid-4">
                 <div class="card-box">
@@ -221,7 +237,7 @@
             </div>
         </section>
 
-        <!-- ====== SELECTED WORK ====== -->
+        <!-- ====== SELECTED WORK (hidden until real case studies are ready) ======
         <section id="work" class="rule" style="padding:112px 0 144px" data-lusion-reveal>
             <p class="section-kicker">05 — OUR WORK</p>
             <h2 class="section-title" style="margin-bottom:64px">Selected work</h2>
@@ -231,7 +247,7 @@
                 <span>[Project title — website / software / campaign]
                     <span class="desc">[One-line summary of the result.]</span>
                 </span>
-                <span class="arrow" aria-hidden="true">→</span>
+                <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
             </a>
             <a class="link service-link" href="#"
                 style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:24px;font-size:20px">
@@ -239,7 +255,7 @@
                 <span>[Project title — website / software / campaign]
                     <span class="desc">[One-line summary of the result.]</span>
                 </span>
-                <span class="arrow" aria-hidden="true">→</span>
+                <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
             </a>
             <a class="link service-link" href="#"
                 style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:24px;font-size:20px;border-bottom:1px solid var(--color-border)">
@@ -247,9 +263,10 @@
                 <span>[Project title — website / software / campaign]
                     <span class="desc">[One-line summary of the result.]</span>
                 </span>
-                <span class="arrow" aria-hidden="true">→</span>
+                <span class="arrow"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
             </a>
         </section>
+        -->
 
         <!-- ====== TESTIMONIALS ====== -->
         <section id="testimonials" class="rule" style="padding:112px 0 144px" data-lusion-reveal>
@@ -259,11 +276,11 @@
                     <h2 class="section-title" style="margin-bottom:0">What our clients say.</h2>
                 </div>
                 <div class="testimonials-controls">
-                    <span class="testimonials-hint">Scroll / Drag →</span>
+                    <span class="testimonials-hint">Scroll / Drag <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                     <button type="button" class="testimonials-btn prev" id="testimonials-prev"
                         aria-label="Previous testimonial">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <line x1="19" y1="12" x2="5" y2="12"></line>
                             <polyline points="12 19 5 12 12 5"></polyline>
                         </svg>
@@ -271,7 +288,7 @@
                     <button type="button" class="testimonials-btn next" id="testimonials-next"
                         aria-label="Next testimonial">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
@@ -306,7 +323,7 @@
                         <figcaption>
                             <strong>Manohar S</strong>
                             <span>Chief Tech Advisor, GFA Consulting</span>
-                            <span class="testimonial-tag" style="color:var(--color-coral)">IT Support</span>
+                            <span class="testimonial-tag" style="color:var(--color-cyan)">IT Support</span>
                         </figcaption>
                     </figure>
                     <figure class="testimonial-item">
@@ -382,7 +399,7 @@
                     <p
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">
                         Tech</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link" href="powercampus.html">PowerCampus ERP</a>
                         <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
                         <a class="link" href="#tech">Software Development</a>
@@ -394,7 +411,7 @@
                     <p
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">
                         Digital Marketing</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link2" href="#marketing">Branding</a>
                         <a class="link2" href="#marketing">Video Production</a>
                         <a class="link2" href="#marketing">SEO Services</a>
@@ -406,33 +423,30 @@
                     <p
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">
                         Company</p>
-                    <div style="display:flex;flex-direction:column;gap:10px">
+                    <div class="footer-links">
                         <a class="link" href="index.html">Home</a>
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link" href="about.html">About Us</a>
                         <a class="link" href="contact.html">Contact Us</a>
-                        <a class="link" href="#work">Selected Work</a>
                     </div>
                 </nav>
                 <address style="font-style:normal">
                     <p
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)">
                         Contact</p>
-                    <div style="display:flex;flex-direction:column;gap:10px;line-height:1.5">
+                    <div class="footer-links footer-contact">
                         <span>RIMS Road, Canara Bank Building, 3rd Floor,<br>Imphal West – 795001, Manipur, INDIA</span>
                         <a class="link" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
-                        <span><a class="link" href="tel:+917005320086">+91 7005320086</a> / <a class="link"
-                                href="tel:+918257000220">+91 8257000220</a></span>
-                        <span style="display:flex;gap:16px"><a class="link" href="#">Facebook</a><a class="link"
-                                href="#">Instagram</a></span>
+                        <span><a class="link" href="tel:+918257000220">+91 8257000220</a></span>
+                        <!-- TODO: add Facebook / Instagram URLs <span style="display:flex;gap:16px"><a class="link" href="#">Facebook</a><a class="link"
+                                href="#">Instagram</a></span> -->
                     </div>
                 </address>
             </div>
             <div class="footer-bottom">
                 <span>© <span id="year">2026</span> Neopath Technologies Pvt. Ltd.</span>
-                <span style="display:flex;gap:24px"><a class="link" href="#">Privacy Policy</a><a class="link"
-                        href="#">Terms &amp; Conditions</a></span>
+                <!-- TODO: add Privacy Policy / Terms pages <span style="display:flex;gap:24px"><a class="link" href="privacy.html">Privacy Policy</a><a class="link" href="terms.html">Terms &amp; Conditions</a></span> -->
             </div>
         </footer>
     </div>

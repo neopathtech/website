@@ -3229,3 +3229,36 @@ a.blog-post:hover h3 {
         gap: 32px 16px;
     }
 }
+
+/* ---------- Home: Product Preview (PowerCampus | NeoEventize) ---------- */
+.product-preview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+}
+
+.product-preview > article {
+    padding: 56px 48px 72px 0;
+}
+
+.product-preview > article + article {
+    padding: 56px 0 72px 48px;
+    border-left: 1px solid var(--color-border);
+}
+
+/* Stacked: both start at the same left edge, divided by a top border */
+@media (max-width: 760px) {
+    .product-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .product-preview > article,
+    .product-preview > article + article {
+        padding: 48px 0 56px;
+        border-left: 0;
+    }
+
+    .product-preview > article + article {
+        border-top: 1px solid var(--color-border);
+    }
+}

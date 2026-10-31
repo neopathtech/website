@@ -721,12 +721,28 @@ button.btn {
     z-index: 0;
 }
 
-.hero-visual img {
+.hero-logo {
+    position: relative;
+    filter: drop-shadow(0 40px 80px rgba(54, 184, 216, 0.12));
+    animation: heroFloat 7s ease-in-out infinite;
+}
+
+.hero-logo img {
     display: block;
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 40px 80px rgba(54, 184, 216, 0.12));
-    animation: heroFloat 7s ease-in-out infinite;
+}
+
+/* Wireframe revealed through a fluid blob that trails the pointer (drawn by script.js) */
+.hero-logo-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-logo.is-drawing > img {
+    visibility: hidden;
 }
 
 @keyframes heroFloat {
@@ -1839,7 +1855,7 @@ label {
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
-:root[data-theme="light"] .hero-visual img {
+:root[data-theme="light"] .hero-logo {
     filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.18));
 }
 
@@ -3260,5 +3276,45 @@ a.blog-post:hover h3 {
 
     .product-preview > article + article {
         border-top: 1px solid var(--color-border);
+    }
+}
+
+/* ---------- Footer Wordmark ---------- */
+.site-footer:has(.footer-wordmark) {
+    container-type: inline-size;
+    padding-bottom: 0;
+}
+
+.footer-wordmark {
+    margin: 56px 0 0;
+    overflow: hidden;
+    /* bleed off the bottom of the page, cutting through the descenders */
+    height: 0.86em;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    /* fallback size; script.js widens the wordmark to the full screen and fits the text to it */
+    font-size: 9.88cqi;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+    color: rgba(var(--rgb-overlay), 0.06);
+    user-select: none;
+    pointer-events: none;
+}
+
+.footer-wordmark span {
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    /* stack the words so the type stays large on phones */
+    .footer-wordmark {
+        font-size: 16.4cqi;
+        line-height: 0.92;
+        height: 1.78em;
+    }
+
+    .footer-wordmark span {
+        display: block;
     }
 }

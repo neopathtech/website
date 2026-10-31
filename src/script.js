@@ -603,6 +603,201 @@
     });
   }
 
+  // ====== Hero Logo Wireframe Reveal ======
+  // A soft, wobbling blob trails the pointer over the logo and shows the
+  // wireframe render through it. The hero text sits above the logo, so the
+  // pointer is tracked over the whole hero section.
+  function initLogoReveal() {
+    var logo = document.querySelector(".hero-logo");
+    var hero = logo && logo.closest(".hero-section");
+    var base = logo && logo.querySelector("img");
+    if (!hero || !base || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var wire = new Image();
+    wire.decoding = "async";
+    wire.src = "assets/neopath-logo-wireframe.webp";
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "hero-logo-canvas";
+    canvas.setAttribute("aria-hidden", "true");
+    canvas.hidden = true;
+    logo.appendChild(canvas);
+    var ctx = canvas.getContext("2d");
+    var mask = document.createElement("canvas");
+    var mctx = mask.getContext("2d");
+    var layer = document.createElement("canvas");
+    var lctx = layer.getContext("2d");
+    var canBlur = "filter" in ctx;
+
+    var RADIUS = 0.3; // of the logo width
+    var target = { x: 0, y: 0 };
+    var head = { x: 0, y: 0 }; // follows the pointer with a short lag
+    var tail = [{ x: 0, y: 0 }, { x: 0, y: 0 }]; // lag further behind for the trailing stretch
+    var size = 0;
+    var inside = false;
+    var raf = 0;
+    var w = 0;
+    var h = 0;
+    var dpr = 1;
+
+    function resize() {
+      var r = logo.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = r.width;
+      h = r.height;
+      [canvas, mask, layer].forEach(function (c) {
+        c.width = Math.round(w * dpr);
+        c.height = Math.round(h * dpr);
+      });
+    }
+
+    function blob(c, p, radius, t, vx, vy) {
+      // squash and stretch along the direction of travel
+      var speed = Math.min(Math.hypot(vx, vy) / 40, 0.45);
+      var angle = Math.atan2(vy, vx);
+      var steps = 40;
+      c.beginPath();
+      for (var i = 0; i <= steps; i++) {
+        var a = (i / steps) * Math.PI * 2;
+        var wobble = calm ? 1 : 1 + 0.09 * Math.sin(3 * a + t * 1.6) + 0.06 * Math.sin(5 * a - t * 2.3);
+        var rel = a - angle;
+        var stretch = 1 + speed * Math.cos(rel) * Math.cos(rel);
+        var squash = 1 - speed * 0.35 * Math.sin(rel) * Math.sin(rel);
+        var r = radius * wobble * stretch * squash;
+        var x = p.x + Math.cos(a) * r;
+        var y = p.y + Math.sin(a) * r;
+        if (i === 0) c.moveTo(x, y);
+        else c.lineTo(x, y);
+      }
+      c.closePath();
+      c.fill();
+    }
+
+    function frame(now) {
+      var t = now / 1000;
+      var follow = calm ? 1 : 0.14;
+      var px = head.x;
+      var py = head.y;
+      head.x += (target.x - head.x) * follow;
+      head.y += (target.y - head.y) * follow;
+      tail[0].x += (head.x - tail[0].x) * 0.16;
+      tail[0].y += (head.y - tail[0].y) * 0.16;
+      tail[1].x += (tail[0].x - tail[1].x) * 0.14;
+      tail[1].y += (tail[0].y - tail[1].y) * 0.14;
+      size += ((inside ? 1 : 0) - size) * (inside ? 0.12 : 0.16);
+
+      var radius = RADIUS * w * size;
+      if (!inside && radius < 0.5) {
+        canvas.hidden = true;
+        logo.classList.remove("is-drawing");
+        raf = 0;
+        return;
+      }
+
+      // mask: the blob, plus two smaller trailing blobs that merge into it
+      mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      mctx.clearRect(0, 0, w, h);
+      if (canBlur) mctx.filter = "blur(" + Math.max(radius * 0.18, 2) + "px)";
+      mctx.fillStyle = "#000";
+      blob(mctx, head, radius, t, head.x - px, head.y - py);
+      if (!calm) {
+        blob(mctx, tail[0], radius * 0.72, t + 2, 0, 0);
+        blob(mctx, tail[1], radius * 0.5, t + 4, 0, 0);
+      }
+      if (canBlur) mctx.filter = "none";
+
+      // wireframe, cut to the mask
+      lctx.setTransform(1, 0, 0, 1, 0, 0);
+      lctx.globalCompositeOperation = "source-over";
+      lctx.clearRect(0, 0, layer.width, layer.height);
+      if (wire.complete && wire.naturalWidth) lctx.drawImage(wire, 0, 0, layer.width, layer.height);
+      lctx.globalCompositeOperation = "destination-in";
+      lctx.drawImage(mask, 0, 0);
+
+      // 3D render with the mask cut out, then the wireframe in its place
+      ctx.globalCompositeOperation = "source-over";
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.drawImage(mask, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.drawImage(layer, 0, 0);
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start(x, y) {
+      if (raf) return;
+      resize();
+      head.x = tail[0].x = tail[1].x = x;
+      head.y = tail[0].y = tail[1].y = y;
+      canvas.hidden = false;
+      logo.classList.add("is-drawing");
+      raf = requestAnimationFrame(frame);
+    }
+
+    hero.addEventListener("pointermove", function (e) {
+      if (e.pointerType !== "mouse") return;
+      var r = logo.getBoundingClientRect();
+      var x = e.clientX - r.left;
+      var y = e.clientY - r.top;
+      inside = x >= 0 && y >= 0 && x <= r.width && y <= r.height;
+      target.x = x;
+      target.y = y;
+      if (inside) start(x, y);
+    });
+    hero.addEventListener("pointerleave", function () {
+      inside = false;
+    });
+    window.addEventListener("resize", function () {
+      if (raf) resize();
+    }, { passive: true });
+  }
+
+  // ====== Footer Wordmark ======
+  // Stretch the wordmark edge to edge across the screen (outside the page
+  // padding) and size the type so the text fills that width exactly.
+  function initFooterWordmark() {
+    var mark = document.querySelector(".footer-wordmark");
+    if (!mark) return;
+
+    var ctx = document.createElement("canvas").getContext("2d");
+
+    // left/right edges of the actual letter shapes at the given size
+    function ink(size, style) {
+      ctx.font = style.fontWeight + " " + size + "px " + style.fontFamily;
+      if ("letterSpacing" in ctx) ctx.letterSpacing = style.letterSpacing;
+      var left = Infinity;
+      var right = 0;
+      var lines = getComputedStyle(mark.children[0]).display === "block"
+        ? Array.prototype.map.call(mark.children, function (span) { return span.textContent; })
+        : [mark.textContent];
+      lines.forEach(function (line) {
+        var m = ctx.measureText(line);
+        left = Math.min(left, -m.actualBoundingBoxLeft);
+        right = Math.max(right, m.actualBoundingBoxRight);
+      });
+      return { left: left, right: right };
+    }
+
+    function fit() {
+      var width = document.documentElement.clientWidth;
+      mark.style.fontSize = "100px";
+      var edges = ink(100, getComputedStyle(mark));
+      var size = (100 * width) / (edges.right - edges.left);
+      var bearing = (edges.left * size) / 100;
+      // start at the screen's left edge, shifted so the first letter's ink (not its side bearing) touches it
+      mark.style.fontSize = size + "px";
+      mark.style.width = width + bearing + "px";
+      mark.style.marginLeft = -mark.parentElement.getBoundingClientRect().left - bearing + "px";
+    }
+
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener("resize", fit, { passive: true });
+  }
+
   // ====== Initialize All ======
   function initApp() {
     initStickyHeader();
@@ -616,6 +811,8 @@
     initEntranceAnimations();
     initFilters();
     initLightbox();
+    initLogoReveal();
+    initFooterWordmark();
   }
 
   if (document.readyState === "loading") {

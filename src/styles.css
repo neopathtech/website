@@ -64,8 +64,7 @@
 :root[data-theme="dark"],
 .navy-scope,
 .hero-section,
-.page-hero,
-.site-footer {
+.page-hero {
     --color-bg: #0A192F;
     --color-bg-elevated: #0F2240;
     --color-bg-card: #10264A;
@@ -3388,6 +3387,12 @@ h6,
     border-top: 0;
 }
 
+/* Footer sits on the page background, divided from the content by a full-width rule */
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    clip-path: inset(0 -100vmax);
+}
+
 .page-hero+section,
 .hero-section+section {
     border-top: 0;
@@ -3421,29 +3426,11 @@ h6,
 /* ---- Header: solid white bar ---- */
 .site-header::before {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.92);
-    border-bottom-color: rgba(10, 25, 47, 0.08);
+    background: rgba(var(--rgb-bg), 0.92);
+    border-bottom-color: var(--color-border);
 }
 
-/* Header stays white in both themes: re-apply the light tokens inside it in dark mode */
-:root[data-theme="dark"] .site-header {
-    --color-bg: #F1F5F9;
-    --color-bg-elevated: #FFFFFF;
-    --color-bg-card: #FFFFFF;
-    --color-surface: #E2E8F0;
-    --color-border: rgba(10, 25, 47, 0.1);
-    --color-border-hover: rgba(10, 25, 47, 0.22);
-    --color-text: #0A192F;
-    --color-text-secondary: #334155;
-    --color-text-muted: #55657D;
-    --color-cyan: #1E3A8A;
-    --color-coral: #E11D48;
-    --rgb-overlay: 10, 25, 47;
-    --rgb-bg: 255, 255, 255;
-    --rgb-text: 10, 25, 47;
-    color-scheme: light;
-    color: var(--color-text);
-}
+
 
 .brand {
     font-weight: 700;
@@ -3454,14 +3441,6 @@ h6,
     font-weight: 500;
 }
 
-/* Logo on dark backgrounds sits on a white badge (Brand Kit §3) */
-.site-footer .brand-logo {
-    box-sizing: content-box;
-    background: #FFFFFF;
-    padding: 6px 7px;
-    border-radius: var(--radius-sm);
-}
-
 /* Official full logo (icon + wordmark + tagline), Brand Kit §3: >=150px wide on desktop */
 .brand-logo {
     height: 48px;
@@ -3470,7 +3449,6 @@ h6,
 
 .site-footer .brand-logo {
     height: 60px;
-    padding: 10px 14px;
 }
 
 /* ---- Buttons ---- */
@@ -3810,7 +3788,18 @@ h6,
     border-radius: 0;
 }
 
-/* Header panels (mobile menu, Products dropdown) are white in every theme */
-.site-header {
-    --rgb-bg: 255, 255, 255;
+
+
+/* Logo: full-colour in light mode; all-white version in dark mode (header and footer) */
+.brand-logo-light {
+    display: none;
 }
+
+:root[data-theme="dark"] .brand-logo-dark {
+    display: none;
+}
+
+:root[data-theme="dark"] .brand-logo-light {
+    display: block;
+}
+

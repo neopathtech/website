@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8765", "--directory", "src"],
       "port": 8765
+    },
+    {
+      "name": "link-page",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5178", "--directory", "/Users/neopath/Desktop/projects/Link-page"],
+      "port": 5178
     }
   ]
 }

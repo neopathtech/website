@@ -9,16 +9,16 @@
         content="Learn about Neopath Technologies, an ISO 9001:2015 certified company led by industry veterans with over 50 collective man-years of global corporate experience.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=brand-2026-11-05h">
     <script>
         (function () {
             var t;
             try { t = localStorage.getItem("theme"); } catch (e) { }
-            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            if (t !== "light" && t !== "dark") t = "light";
             document.documentElement.setAttribute("data-theme", t);
         })();
     </script>
@@ -28,8 +28,7 @@
     <!-- Site Header (Full Width) -->
     <header class="site-header">
         <a href="index.html" class="brand">
-            <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
-            <span>Neopath Technologies</span>
+            <img src="assets/neopath-logo.svg" alt="Neopath Technologies — new ways with technology" class="brand-logo" width="2670" height="806">
         </a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="index.html">Home</a>
@@ -54,7 +53,7 @@
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
             </button>
-            <a class="header-cta" href="contact.html">Contact Us</a>
+            <a class="header-cta" href="contact.html">Book a Call</a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
                 aria-label="Toggle menu"><span></span><span></span></button>
         </div>
@@ -171,126 +170,6 @@
             </div>
         </section>
 
-        <!-- Team -->
-        <section id="team" class="rule" style="padding:96px 0" data-lusion-reveal>
-            <div class="team-header">
-                <div>
-                    <p class="section-kicker">THE PEOPLE BEHIND NEOPATH</p>
-                    <h2 class="section-title" style="margin-bottom:0">Meet the Team</h2>
-                </div>
-                <p class="team-intro">Engineers, strategists and creatives working side by side from Imphal, across
-                    our <span style="color:var(--color-cyan)">Tech</span> and <span
-                        style="color:var(--color-coral)">Digital Marketing</span> divisions.</p>
-            </div>
-            <div class="team-grid">
-                <figure class="team-member">
-                    <img src="assets/team/priyobrata.webp" alt="Chingakham Priyobrata Singh" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Chingakham Priyobrata Singh</h3>
-                        <p class="team-role">Managing Director</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/khogen.webp" alt="Khogen Khoibam" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Khogen Khoibam</h3>
-                        <p class="team-role team-role-marketing">Creative Director</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/rocky.webp" alt="Ngangom Rocky Singh" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Ngangom Rocky Singh</h3>
-                        <p class="team-role team-role-tech">Senior System Analyst</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/nikhil.webp" alt="Nikhil Khumujam" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Nikhil Khumujam</h3>
-                        <p class="team-role team-role-marketing">Digital Marketing Manager</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/ratan.webp" alt="Sanasam Ratan" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Sanasam Ratan</h3>
-                        <p class="team-role team-role-marketing">Creative Lead</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/muzzammil.webp" alt="MKM Muzzammil" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>MKM Muzzammil</h3>
-                        <p class="team-role team-role-tech">Software Engineer</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/chitananda.webp" alt="Nongmaithem Chitananda" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Nongmaithem Chitananda</h3>
-                        <p class="team-role team-role-tech">Software Engineer</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/rohenba.webp" alt="Konjengbam Rohenba Meitei" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Konjengbam Rohenba Meitei</h3>
-                        <p class="team-role team-role-tech">Software Engineer</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/bageshree.webp" alt="Yumnam Bageshree" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Yumnam Bageshree</h3>
-                        <p class="team-role team-role-marketing">Digital Marketing Strategist</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/mangalsana.webp" alt="Mangalsana Rajkumari" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Mangalsana Rajkumari</h3>
-                        <p class="team-role team-role-marketing">Marketing &amp; Content Strategist</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/lawrence.webp" alt="Takhellambam Lawrence Singh" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Takhellambam Lawrence Singh</h3>
-                        <p class="team-role team-role-marketing">Visual Creator</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/preety.webp" alt="Thounaojam Preety" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Thounaojam Preety</h3>
-                        <p class="team-role team-role-marketing">Social Media Executive</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/vikash.webp" alt="Thounaojam Vikash" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Thounaojam Vikash</h3>
-                        <p class="team-role team-role-marketing">Social Media Executive</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/nobin.webp" alt="Khwairakpam Nobin Singh" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Khwairakpam Nobin Singh</h3>
-                        <p class="team-role team-role-marketing">Social Media Executive</p>
-                    </figcaption>
-                </figure>
-                <figure class="team-member">
-                    <img src="assets/team/peebanaha.webp" alt="Sagolsem Peebanaha Singh" width="480" height="480" loading="lazy" decoding="async">
-                    <figcaption>
-                        <h3>Sagolsem Peebanaha Singh</h3>
-                        <p class="team-role">Admin Associate</p>
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
-
         <!-- Recognitions & Awards -->
         <section class="rule" style="padding:96px 0" data-lusion-reveal>
             <p class="section-kicker">INDUSTRY RECOGNITION</p>
@@ -377,8 +256,7 @@
             <div class="fgrid">
                 <div class="footer-brand">
                     <a href="index.html" class="brand" style="font-weight:800;font-size:22px;color:var(--color-text)">
-                        <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
-                        <span>Neopath Technologies</span>
+                        <img src="assets/neopath-logo.svg" alt="Neopath Technologies — new ways with technology" class="brand-logo" width="2670" height="806">
                     </a>
                     <p style="margin:12px 0 0;line-height:1.7;max-width:280px">Technology that works. Marketing that moves.</p>
                     <address class="footer-links footer-address">
@@ -419,7 +297,6 @@
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link active" href="about.html">About Us</a>
-                        <a class="link" href="#team">Our Team</a>
                         <a class="link" href="gallery.html">Gallery</a>
                         <a class="link" href="blog.html">Blog</a>
                         <a class="link" href="contact.html">Contact Us</a>
@@ -435,7 +312,7 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=brand-2026-11-05h"></script>
 </body>
 
 </html>

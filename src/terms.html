@@ -9,16 +9,16 @@
         content="Terms for using the Neopath Technologies website.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=brand-2026-11-05h">
     <script>
         (function () {
             var t;
             try { t = localStorage.getItem("theme"); } catch (e) { }
-            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            if (t !== "light" && t !== "dark") t = "light";
             document.documentElement.setAttribute("data-theme", t);
         })();
     </script>
@@ -30,8 +30,7 @@
     <!-- Site Header (Full Width) -->
     <header class="site-header">
         <a href="index.html" class="brand">
-            <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
-            <span>Neopath Technologies</span>
+            <img src="assets/neopath-logo.svg" alt="Neopath Technologies — new ways with technology" class="brand-logo" width="2670" height="806">
         </a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="index.html">Home</a>
@@ -56,7 +55,7 @@
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
             </button>
-            <a class="header-cta" href="contact.html">Contact Us</a>
+            <a class="header-cta" href="contact.html">Book a Call</a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
                 aria-label="Toggle menu"><span></span><span></span></button>
         </div>
@@ -108,8 +107,7 @@
             <div class="fgrid">
                 <div class="footer-brand">
                     <a href="index.html" class="brand" style="font-size:22px">
-                        <img src="assets/logo.png" alt="Neopath Technologies" class="brand-logo">
-                        <span>Neopath Technologies</span>
+                        <img src="assets/neopath-logo.svg" alt="Neopath Technologies — new ways with technology" class="brand-logo" width="2670" height="806">
                     </a>
                     <p style="margin:12px 0 0;line-height:1.7;max-width:280px;color:var(--color-text-secondary)">Technology that works. Marketing that moves.</p>
                     <address class="footer-links footer-address">
@@ -150,7 +148,6 @@
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link" href="about.html">About Us</a>
-                        <a class="link" href="about.html#team">Our Team</a>
                         <a class="link" href="gallery.html">Gallery</a>
                         <a class="link" href="blog.html">Blog</a>
                         <a class="link" href="contact.html">Contact Us</a>
@@ -165,7 +162,7 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=brand-2026-11-05h"></script>
 </body>
 
 </html>

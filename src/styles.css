@@ -47,10 +47,11 @@
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     --font-ui: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-main: var(--font-body);
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
-    --radius-pill: 999px;
+    /* Square corners throughout */
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+    --radius-pill: 0;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     --shadow-card: 0 1px 2px rgba(10, 25, 47, 0.04), 0 4px 20px rgba(10, 25, 47, 0.05);
@@ -266,7 +267,7 @@ section[id] {
 }
 
 /* Navigation */
-.site-header > .brand {
+.site-header>.brand {
     justify-self: start;
 }
 
@@ -540,13 +541,13 @@ button.btn {
 }
 
 @media (max-width: 760px) {
-    .site-header > .brand {
+    .site-header>.brand {
         gap: 10px;
         font-size: 17px;
         white-space: nowrap;
     }
 
-    .site-header > .brand .brand-logo {
+    .site-header>.brand .brand-logo {
         height: 40px;
     }
 
@@ -765,11 +766,12 @@ button.btn {
     height: 100%;
 }
 
-.hero-logo.is-drawing > img {
+.hero-logo.is-drawing>img {
     visibility: hidden;
 }
 
 @keyframes heroFloat {
+
     0%,
     100% {
         transform: translateY(0);
@@ -780,7 +782,7 @@ button.btn {
     }
 }
 
-.hero-section > :not(.hero-visual) {
+.hero-section> :not(.hero-visual) {
     position: relative;
     z-index: 1;
 }
@@ -1740,11 +1742,11 @@ label {
     }
 
     /* Company spans both columns with its links in two columns, so no column sits alone */
-    .fgrid > nav:last-of-type {
+    .fgrid>nav:last-of-type {
         grid-column: 1 / -1;
     }
 
-    .fgrid > nav:last-of-type .footer-links {
+    .fgrid>nav:last-of-type .footer-links {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 24px;
@@ -1870,6 +1872,7 @@ label {
     transition: width 0.1s linear;
     width: 0%;
 }
+
 :root[data-theme="light"] .mockup-window,
 :root[data-theme="light"] .mockup-window:hover {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
@@ -1960,7 +1963,7 @@ body,
 }
 
 /* Divider centred in the gap so every column keeps the same text width */
-.blog-post + .blog-post::before {
+.blog-post+.blog-post::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2028,11 +2031,11 @@ a.blog-post:hover h3 {
         padding: 40px 0;
     }
 
-    .blog-post + .blog-post::before {
+    .blog-post+.blog-post::before {
         display: none;
     }
 
-    .blog-post + .blog-post {
+    .blog-post+.blog-post {
         border-top: 1px solid var(--color-border);
     }
 }
@@ -2197,7 +2200,7 @@ a.blog-post:hover h3 {
     opacity: 0.7;
 }
 
-[data-filter-target] > [hidden] {
+[data-filter-target]>[hidden] {
     display: none !important;
 }
 
@@ -2519,7 +2522,7 @@ a.blog-post:hover h3 {
     padding: 40px 0 8px;
 }
 
-.pillar + .pillar::before {
+.pillar+.pillar::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2662,11 +2665,11 @@ a.blog-post:hover h3 {
         padding: 32px 0;
     }
 
-    .pillar + .pillar {
+    .pillar+.pillar {
         border-top: 1px solid var(--color-border);
     }
 
-    .pillar + .pillar::before {
+    .pillar+.pillar::before {
         display: none;
     }
 
@@ -2676,6 +2679,7 @@ a.blog-post:hover h3 {
 }
 
 @media (max-width: 600px) {
+
     .feature-list,
     .info-panel-features {
         grid-template-columns: 1fr;
@@ -2688,7 +2692,7 @@ a.blog-post:hover h3 {
     column-gap: 64px;
 }
 
-.pillars--4 .pillar + .pillar::before {
+.pillars--4 .pillar+.pillar::before {
     left: -32px;
 }
 
@@ -2728,7 +2732,7 @@ a.blog-post:hover h3 {
         column-gap: 80px;
     }
 
-    .pillars--4 .pillar + .pillar::before {
+    .pillars--4 .pillar+.pillar::before {
         left: -40px;
     }
 
@@ -2814,7 +2818,8 @@ a.blog-post:hover h3 {
 
 /* ---------- Legal Pages ---------- */
 .legal {
-    max-width: 35em; /* about 72 characters per line in Albert Sans */
+    max-width: 35em;
+    /* about 72 characters per line in Albert Sans */
     color: var(--color-text-secondary);
     font-size: 16px;
     line-height: 1.75;
@@ -2849,7 +2854,7 @@ a.blog-post:hover h3 {
     padding-left: 22px;
 }
 
-.legal li + li {
+.legal li+li {
     margin-top: 6px;
 }
 
@@ -2938,11 +2943,11 @@ a.blog-post:hover h3 {
     color: var(--color-text-secondary);
 }
 
-#tech ~ .service .check-icon {
+#tech~.service .check-icon {
     color: var(--color-cyan);
 }
 
-#marketing ~ .service .check-icon {
+#marketing~.service .check-icon {
     color: var(--color-coral);
 }
 
@@ -3013,7 +3018,7 @@ a.blog-post:hover h3 {
     color: var(--color-text);
 }
 
-.neo-social-body > p {
+.neo-social-body>p {
     margin: 0 0 8px;
     color: var(--color-text-secondary);
     font-size: 17px;
@@ -3205,7 +3210,7 @@ a.blog-post:hover h3 {
     scrollbar-width: thin;
 }
 
-.h-scroller > * {
+.h-scroller>* {
     scroll-snap-align: start;
 }
 
@@ -3217,7 +3222,8 @@ a.blog-post:hover h3 {
 .client-grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-auto-rows: 1fr; /* every tile the same height, even when a long name wraps */
+    grid-auto-rows: 1fr;
+    /* every tile the same height, even when a long name wraps */
     gap: 40px 24px;
     margin: 0;
     padding: 0;
@@ -3236,7 +3242,7 @@ a.blog-post:hover h3 {
     width: min(120px, 100%);
     height: auto;
     aspect-ratio: 1;
-    filter: grayscale(1);
+    /* filter: grayscale(1); */
 }
 
 .client span {
@@ -3266,11 +3272,11 @@ a.blog-post:hover h3 {
     border-top: 1px solid var(--color-border);
 }
 
-.product-preview > article {
+.product-preview>article {
     padding: 56px 48px 72px 0;
 }
 
-.product-preview > article + article {
+.product-preview>article+article {
     padding: 56px 0 72px 48px;
     border-left: 1px solid var(--color-border);
 }
@@ -3281,13 +3287,13 @@ a.blog-post:hover h3 {
         grid-template-columns: 1fr;
     }
 
-    .product-preview > article,
-    .product-preview > article + article {
+    .product-preview>article,
+    .product-preview>article+article {
         padding: 48px 0 56px;
         border-left: 0;
     }
 
-    .product-preview > article + article {
+    .product-preview>article+article {
         border-top: 1px solid var(--color-border);
     }
 }
@@ -3320,6 +3326,7 @@ a.blog-post:hover h3 {
 }
 
 @media (max-width: 600px) {
+
     /* stack the words so the type stays large on phones */
     .footer-wordmark {
         font-size: 16.4cqi;
@@ -3344,7 +3351,12 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .hero-title,
 .page-hero-title,
 .section-title {
@@ -3376,14 +3388,14 @@ h1, h2, h3, h4, h5, h6,
     border-top: 0;
 }
 
-.page-hero + section,
-.hero-section + section {
+.page-hero+section,
+.hero-section+section {
     border-top: 0;
 }
 
 .hero-title {
     font-size: clamp(40px, 7.2vw, 108px);
-    line-height: 1;
+    line-height: 1.25;
     letter-spacing: -0.035em;
 }
 
@@ -3413,9 +3425,24 @@ h1, h2, h3, h4, h5, h6,
     border-bottom-color: rgba(10, 25, 47, 0.08);
 }
 
-:root[data-theme="dark"] .site-header::before {
-    background: rgba(10, 25, 47, 0.92);
-    border-bottom-color: rgba(241, 245, 249, 0.08);
+/* Header stays white in both themes: re-apply the light tokens inside it in dark mode */
+:root[data-theme="dark"] .site-header {
+    --color-bg: #F1F5F9;
+    --color-bg-elevated: #FFFFFF;
+    --color-bg-card: #FFFFFF;
+    --color-surface: #E2E8F0;
+    --color-border: rgba(10, 25, 47, 0.1);
+    --color-border-hover: rgba(10, 25, 47, 0.22);
+    --color-text: #0A192F;
+    --color-text-secondary: #334155;
+    --color-text-muted: #55657D;
+    --color-cyan: #1E3A8A;
+    --color-coral: #E11D48;
+    --rgb-overlay: 10, 25, 47;
+    --rgb-bg: 255, 255, 255;
+    --rgb-text: 10, 25, 47;
+    color-scheme: light;
+    color: var(--color-text);
 }
 
 .brand {
@@ -3428,7 +3455,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Logo on dark backgrounds sits on a white badge (Brand Kit §3) */
-:root[data-theme="dark"] .site-header .brand-logo,
 .site-footer .brand-logo {
     box-sizing: content-box;
     background: #FFFFFF;
@@ -3497,45 +3523,98 @@ h1, h2, h3, h4, h5, h6,
     padding: 10px 20px !important;
 }
 
-/* Theme toggle: circular */
+/* Theme toggle: square, like the other buttons */
 .theme-toggle {
-    border-radius: 50%;
+    border-radius: 0;
 }
 
-/* ---- Cards (rounded, white on Cool Slate) ---- */
-.card-box,
+/* ---- Cards: flat columns divided by hairlines (same look as the testimonials) ---- */
 .pricing-card,
 .award-card,
 .post-card {
     box-shadow: var(--shadow-card);
 }
 
-.card-box.card-accent-tech,
-.card-box.card-accent-marketing {
-    border-top-width: 4px;
+.card-box,
+.card-box:hover {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
 }
 
-.card-box.card-accent-tech {
-    border-top-color: var(--brand-cobalt);
+.card-box {
+    padding: 48px 40px;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.3s ease;
 }
 
-.card-box.card-accent-marketing {
-    border-top-color: var(--brand-crimson);
+.card-box::before {
+    display: none;
+}
+
+.card-box:hover {
+    background: rgba(var(--rgb-overlay), 0.02);
+}
+
+.cards-grid-3,
+.cards-grid-4 {
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+    /* hide the divider on the right edge of the last column */
+    clip-path: inset(0 1px 0 0);
+}
+
+/* Vertical stack (About): rules between rows only */
+.card-stack {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+}
+
+.card-stack .card-box {
+    padding: 40px clamp(20px, 3vw, 40px);
+    border-right: 0;
+}
+
+.card-stack .card-box:hover {
+    background: transparent;
+}
+
+/* Icons sit unboxed; service colour carries the accent */
+.card-box .card-icon {
+    width: auto;
+    height: auto;
+    align-self: flex-start;
+    justify-content: flex-start;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 24px;
+    color: var(--color-cyan);
+}
+
+.card-box:hover .card-icon {
+    transform: none;
 }
 
 .card-box.card-accent-marketing .card-icon {
     color: var(--color-coral);
-    background: var(--color-coral-glow);
 }
 
-.card-box.card-accent-tech:hover {
-    border-color: rgba(var(--rgb-cyan), 0.35);
-    border-top-color: var(--brand-cobalt);
+.card-box h3,
+.card-box h4 {
+    font-size: clamp(20px, 1.8vw, 24px);
+    letter-spacing: -0.015em;
 }
 
-.card-box.card-accent-marketing:hover {
-    border-color: rgba(var(--rgb-coral), 0.35);
-    border-top-color: var(--brand-crimson);
+@media (max-width: 700px) {
+    .cards-grid-3 .card-box,
+    .cards-grid-4 .card-box {
+        padding: 40px 20px;
+        border-right: 0;
+    }
 }
 
 /* ---- Statistics: Poppins Bold ---- */
@@ -3609,4 +3688,129 @@ h1, h2, h3, h4, h5, h6,
     .roll-letter-inner {
         animation: none;
     }
+}
+/* ---- Panels, awards, info and pricing: same flat, hairline-divided columns as the cards ---- */
+.split-panels,
+.awards-grid,
+.info-panels,
+.pricing-grid {
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+/* hide the divider on the right edge of the last column (pricing keeps it visible for its label) */
+.split-panels,
+.awards-grid,
+.info-panels {
+    clip-path: inset(0 1px 0 0);
+}
+
+.split-panel,
+.split-panel.tech-accent,
+.split-panel.marketing-accent,
+.award-card,
+.info-panel,
+.pricing-card,
+.pricing-card.popular {
+    background: transparent;
+    border: 0;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    transition: background 0.3s ease;
+}
+
+.split-panel:hover,
+.split-panel.tech-accent:hover,
+.split-panel.marketing-accent:hover,
+.award-card:hover,
+.info-panel:hover,
+.pricing-card:hover,
+.pricing-card.popular:hover {
+    background: rgba(var(--rgb-overlay), 0.02);
+    border-color: var(--color-border);
+    box-shadow: none;
+    transform: none;
+}
+
+.split-panel,
+.award-card,
+.info-panel,
+.pricing-card {
+    padding: 48px 40px;
+}
+
+/* Award icon sits unboxed, like the card icons */
+.award-badge-icon {
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+}
+
+/* Pricing: last column needs no right rule; "Most popular" becomes an inline label */
+.pricing-card:last-child {
+    border-right: 0;
+}
+
+.pricing-card.popular {
+    background: rgba(var(--rgb-cyan), 0.03);
+}
+
+.pricing-card.popular::before {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    background: none;
+    color: var(--color-coral);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    padding: 0;
+    border-radius: 0;
+}
+
+@media (max-width: 1100px) {
+    .info-panel {
+        border-right: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .split-panel,
+    .award-card,
+    .info-panel,
+    .pricing-card {
+        padding: 40px 20px;
+        border-right: 0;
+    }
+
+    .pricing-card.popular::before {
+        top: 14px;
+        left: 20px;
+    }
+}
+
+/* Buttons: square corners */
+.btn,
+.header-cta,
+.btn::before,
+.mode-toggle-group,
+.mode-btn,
+.scroll-btn,
+.nav-toggle,
+.nav a,
+.nav-dropdown-trigger,
+.nav-dropdown-menu,
+.nav-dropdown-menu a,
+.site-footer .brand-logo {
+    border-radius: 0;
+}
+
+/* Header panels (mobile menu, Products dropdown) are white in every theme */
+.site-header {
+    --rgb-bg: 255, 255, 255;
 }

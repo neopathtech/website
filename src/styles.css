@@ -3,76 +3,100 @@
    Premium dark editorial design with gradient accents & micro-animations
    ========================================================================== */
 
-/* ---------- Design Tokens ---------- */
+/* ---------- Design Tokens (Neopath Brand Kit) ----------
+   Enterprise Navy #0A192F · Royal Cobalt #1E3A8A · Vibrant Crimson #E11D48 · Cool Slate #F1F5F9
+   ~80% blue / ~20% red on white & light-grey backgrounds. Fonts: Inter (text), Poppins (buttons, labels, stats).
+   Legacy names kept so existing rules keep working: --color-cyan = cobalt (IT), --color-coral = crimson (marketing). */
 :root {
-    --color-bg: #0a0a0a;
-    --color-bg-elevated: #111111;
-    --color-bg-card: #131313;
-    --color-bg-card-hover: #171717;
-    --color-surface: #1a1a1a;
-    --color-border: rgba(var(--rgb-overlay), 0.08);
-    --color-border-hover: rgba(var(--rgb-overlay), 0.16);
-    --color-text: #f2f2f2;
-    --color-text-secondary: #b0b0b0;
-    --color-text-muted: #858585;
-    --color-cyan: #36B8D8;
-    --color-cyan-glow: rgba(54, 184, 216, 0.15);
-    --color-coral: #F06B52;
-    --color-coral-glow: rgba(240, 107, 82, 0.15);
-    --color-gold: #f7c948;
-    --color-gold-glow: rgba(247, 201, 72, 0.12);
-    --color-error: #ff5c7a;
-    --color-success: #4ade80;
+    --brand-navy: #0A192F;
+    --brand-cobalt: #1E3A8A;
+    --brand-crimson: #E11D48;
+    --brand-crimson-hover: #BE123C;
+    --brand-slate: #F1F5F9;
+    --brand-white: #FFFFFF;
+
+    /* Light (default) */
+    --color-bg: #F1F5F9;
+    --color-bg-elevated: #FFFFFF;
+    --color-bg-card: #FFFFFF;
+    --color-bg-card-hover: #FFFFFF;
+    --color-surface: #E2E8F0;
+    --color-border: rgba(10, 25, 47, 0.1);
+    --color-border-hover: rgba(10, 25, 47, 0.22);
+    --color-text: #0A192F;
+    --color-text-secondary: #334155;
+    --color-text-muted: #55657D;
+    --color-cyan: #1E3A8A;
+    --color-cyan-glow: rgba(30, 58, 138, 0.08);
+    --color-coral: #E11D48;
+    --color-coral-glow: rgba(225, 29, 72, 0.08);
+    --color-gold: #1E3A8A;
+    --color-gold-glow: rgba(30, 58, 138, 0.08);
+    --color-error: #BE123C;
+    --color-success: #13793a;
     --tap-min: 44px;
-    --rgb-overlay: 255, 255, 255;
-    --rgb-bg: 10, 10, 10;
-    --rgb-text: 242, 242, 242;
-    --color-btn-primary-hover: #dddddd;
-    color-scheme: dark;
-    --font-heading: 'Bricolage Grotesque', 'Georgia', serif;
-    --font-body: 'Albert Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    --rgb-overlay: 10, 25, 47;
+    --rgb-bg: 241, 245, 249;
+    --rgb-text: 10, 25, 47;
+    --rgb-cyan: 30, 58, 138;
+    --rgb-coral: 225, 29, 72;
+    --rgb-gold: 30, 58, 138;
+    --color-btn-primary-hover: #BE123C;
+    color-scheme: light;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-ui: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-main: var(--font-body);
-    --radius-sm: 0;
-    --radius-md: 0;
-    --radius-lg: 0;
-    --radius-pill: 0;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-pill: 999px;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-    --shadow-card-hover: 0 12px 48px rgba(0, 0, 0, 0.6);
-    --shadow-glow-cyan: 0 0 60px rgba(54, 184, 216, 0.08);
-    --shadow-glow-coral: 0 0 60px rgba(240, 107, 82, 0.08);
+    --shadow-card: 0 1px 2px rgba(10, 25, 47, 0.04), 0 4px 20px rgba(10, 25, 47, 0.05);
+    --shadow-card-hover: 0 14px 40px rgba(10, 25, 47, 0.1);
+    --shadow-glow-cyan: 0 0 0 1px rgba(30, 58, 138, 0.08);
+    --shadow-glow-coral: 0 0 0 1px rgba(225, 29, 72, 0.08);
 }
 
-/* ---------- Light Theme ---------- */
-:root[data-theme="light"] {
-    --color-bg: #f6f6f4;
-    --color-bg-elevated: #ffffff;
-    --color-bg-card: #ffffff;
-    --color-bg-card-hover: #fbfbfa;
-    --color-surface: #ececea;
-    --color-border: rgba(0, 0, 0, 0.1);
-    --color-border-hover: rgba(0, 0, 0, 0.22);
-    --color-text: #111111;
-    --color-text-secondary: #474747;
-    --color-text-muted: #666666;
-    --color-cyan: #0a7590;
-    --color-cyan-glow: rgba(10, 117, 144, 0.1);
-    --color-coral: #c0402a;
-    --color-coral-glow: rgba(192, 64, 42, 0.1);
-    --color-gold: #8a6400;
-    --color-gold-glow: rgba(138, 100, 0, 0.1);
-    --color-error: #c4122f;
-    --color-success: #13793a;
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.1);
-    --shadow-glow-cyan: 0 0 60px rgba(10, 117, 144, 0.08);
-    --shadow-glow-coral: 0 0 60px rgba(192, 64, 42, 0.08);
-    --rgb-overlay: 0, 0, 0;
-    --rgb-bg: 246, 246, 244;
-    --rgb-text: 17, 17, 17;
-    --color-btn-primary-hover: #333333;
-    color-scheme: light;
+/* ---------- Navy scope: dark theme, plus hero banners & footer in light theme ---------- */
+:root[data-theme="dark"],
+.navy-scope,
+.hero-section,
+.page-hero,
+.site-footer {
+    --color-bg: #0A192F;
+    --color-bg-elevated: #0F2240;
+    --color-bg-card: #10264A;
+    --color-bg-card-hover: #142D57;
+    --color-surface: #1A3360;
+    --color-border: rgba(241, 245, 249, 0.1);
+    --color-border-hover: rgba(241, 245, 249, 0.22);
+    --color-text: #F1F5F9;
+    --color-text-secondary: #C3CEDF;
+    --color-text-muted: #94A3BC;
+    --color-cyan: #8EA9F5;
+    --color-cyan-glow: rgba(142, 169, 245, 0.12);
+    --color-coral: #FB6A8A;
+    --color-coral-glow: rgba(251, 106, 138, 0.12);
+    --color-gold: #8EA9F5;
+    --color-gold-glow: rgba(142, 169, 245, 0.12);
+    --color-error: #FB6A8A;
+    --color-success: #4ade80;
+    --rgb-overlay: 241, 245, 249;
+    --rgb-bg: 10, 25, 47;
+    --rgb-text: 241, 245, 249;
+    --rgb-cyan: 142, 169, 245;
+    --rgb-coral: 251, 106, 138;
+    --rgb-gold: 142, 169, 245;
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+    --shadow-card-hover: 0 14px 44px rgba(0, 0, 0, 0.45);
+    --shadow-glow-cyan: 0 0 60px rgba(142, 169, 245, 0.08);
+    --shadow-glow-coral: 0 0 60px rgba(251, 106, 138, 0.08);
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
 }
 
 /* ---------- Base Reset ---------- */
@@ -523,7 +547,7 @@ button.btn {
     }
 
     .site-header > .brand .brand-logo {
-        height: 26px;
+        height: 40px;
     }
 
     .header-actions {
@@ -605,8 +629,8 @@ button.btn {
 }
 
 .btn-cyan:hover {
-    background: #2ea8c6;
-    border-color: #2ea8c6;
+    background: var(--brand-cobalt);
+    border-color: var(--brand-cobalt);
     box-shadow: 0 8px 32px var(--color-cyan-glow);
 }
 
@@ -617,8 +641,8 @@ button.btn {
 }
 
 .btn-coral:hover {
-    background: #e05a42;
-    border-color: #e05a42;
+    background: var(--brand-crimson-hover);
+    border-color: var(--brand-crimson-hover);
     box-shadow: 0 8px 32px var(--color-coral-glow);
 }
 
@@ -723,7 +747,7 @@ button.btn {
 
 .hero-logo {
     position: relative;
-    filter: drop-shadow(0 40px 80px rgba(54, 184, 216, 0.12));
+    filter: drop-shadow(0 40px 80px rgba(var(--rgb-cyan), 0.12));
     animation: heroFloat 7s ease-in-out infinite;
 }
 
@@ -878,20 +902,20 @@ button.btn {
 
 .badge-tech {
     color: var(--color-cyan);
-    border: 1px solid rgba(54, 184, 216, 0.3);
-    background: rgba(54, 184, 216, 0.06);
+    border: 1px solid rgba(var(--rgb-cyan), 0.3);
+    background: rgba(var(--rgb-cyan), 0.06);
 }
 
 .badge-marketing {
     color: var(--color-coral);
-    border: 1px solid rgba(240, 107, 82, 0.3);
-    background: rgba(240, 107, 82, 0.06);
+    border: 1px solid rgba(var(--rgb-coral), 0.3);
+    background: rgba(var(--rgb-coral), 0.06);
 }
 
 .badge-gold {
     color: var(--color-gold);
-    border: 1px solid rgba(247, 201, 72, 0.3);
-    background: rgba(247, 201, 72, 0.06);
+    border: 1px solid rgba(var(--rgb-gold), 0.3);
+    background: rgba(var(--rgb-gold), 0.06);
 }
 
 .badge-muted {
@@ -962,12 +986,12 @@ button.btn {
 }
 
 .card-box.card-accent-tech:hover {
-    border-color: rgba(54, 184, 216, 0.3);
+    border-color: rgba(var(--rgb-cyan), 0.3);
     box-shadow: var(--shadow-glow-cyan), var(--shadow-card-hover);
 }
 
 .card-box.card-accent-marketing:hover {
-    border-color: rgba(240, 107, 82, 0.3);
+    border-color: rgba(var(--rgb-coral), 0.3);
     box-shadow: var(--shadow-glow-coral), var(--shadow-card-hover);
 }
 
@@ -1249,14 +1273,14 @@ button.btn {
 }
 
 .pricing-card.popular {
-    border-color: rgba(54, 184, 216, 0.3);
-    background: linear-gradient(180deg, rgba(54, 184, 216, 0.06) 0%, var(--color-bg-card) 100%);
+    border-color: rgba(var(--rgb-cyan), 0.3);
+    background: linear-gradient(180deg, rgba(var(--rgb-cyan), 0.06) 0%, var(--color-bg-card) 100%);
     box-shadow: var(--shadow-glow-cyan);
 }
 
 .pricing-card.popular:hover {
-    border-color: rgba(54, 184, 216, 0.5);
-    box-shadow: 0 0 80px rgba(54, 184, 216, 0.12), var(--shadow-card-hover);
+    border-color: rgba(var(--rgb-cyan), 0.5);
+    box-shadow: 0 0 80px rgba(var(--rgb-cyan), 0.12), var(--shadow-card-hover);
 }
 
 .pricing-card.popular::before {
@@ -1264,7 +1288,7 @@ button.btn {
     position: absolute;
     top: -12px;
     left: 28px;
-    background: linear-gradient(135deg, var(--color-cyan), #2ea8c6);
+    background: linear-gradient(135deg, var(--color-cyan), var(--brand-cobalt));
     color: var(--color-bg);
     font-size: 11px;
     font-weight: 800;
@@ -1398,9 +1422,9 @@ button.btn {
 }
 
 .award-card:hover {
-    border-color: rgba(247, 201, 72, 0.3);
+    border-color: rgba(var(--rgb-gold), 0.3);
     transform: translateY(-3px);
-    box-shadow: 0 0 60px rgba(247, 201, 72, 0.06), var(--shadow-card);
+    box-shadow: 0 0 60px rgba(var(--rgb-gold), 0.06), var(--shadow-card);
 }
 
 .award-badge-icon {
@@ -1457,7 +1481,7 @@ button.btn {
 }
 
 .split-panel.tech-accent:hover {
-    border-color: rgba(54, 184, 216, 0.2);
+    border-color: rgba(var(--rgb-cyan), 0.2);
     border-top-color: var(--color-cyan);
 }
 
@@ -1466,7 +1490,7 @@ button.btn {
 }
 
 .split-panel.marketing-accent:hover {
-    border-color: rgba(240, 107, 82, 0.2);
+    border-color: rgba(var(--rgb-coral), 0.2);
     border-top-color: var(--color-coral);
 }
 
@@ -1544,7 +1568,7 @@ select:focus,
 textarea:focus {
     outline: none;
     border-bottom-color: var(--color-cyan);
-    background: rgba(54, 184, 216, 0.03);
+    background: rgba(var(--rgb-cyan), 0.03);
 }
 
 input::placeholder,
@@ -2841,17 +2865,6 @@ a.blog-post:hover h3 {
 }
 
 /* ---------- Services Page ---------- */
-.service-jump {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 40px;
-}
-
-.service-jump .filter-chip {
-    text-decoration: none;
-}
-
 .service {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -3316,5 +3329,284 @@ a.blog-post:hover h3 {
 
     .footer-wordmark span {
         display: block;
+    }
+}
+
+/* ==========================================================================
+   BRAND KIT LAYER — Neopath Technologies
+   Navy hero/footer bands, Inter + Poppins type, crimson primary actions,
+   rounded slate/white cards with a 4px service-coloured top border.
+   ========================================================================== */
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.page-hero-title,
+.section-title {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+/* Poppins: buttons, labels, statistics */
+.btn,
+.header-cta,
+.badge,
+.section-kicker,
+.hero-tagline,
+.stat-label,
+.nav-dropdown-label,
+.pricing-price,
+.stat-number {
+    font-family: var(--font-ui);
+}
+
+/* ---- Navy bands (full-bleed inside the centred container) ---- */
+.hero-section,
+.page-hero,
+.site-footer {
+    background: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: 0 0 0 100vmax var(--color-bg);
+    clip-path: inset(0 -100vmax);
+    border-top: 0;
+}
+
+.page-hero + section,
+.hero-section + section {
+    border-top: 0;
+}
+
+.hero-title {
+    font-size: clamp(40px, 7.2vw, 108px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.page-hero-title {
+    font-size: clamp(36px, 5.6vw, 76px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+}
+
+.section-title {
+    font-size: clamp(30px, 3.8vw, 48px);
+    line-height: 1.12;
+}
+
+.hero-tagline,
+.section-kicker {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-coral);
+}
+
+/* ---- Header: solid white bar ---- */
+.site-header::before {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom-color: rgba(10, 25, 47, 0.08);
+}
+
+:root[data-theme="dark"] .site-header::before {
+    background: rgba(10, 25, 47, 0.92);
+    border-bottom-color: rgba(241, 245, 249, 0.08);
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.nav {
+    font-weight: 500;
+}
+
+/* Logo on dark backgrounds sits on a white badge (Brand Kit §3) */
+:root[data-theme="dark"] .site-header .brand-logo,
+.site-footer .brand-logo {
+    box-sizing: content-box;
+    background: #FFFFFF;
+    padding: 6px 7px;
+    border-radius: var(--radius-sm);
+}
+
+/* Official full logo (icon + wordmark + tagline), Brand Kit §3: >=150px wide on desktop */
+.brand-logo {
+    height: 48px;
+    width: auto;
+}
+
+.site-footer .brand-logo {
+    height: 60px;
+    padding: 10px 14px;
+}
+
+/* ---- Buttons ---- */
+.btn,
+.header-cta {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.btn {
+    color: var(--color-cyan);
+    border: 1.5px solid var(--color-cyan);
+    background: transparent;
+}
+
+.btn:hover {
+    background: var(--brand-cobalt);
+    border-color: var(--brand-cobalt);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.22);
+}
+
+.btn-primary,
+.btn-coral,
+.header-cta {
+    background: var(--brand-crimson);
+    border: 1.5px solid var(--brand-crimson);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover,
+.btn-coral:hover,
+.header-cta:hover {
+    background: var(--brand-crimson-hover);
+    border-color: var(--brand-crimson-hover);
+    color: #FFFFFF;
+    box-shadow: 0 8px 28px rgba(225, 29, 72, 0.28);
+}
+
+.btn-cyan {
+    background: var(--brand-cobalt);
+    border-color: var(--brand-cobalt);
+    color: #FFFFFF;
+}
+
+.header-cta {
+    font-size: 14px;
+    padding: 10px 20px !important;
+}
+
+/* Theme toggle: circular */
+.theme-toggle {
+    border-radius: 50%;
+}
+
+/* ---- Cards (rounded, white on Cool Slate) ---- */
+.card-box,
+.pricing-card,
+.award-card,
+.post-card {
+    box-shadow: var(--shadow-card);
+}
+
+.card-box.card-accent-tech,
+.card-box.card-accent-marketing {
+    border-top-width: 4px;
+}
+
+.card-box.card-accent-tech {
+    border-top-color: var(--brand-cobalt);
+}
+
+.card-box.card-accent-marketing {
+    border-top-color: var(--brand-crimson);
+}
+
+.card-box.card-accent-marketing .card-icon {
+    color: var(--color-coral);
+    background: var(--color-coral-glow);
+}
+
+.card-box.card-accent-tech:hover {
+    border-color: rgba(var(--rgb-cyan), 0.35);
+    border-top-color: var(--brand-cobalt);
+}
+
+.card-box.card-accent-marketing:hover {
+    border-color: rgba(var(--rgb-coral), 0.35);
+    border-top-color: var(--brand-crimson);
+}
+
+/* ---- Statistics: Poppins Bold ---- */
+.stat-number {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+/* ---- Links ---- */
+.link:hover {
+    color: var(--color-coral);
+}
+
+/* ---- Hero: fills the first screen; buttons left-aligned under the supporting text ---- */
+.hero-section {
+    min-height: max(640px, calc(100svh - 76px));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 28px;
+}
+
+/* Hero rolling letters: each letter of "Build" then "Scale" rolls up and is replaced by
+   an identical copy from below, staggered, repeating every 4s */
+.roll-letter {
+    display: inline-block;
+    overflow: hidden;
+    clip-path: inset(0);
+    vertical-align: bottom;
+    /* room for ascenders inside the clip, without shifting the line */
+    padding: 0.1em 0 0.12em;
+    margin: -0.1em 0 -0.12em;
+}
+
+.roll-letter-inner {
+    display: inline-block;
+    position: relative;
+    animation: heroLetterRoll 4s var(--ease-out-expo) infinite both;
+}
+
+.roll-letter-inner::after {
+    content: attr(data-char);
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.22em);
+}
+
+@keyframes heroLetterRoll {
+    0% {
+        transform: translateY(0);
+    }
+
+    20%,
+    100% {
+        transform: translateY(calc(-100% - 0.22em));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .roll-letter-inner {
+        animation: none;
     }
 }

@@ -798,12 +798,41 @@
     window.addEventListener("resize", fit, { passive: true });
   }
 
+  // ====== Hero Rolling Letters ("Build" then "Scale" roll letter by letter, on a loop) ======
+  function initHeroLetterRoll() {
+    var groups = document.querySelectorAll(".roll-letters");
+    if (!groups.length) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var STAGGER = 0.06;     // seconds between letters
+    var WORD_GAP = 0.25;    // extra pause before the next word starts
+    var n = 0;
+    groups.forEach(function (g) {
+      var text = g.textContent;
+      g.textContent = "";
+      text.split("").forEach(function (ch) {
+        var cell = document.createElement("span");
+        cell.className = "roll-letter";
+        var inner = document.createElement("span");
+        inner.className = "roll-letter-inner";
+        inner.setAttribute("data-char", ch);
+        inner.textContent = ch;
+        inner.style.animationDelay = (1.6 + n * STAGGER) + "s";
+        cell.appendChild(inner);
+        g.appendChild(cell);
+        n++;
+      });
+      n += WORD_GAP / STAGGER;
+    });
+  }
+
   // ====== Initialize All ======
   function initApp() {
     initStickyHeader();
     initThemeToggle();
     initScrollProgress();
     initLusionTextAnimations();
+    initHeroLetterRoll();
     initScrollers();
     initMockupToggle();
     initFaqAccordion();

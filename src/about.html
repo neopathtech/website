@@ -13,18 +13,25 @@
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=brand-2026-11-05-bg">
+    <link rel="stylesheet" href="styles.css?v=brand-2026-11-07-hoverphoto2">
     <script>
         (function () {
             var t;
             try { t = localStorage.getItem("theme"); } catch (e) { }
             if (t !== "light" && t !== "dark") t = "light";
             document.documentElement.setAttribute("data-theme", t);
+            // loading screen: only on the first page of a visit
+            try { if (sessionStorage.getItem("np-loaded")) document.documentElement.classList.add("loader-off"); else sessionStorage.setItem("np-loaded", "1"); } catch (e) { }
         })();
     </script>
 </head>
 
 <body>
+    <!-- Loading screen: shown once per browser session (see head script); styles in styles.css -->
+    <div class="page-loader" aria-hidden="true">
+        <svg class="page-loader-mark" viewBox="0 70 710 525" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z"/><path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z"/></svg>
+    </div>
+
     <!-- Site Header (Full Width) -->
     <header class="site-header">
         <a href="index.html" class="brand">
@@ -32,7 +39,16 @@
         </a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Services
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="digital-marketing.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Digital Marketing <span class="nav-dropdown-label">Branding, Video, SEO &amp; Social</span></a>
+                    <a href="technology.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg> Technology <span class="nav-dropdown-label">Software, IT &amp; Consulting</span></a>
+                </div>
+            </div>
             <div class="nav-dropdown">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
                     Products
@@ -233,6 +249,149 @@
             </div>
         </section>
 
+        <!-- NEo Social (facts from facebook.com/neosoc) -->
+        <section id="neo-social" class="rule accent-coral" style="padding:96px 0" data-lusion-reveal>
+            <div class="neo-social">
+                <div>
+                    <p class="section-kicker" style="color:var(--color-coral)">OUR OWN CHANNEL</p>
+                    <h2 class="section-title">NEo Social</h2>
+                    <p class="neo-social-tagline">&ldquo;Sharing the good, celebrating people &amp; stories that matter.&rdquo;</p>
+                </div>
+                <div class="neo-social-body">
+                    <p>NEo Social is a social media initiative of Neopath Technologies, with one simple aim: let&rsquo;s make
+                        the world a better place. Because inspiration is all around us, it shares positive stories and
+                        celebrates the people behind them.</p>
+                    <ul class="service-list">
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Positive stories from our community</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Celebrating people who inspire</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Broadcasting &amp; media production</span></li>
+                        <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Based in Imphal, Manipur</span></li>
+                    </ul>
+                    <a class="btn btn-primary" href="https://www.facebook.com/neosoc" target="_blank" rel="noopener">Follow on Facebook <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+            </div>
+            <div class="post-rail-head">
+                <div>
+                    <h3>Recent stories</h3>
+                    <p>13 stories from the NEo Social page. Select one to view every slide.</p>
+                </div>
+                <div class="scroll-controls">
+                    <button type="button" class="scroll-btn" data-scroll="prev" data-scroll-target="neo-stories" aria-label="Scroll stories back">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" class="scroll-btn" data-scroll="next" data-scroll-target="neo-stories" aria-label="Scroll stories forward">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="post-rail h-scroller" id="neo-stories" role="region" aria-label="NEo Social stories" tabindex="0">
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: 7 Fashion Labels from Manipur, 9 slides"
+                        data-title="7 Fashion Labels from Manipur" data-label="Fashion" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/10.webp&quot;, &quot;alt&quot;: &quot;7 Fashion Labels from Manipur: seven homegrown labels bringing Manipuri identity to contemporary fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/15.webp&quot;, &quot;alt&quot;: &quot;From tradition to contemporary: a new generation of Manipuri designers, and seven labels worth discovering&quot;}, {&quot;src&quot;: &quot;assets/neo-social/07.webp&quot;, &quot;alt&quot;: &quot;House of Ali, a contemporary fashion label from Manipur founded by Alimuddin and Daya Oinam&quot;}, {&quot;src&quot;: &quot;assets/neo-social/08.webp&quot;, &quot;alt&quot;: &quot;11 Tareng, founded by Jayshree Koijam and Reena Ahanthem, bringing Manipuri textiles into contemporary design&quot;}, {&quot;src&quot;: &quot;assets/neo-social/09.webp&quot;, &quot;alt&quot;: &quot;Khumanthem, the label by designer Richana Khumanthem, weaving Manipuri heritage into contemporary fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/11.webp&quot;, &quot;alt&quot;: &quot;EAST by Easternlight Zimik, rooted in the indigenous textile traditions of Ukhrul&quot;}, {&quot;src&quot;: &quot;assets/neo-social/12.webp&quot;, &quot;alt&quot;: &quot;Designer Robert Naorem, known for contemporary interpretations of Manipuri traditional attire&quot;}, {&quot;src&quot;: &quot;assets/neo-social/13.webp&quot;, &quot;alt&quot;: &quot;NUPI, founded by Potsangbam Susma Shija, a contemporary voice of Manipuri fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/14.webp&quot;, &quot;alt&quot;: &quot;Sailex, founded by designer Sailex Ngairangbam: contemporary fashion with a Manipuri identity&quot;}]">
+                        <img src="assets/neo-social/thumb/10.webp" alt="7 Fashion Labels from Manipur: seven homegrown labels bringing Manipuri identity to contemporary fashion" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>9</span>
+                    </button>
+                    <figcaption><strong>7 Fashion Labels from Manipur</strong><span>Fashion</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: The history of the polo shirt, 8 slides"
+                        data-title="The history of the polo shirt" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/20.webp&quot;, &quot;alt&quot;: &quot;The history of the polo shirt, from sport to style, a story with a deep connection to Manipur&quot;}, {&quot;src&quot;: &quot;assets/neo-social/26.webp&quot;, &quot;alt&quot;: &quot;Before the shirt there was polo: Sagol Kangjei, the traditional Manipuri game regarded as the indigenous form of modern polo&quot;}, {&quot;src&quot;: &quot;assets/neo-social/22.webp&quot;, &quot;alt&quot;: &quot;1896: Brooks Brothers introduces the button-down collar for polo players&quot;}, {&quot;src&quot;: &quot;assets/neo-social/27.webp&quot;, &quot;alt&quot;: &quot;1920s: tennis champion Ren\u00e9 Lacoste introduces the short-sleeved piqu\u00e9 shirt&quot;}, {&quot;src&quot;: &quot;assets/neo-social/23.webp&quot;, &quot;alt&quot;: &quot;1933: the Lacoste L.12.12 arrives, and sport officially enters fashion&quot;}, {&quot;src&quot;: &quot;assets/neo-social/21.webp&quot;, &quot;alt&quot;: &quot;1952: Fred Perry&#x27;s tennis shirt becomes a symbol of British style and youth culture&quot;}, {&quot;src&quot;: &quot;assets/neo-social/25.webp&quot;, &quot;alt&quot;: &quot;1972: Ralph Lauren turns the polo shirt into a lifestyle icon&quot;}, {&quot;src&quot;: &quot;assets/neo-social/24.webp&quot;, &quot;alt&quot;: &quot;The polo shirt today: a sport, a shirt and a global icon, from Manipur to the world&quot;}]">
+                        <img src="assets/neo-social/thumb/20.webp" alt="The history of the polo shirt, from sport to style, a story with a deep connection to Manipur" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>8</span>
+                    </button>
+                    <figcaption><strong>The history of the polo shirt</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Bhumeshwory Devi wins bronze, 2 slides"
+                        data-title="Bhumeshwory Devi wins bronze" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/01.webp&quot;, &quot;alt&quot;: &quot;Bhumeshwory Devi, from Manipur, wins bronze at the Asian U-23 Championships&quot;}, {&quot;src&quot;: &quot;assets/neo-social/02.webp&quot;, &quot;alt&quot;: &quot;Newspaper clipping on Bhumeshwory Devi: today she stands on the podium, tomorrow she hopes to stand on the Olympic stage&quot;}]">
+                        <img src="assets/neo-social/thumb/01.webp" alt="Bhumeshwory Devi, from Manipur, wins bronze at the Asian U-23 Championships" width="480" height="600" loading="lazy" decoding="async">
+                        <span class="post-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>2</span>
+                    </button>
+                    <figcaption><strong>Bhumeshwory Devi wins bronze</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: The pride of Manipur shines again"
+                        data-title="The pride of Manipur shines again" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/03.webp&quot;, &quot;alt&quot;: &quot;Mirabai Chanu celebrating her third consecutive Commonwealth Games gold, under the headline The Pride of Manipur Shines Again&quot;}]">
+                        <img src="assets/neo-social/thumb/03.webp" alt="Mirabai Chanu celebrating her third consecutive Commonwealth Games gold, under the headline The Pride of Manipur Shines Again" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>The pride of Manipur shines again</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: From Shillong to Tashkent"
+                        data-title="From Shillong to Tashkent" data-label="Sport" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/16.webp&quot;, &quot;alt&quot;: &quot;Phoebe Dale Nongrum, from Shillong, represents India at the Asia Auto Gymkhana Championship in Tashkent&quot;}]">
+                        <img src="assets/neo-social/thumb/16.webp" alt="Phoebe Dale Nongrum, from Shillong, represents India at the Asia Auto Gymkhana Championship in Tashkent" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>From Shillong to Tashkent</strong><span>Sport</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Manipur-made fashion in Parliament"
+                        data-title="Manipur-made fashion in Parliament" data-label="Fashion" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/05.webp&quot;, &quot;alt&quot;: &quot;Kangana Ranaut at Parliament in a saree by Manipuri label NUPI&quot;}]">
+                        <img src="assets/neo-social/thumb/05.webp" alt="Kangana Ranaut at Parliament in a saree by Manipuri label NUPI" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Manipur-made fashion in Parliament</strong><span>Fashion</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: ANGH at TIFF"
+                        data-title="ANGH at TIFF" data-label="Film" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/18.webp&quot;, &quot;alt&quot;: &quot;Poster for ANGH, a film by Theja Rio and an official selection at the Toronto International Film Festival&quot;}]">
+                        <img src="assets/neo-social/thumb/18.webp" alt="Poster for ANGH, a film by Theja Rio and an official selection at the Toronto International Film Festival" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>ANGH at TIFF</strong><span>Film</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Remembering Shongtham Vikram"
+                        data-title="Remembering Shongtham Vikram" data-label="Music" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/19.webp&quot;, &quot;alt&quot;: &quot;Tribute to Shongtham Vikram, a pioneering guitarist from Manipur&#x27;s early rock scene&quot;}]">
+                        <img src="assets/neo-social/thumb/19.webp" alt="Tribute to Shongtham Vikram, a pioneering guitarist from Manipur&#x27;s early rock scene" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Remembering Shongtham Vikram</strong><span>Music</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: A new era of myopia care"
+                        data-title="A new era of myopia care" data-label="Community" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/04.webp&quot;, &quot;alt&quot;: &quot;Myopia screening machine: Eastern Eye Foundation &amp; Research Centre introduces the first OCULUS Myopia Master in Northeast India&quot;}]">
+                        <img src="assets/neo-social/thumb/04.webp" alt="Myopia screening machine: Eastern Eye Foundation &amp; Research Centre introduces the first OCULUS Myopia Master in Northeast India" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>A new era of myopia care</strong><span>Community</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Patriots&#x27; Day"
+                        data-title="Patriots&#x27; Day" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/06.webp&quot;, &quot;alt&quot;: &quot;13th August Patriots&#x27; Day, remembering the heroes of the Anglo-Manipuri War of 1891&quot;}]">
+                        <img src="assets/neo-social/thumb/06.webp" alt="13th August Patriots&#x27; Day, remembering the heroes of the Anglo-Manipuri War of 1891" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Patriots&#x27; Day</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Irabot Day"
+                        data-title="Irabot Day" data-label="Heritage" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/28.webp&quot;, &quot;alt&quot;: &quot;Irabot Day, 30 September: remembering Hijam Irabot, leader, revolutionary and poet&quot;}]">
+                        <img src="assets/neo-social/thumb/28.webp" alt="Irabot Day, 30 September: remembering Hijam Irabot, leader, revolutionary and poet" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Irabot Day</strong><span>Heritage</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Krishna Janmashtami"
+                        data-title="Krishna Janmashtami" data-label="Culture" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/17.webp&quot;, &quot;alt&quot;: &quot;Krishna Janmashtami: in Manipur, Krishna became dance, music, movement and culture&quot;}]">
+                        <img src="assets/neo-social/thumb/17.webp" alt="Krishna Janmashtami: in Manipur, Krishna became dance, music, movement and culture" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Krishna Janmashtami</strong><span>Culture</span></figcaption>
+                </figure>
+                <figure class="post-card">
+                    <button class="post-open" type="button" aria-label="View story: Gandhi Jayanti"
+                        data-title="Gandhi Jayanti" data-label="Culture" data-slides="[{&quot;src&quot;: &quot;assets/neo-social/29.webp&quot;, &quot;alt&quot;: &quot;Happy Gandhi Jayanti, 2nd October: truth, non-violence and self-reliance&quot;}]">
+                        <img src="assets/neo-social/thumb/29.webp" alt="Happy Gandhi Jayanti, 2nd October: truth, non-violence and self-reliance" width="480" height="600" loading="lazy" decoding="async">
+                        
+                    </button>
+                    <figcaption><strong>Gandhi Jayanti</strong><span>Culture</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
         <!-- CTA SECTION -->
         <section class="rule" style="padding:104px 0;text-align:center" data-lusion-reveal>
             <h2 style="font-size:clamp(36px,5.5vw,72px);letter-spacing:-.03em;margin:0 0 24px">
@@ -265,31 +424,32 @@
                         <a class="social-link" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
                     </div>
                 </div>
-                <nav aria-label="Tech">
-                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Tech</p>
+                <nav aria-label="Technology">
+                    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">Technology</p>
                     <div class="footer-links">
                         <a class="link" href="powercampus.html">PowerCampus ERP</a>
                         <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
-                        <a class="link" href="services.html#software-development">Software Development</a>
-                        <a class="link" href="services.html#it-infrastructure">IT Infrastructure</a>
-                        <a class="link" href="services.html#management-consulting">Management Consulting</a>
+                        <a class="link" href="technology.html#software-development">Software Development</a>
+                        <a class="link" href="technology.html#it-infrastructure">IT Infrastructure</a>
+                        <a class="link" href="technology.html#management-consulting">Management Consulting</a>
                     </div>
                 </nav>
                 <nav aria-label="Digital Marketing">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">Digital Marketing</p>
                     <div class="footer-links">
-                        <a class="link2" href="services.html#branding">Branding</a>
-                        <a class="link2" href="services.html#video-production">Video Production</a>
-                        <a class="link2" href="services.html#seo">SEO Services</a>
-                        <a class="link2" href="services.html#social-media-marketing">Social Media Marketing</a>
-                        <a class="link2" href="services.html#influencer-marketing">Influencer Marketing</a>
+                        <a class="link2" href="digital-marketing.html#branding">Branding</a>
+                        <a class="link2" href="digital-marketing.html#video-production">Video Production</a>
+                        <a class="link2" href="digital-marketing.html#seo">SEO Services</a>
+                        <a class="link2" href="digital-marketing.html#social-media-marketing">Social Media Marketing</a>
+                        <a class="link2" href="digital-marketing.html#influencer-marketing">Influencer Marketing</a>
                     </div>
                 </nav>
                 <nav aria-label="Company">
                     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-secondary)">Company</p>
                     <div class="footer-links">
                         <a class="link" href="index.html">Home</a>
-                        <a class="link" href="services.html">Services</a>
+                        <a class="link" href="digital-marketing.html">Digital Marketing</a>
+                        <a class="link" href="technology.html">Technology</a>
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link active" href="about.html">About Us</a>
@@ -308,7 +468,24 @@
         </footer>
     </div>
 
-    <script src="script.js?v=brand-2026-11-05-bg"></script>
+    <!-- Story / Gallery Lightbox -->
+    <dialog class="lightbox" aria-label="Image viewer">
+        <div class="lightbox-inner">
+            <img class="lightbox-img" alt="">
+            <p class="lightbox-caption"><strong></strong><span></span></p>
+        </div>
+        <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" type="button" aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </dialog>
+
+    <script src="script.js?v=brand-2026-11-07-hoverphoto2"></script>
 </body>
 
 </html>

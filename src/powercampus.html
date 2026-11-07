@@ -14,18 +14,25 @@
         rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=brand-2026-11-05-bg">
+    <link rel="stylesheet" href="styles.css?v=brand-2026-11-07-hoverphoto2">
     <script>
         (function () {
             var t;
             try { t = localStorage.getItem("theme"); } catch (e) { }
             if (t !== "light" && t !== "dark") t = "light";
             document.documentElement.setAttribute("data-theme", t);
+            // loading screen: only on the first page of a visit
+            try { if (sessionStorage.getItem("np-loaded")) document.documentElement.classList.add("loader-off"); else sessionStorage.setItem("np-loaded", "1"); } catch (e) { }
         })();
     </script>
 </head>
 
 <body>
+    <!-- Loading screen: shown once per browser session (see head script); styles in styles.css -->
+    <div class="page-loader" aria-hidden="true">
+        <svg class="page-loader-mark" viewBox="0 70 710 525" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z"/><path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z"/></svg>
+    </div>
+
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <!-- Site Header (Full Width) -->
@@ -35,7 +42,16 @@
         </a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Services
+                    <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="digital-marketing.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Digital Marketing <span class="nav-dropdown-label">Branding, Video, SEO &amp; Social</span></a>
+                    <a href="technology.html"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg> Technology <span class="nav-dropdown-label">Software, IT &amp; Consulting</span></a>
+                </div>
+            </div>
             <div class="nav-dropdown active">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
                     Products
@@ -703,16 +719,16 @@
                         <a class="social-link" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
                     </div>
                 </div>
-                <nav aria-label="Tech">
+                <nav aria-label="Technology">
                     <p
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-cyan)">
-                        Tech</p>
+                        Technology</p>
                     <div class="footer-links">
                         <a class="link" href="powercampus.html">PowerCampus ERP</a>
                         <a class="link" href="neoeventize.html">NeoEventize Ticketing</a>
-                        <a class="link" href="services.html#software-development">Software Development</a>
-                        <a class="link" href="services.html#it-infrastructure">IT Infrastructure</a>
-                        <a class="link" href="services.html#management-consulting">Management Consulting</a>
+                        <a class="link" href="technology.html#software-development">Software Development</a>
+                        <a class="link" href="technology.html#it-infrastructure">IT Infrastructure</a>
+                        <a class="link" href="technology.html#management-consulting">Management Consulting</a>
                     </div>
                 </nav>
                 <nav aria-label="Digital Marketing">
@@ -720,11 +736,11 @@
                         style="margin:0 0 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral)">
                         Digital Marketing</p>
                     <div class="footer-links">
-                        <a class="link2" href="services.html#branding">Branding</a>
-                        <a class="link2" href="services.html#video-production">Video Production</a>
-                        <a class="link2" href="services.html#seo">SEO Services</a>
-                        <a class="link2" href="services.html#social-media-marketing">Social Media Marketing</a>
-                        <a class="link2" href="services.html#influencer-marketing">Influencer Marketing</a>
+                        <a class="link2" href="digital-marketing.html#branding">Branding</a>
+                        <a class="link2" href="digital-marketing.html#video-production">Video Production</a>
+                        <a class="link2" href="digital-marketing.html#seo">SEO Services</a>
+                        <a class="link2" href="digital-marketing.html#social-media-marketing">Social Media Marketing</a>
+                        <a class="link2" href="digital-marketing.html#influencer-marketing">Influencer Marketing</a>
                     </div>
                 </nav>
                 <nav aria-label="Company">
@@ -733,7 +749,8 @@
                         Company</p>
                     <div class="footer-links">
                         <a class="link" href="index.html">Home</a>
-                        <a class="link" href="services.html">Services</a>
+                        <a class="link" href="digital-marketing.html">Digital Marketing</a>
+                        <a class="link" href="technology.html">Technology</a>
                         <a class="link" href="powercampus.html">PowerCampus</a>
                         <a class="link" href="neoeventize.html">NeoEventize</a>
                         <a class="link" href="about.html">About Us</a>
@@ -751,7 +768,7 @@
         </footer>
     </div>
 
-    <script src="script.js?v=brand-2026-11-05-bg"></script>
+    <script src="script.js?v=brand-2026-11-07-hoverphoto2"></script>
 </body>
 
 </html>

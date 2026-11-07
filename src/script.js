@@ -148,6 +148,17 @@
     }
   });
 
+  // ====== Loading screen ======
+  // Time until the loading screen has faded (keep in step with .page-loader in styles.css).
+  var LOADER_MS = 1700;
+  function loaderDelayMs() {
+    var loader = document.querySelector(".page-loader");
+    if (!loader) return 0;
+    if (document.documentElement.classList.contains("loader-off")) return 0;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return 0;
+    return LOADER_MS;
+  }
+
   // ====== Lusion.co Text Load & Scroll Reveal Animation ======
   function initLusionTextAnimations() {
     var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -226,7 +237,7 @@
         requestAnimationFrame(function () {
           setTimeout(function () {
             hero.classList.add("lusion-revealed");
-          }, 80);
+          }, 80 + loaderDelayMs());
         });
       }
     }
@@ -394,24 +405,43 @@
   // ====== FAQ Accordion ======
   function initFaqAccordion() {
     var triggers = document.querySelectorAll(".accordion-trigger");
+    if (!triggers.length) return;
+
+    // Open one item and close its siblings (open=false just closes it).
+    function setItem(item, open) {
+      var parent = item.parentElement;
+      if (parent) {
+        parent.querySelectorAll(".accordion-item").forEach(function (it) {
+          it.classList.remove("active");
+          var itBtn = it.querySelector(".accordion-trigger");
+          if (itBtn) itBtn.setAttribute("aria-expanded", "false");
+        });
+      }
+      if (open) {
+        item.classList.add("active");
+        var btn = item.querySelector(".accordion-trigger");
+        if (btn) btn.setAttribute("aria-expanded", "true");
+      }
+    }
+
+    // Click / tap / keyboard: toggle
     triggers.forEach(function (btn) {
       btn.addEventListener("click", function () {
         var item = btn.closest(".accordion-item");
-        var isActive = item.classList.contains("active");
+        setItem(item, !item.classList.contains("active"));
+      });
+    });
 
-        var parent = item.parentElement;
-        if (parent) {
-          parent.querySelectorAll(".accordion-item").forEach(function (it) {
-            it.classList.remove("active");
-            var itBtn = it.querySelector(".accordion-trigger");
-            if (itBtn) itBtn.setAttribute("aria-expanded", "false");
-          });
-        }
-
-        if (!isActive) {
-          item.classList.add("active");
-          btn.setAttribute("aria-expanded", "true");
-        }
+    // Mouse: an item opens while the pointer is over it (question or answer) and closes
+    // when the pointer leaves it.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    triggers.forEach(function (btn) {
+      var item = btn.closest(".accordion-item");
+      item.addEventListener("mouseenter", function () {
+        if (!item.classList.contains("active")) setItem(item, true);
+      });
+      item.addEventListener("mouseleave", function () {
+        if (item.classList.contains("active")) setItem(item, false);
       });
     });
   }
@@ -817,12 +847,88 @@
         inner.className = "roll-letter-inner";
         inner.setAttribute("data-char", ch);
         inner.textContent = ch;
-        inner.style.animationDelay = (1.6 + n * STAGGER) + "s";
+        inner.style.animationDelay = (1.6 + loaderDelayMs() / 1000 + n * STAGGER) + "s";
         cell.appendChild(inner);
         g.appendChild(cell);
         n++;
       });
       n += WORD_GAP / STAGGER;
+    });
+  }
+
+  // ====== Service row hover photo (homepage lists) ======
+  // Hovering a row with data-preview shows its photo in a card that trails the pointer.
+  // Mouse devices only; touch screens never see it.
+  function initServicePreview() {
+    var links = document.querySelectorAll(".service-link[data-preview]");
+    if (!links.length) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var card = document.createElement("div");
+    card.className = "hover-preview";
+    card.setAttribute("aria-hidden", "true");
+    var img = document.createElement("img");
+    img.alt = "";
+    img.decoding = "async";
+    card.appendChild(img);
+    document.body.appendChild(card);
+
+    // preload once the lists are near, so the first hover isn't blank
+    var preloaded = false;
+    function preload() {
+      if (preloaded) return;
+      preloaded = true;
+      links.forEach(function (a) { var i = new Image(); i.src = a.getAttribute("data-preview"); });
+    }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { preload(); io.disconnect(); }
+      }, { rootMargin: "400px" });
+      links.forEach(function (a) { io.observe(a); });
+    } else {
+      preload();
+    }
+
+    var OFFSET = 24; // gap between the pointer and the photo
+    var tx = 0, ty = 0, x = 0, y = 0, raf = 0, visible = false;
+
+    var header = document.querySelector(".site-header");
+    function target(e) {
+      var w = card.offsetWidth, h = card.offsetHeight;
+      // centred above the pointer so the row and text below stay visible
+      tx = Math.min(Math.max(e.clientX - w / 2, 12), window.innerWidth - w - 12);
+      ty = e.clientY - OFFSET - h;
+      // no room above (just under the site header)? flip below the pointer instead
+      var topLimit = 12;
+      if (header && !header.classList.contains("header-hidden")) {
+        topLimit = Math.max(topLimit, header.getBoundingClientRect().bottom + 12);
+      }
+      if (ty < topLimit) ty = e.clientY + OFFSET;
+    }
+    function frame() {
+      x += (tx - x) * (still ? 1 : 0.18);
+      y += (ty - y) * (still ? 1 : 0.18);
+      card.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+      if (visible || Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5) raf = requestAnimationFrame(frame);
+      else raf = 0;
+    }
+
+    links.forEach(function (a) {
+      a.addEventListener("mouseenter", function (e) {
+        preload();
+        img.src = a.getAttribute("data-preview");
+        target(e);
+        if (!visible) { x = tx; y = ty; }   // appear at the pointer, then trail it
+        visible = true;
+        card.classList.add("is-visible");
+        if (!raf) raf = requestAnimationFrame(frame);
+      });
+      a.addEventListener("mousemove", target);
+      a.addEventListener("mouseleave", function () {
+        visible = false;
+        card.classList.remove("is-visible");
+      });
     });
   }
 
@@ -836,6 +942,7 @@
     initScrollers();
     initMockupToggle();
     initFaqAccordion();
+    initServicePreview();
     initStatCounters();
     initEntranceAnimations();
     initFilters();

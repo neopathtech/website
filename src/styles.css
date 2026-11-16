@@ -1950,25 +1950,26 @@ body,
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 80px;
-    border-top: 1px solid var(--color-border);
+    border: 1px solid var(--color-border);
+    background: transparent;
 }
 
 .blog-post {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 48px 0 56px;
+    padding: 40px 32px 32px;
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.blog-post+.blog-post {
+    border-left: 1px solid var(--color-border);
 }
 
 /* Divider centred in the gap so every column keeps the same text width */
 .blog-post+.blog-post::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -40px;
-    border-left: 1px solid var(--color-border);
+    display: none;
 }
 
 .blog-tag {
@@ -2027,7 +2028,7 @@ a.blog-post:hover h3 {
     }
 
     .blog-post {
-        padding: 40px 0;
+        padding: 32px 24px 28px;
     }
 
     .blog-post+.blog-post::before {
@@ -2035,6 +2036,7 @@ a.blog-post:hover h3 {
     }
 
     .blog-post+.blog-post {
+        border-left: none;
         border-top: 1px solid var(--color-border);
     }
 }
@@ -2457,12 +2459,18 @@ a.blog-post:hover h3 {
 .blog-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 48px;
+    border: 1px solid var(--color-border);
+    background: transparent;
 }
 
 .blog-list .blog-post {
-    padding: 36px 0 48px;
-    border-top: 1px solid var(--color-border);
+    padding: 40px 32px 32px;
+    background: transparent;
+    border: none;
+}
+
+.blog-list .blog-post+.blog-post {
+    border-left: 1px solid var(--color-border);
 }
 
 .blog-list .blog-post::before {
@@ -2472,6 +2480,15 @@ a.blog-post:hover h3 {
 @media (max-width: 900px) {
     .blog-list {
         grid-template-columns: 1fr;
+    }
+
+    .blog-list .blog-post {
+        padding: 32px 24px 28px;
+    }
+
+    .blog-list .blog-post+.blog-post {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
     }
 }
 
@@ -2512,22 +2529,24 @@ a.blog-post:hover h3 {
 .pillars {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 80px;
-    border-top: 1px solid var(--color-border);
+    border: 1px solid var(--color-border);
+    background: transparent;
 }
 
 .pillar {
     position: relative;
-    padding: 40px 0 8px;
+    padding: 44px 36px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.pillar+.pillar {
+    border-left: 1px solid var(--color-border);
 }
 
 .pillar+.pillar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -40px;
-    border-left: 1px solid var(--color-border);
+    display: none;
 }
 
 .pillar-num {
@@ -2661,10 +2680,11 @@ a.blog-post:hover h3 {
     }
 
     .pillar {
-        padding: 32px 0;
+        padding: 32px 24px;
     }
 
     .pillar+.pillar {
+        border-left: none;
         border-top: 1px solid var(--color-border);
     }
 
@@ -2688,11 +2708,10 @@ a.blog-post:hover h3 {
 /* Four-step variant and coral accent (NeoEventize) */
 .pillars--4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 64px;
 }
 
 .pillars--4 .pillar+.pillar::before {
-    left: -32px;
+    display: none;
 }
 
 .accent-coral .pillar-num,
@@ -2728,16 +2747,18 @@ a.blog-post:hover h3 {
 @media (max-width: 1100px) {
     .pillars--4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        column-gap: 80px;
     }
 
     .pillars--4 .pillar+.pillar::before {
-        left: -40px;
+        display: none;
     }
 
-    /* No divider at the start of the second row */
-    .pillars--4 .pillar:nth-child(odd)::before {
-        display: none;
+    .pillars--4 .pillar:nth-child(2n + 1) {
+        border-left: none;
+    }
+
+    .pillars--4 .pillar:nth-child(2n) {
+        border-left: 1px solid var(--color-border);
     }
 
     .pillars--4 .pillar:nth-child(n + 3) {
@@ -2748,6 +2769,11 @@ a.blog-post:hover h3 {
 @media (max-width: 900px) {
     .pillars--4 {
         grid-template-columns: 1fr;
+    }
+
+    .pillars--4 .pillar+.pillar {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
     }
 }
 
@@ -3066,11 +3092,12 @@ a.blog-post:hover h3 {
     grid-auto-flow: column;
     grid-auto-columns: clamp(200px, 21vw, 260px);
     gap: 16px;
+    margin-bottom: 24px;
 }
 
 
 .post-card {
-    margin: 0;
+    margin: 0 0 20px;
     scroll-snap-align: start;
 }
 
@@ -3120,22 +3147,32 @@ a.blog-post:hover h3 {
 .post-card figcaption {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 0 10px;
+    min-width: 0;
+}
+
+.post-card figcaption span {
+    order: -1;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-card figcaption strong {
     font-size: 15px;
     line-height: 1.35;
     color: var(--color-text);
-}
-
-.post-card figcaption span {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-coral);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 600px) {
@@ -3588,6 +3625,7 @@ h6,
 }
 
 @media (max-width: 700px) {
+
     .cards-grid-3 .card-box,
     .cards-grid-4 .card-box {
         padding: 40px 20px;
@@ -3667,6 +3705,7 @@ h6,
         animation: none;
     }
 }
+
 /* ---- Panels, awards, info and pricing: same flat, hairline-divided columns as the cards ---- */
 .split-panels,
 .awards-grid,
@@ -3758,6 +3797,7 @@ h6,
 }
 
 @media (max-width: 700px) {
+
     .split-panel,
     .award-card,
     .info-panel,
@@ -3896,7 +3936,8 @@ h6,
 
     .nav.open .nav-dropdown-menu .nav-dropdown-label {
         flex-basis: 100%;
-        padding-left: 30px; /* icon (18px) + gap (12px): lines up under the item name */
+        padding-left: 30px;
+        /* icon (18px) + gap (12px): lines up under the item name */
     }
 }
 
@@ -3970,4 +4011,14 @@ body:has(.site-header.header-hidden) .service-stack {
         padding: 16px 0 72px;
     }
 }
+/* Hero headings use Bricolage Grotesque (display face); everything else stays Inter/Poppins */
+:root {
+    --font-display: 'Bricolage Grotesque', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
+.hero-title,
+.page-hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}

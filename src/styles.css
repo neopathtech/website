@@ -4022,3 +4022,47 @@ body:has(.site-header.header-hidden) .service-stack {
     font-weight: 700;
     letter-spacing: -0.03em;
 }
+
+/* ---------- Homepage hero: background video ----------
+   Full-bleed muted loop behind the headline, under a navy tint that is darkest on the
+   left (where the text sits) so white type stays readable. */
+.hero-section > .hero-video {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--brand-navy);
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(10, 25, 47, 0.92) 0%, rgba(10, 25, 47, 0.78) 45%, rgba(10, 25, 47, 0.5) 100%),
+        linear-gradient(0deg, rgba(10, 25, 47, 0.85) 0%, rgba(10, 25, 47, 0) 35%);
+}
+
+/* the old radial glows aren't needed over footage */
+.hero-section:has(.hero-video)::before,
+.hero-section:has(.hero-video)::after {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .hero-video::after {
+        background: rgba(10, 25, 47, 0.8);
+    }
+}

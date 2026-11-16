@@ -856,6 +856,27 @@
     });
   }
 
+  // ====== Homepage hero background video ======
+  // Keeps the video still for reduced motion and pauses it while it is off-screen.
+  function initHeroVideo() {
+    var video = document.querySelector(".hero-video video");
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.removeAttribute("autoplay");
+      video.pause();
+      return;
+    }
+    video.muted = true; // required for autoplay on iOS/Chrome
+    var play = function () { var p = video.play(); if (p && p.catch) p.catch(function () {}); };
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { e.isIntersecting ? play() : video.pause(); });
+      }).observe(video);
+    } else {
+      play();
+    }
+  }
+
   // ====== Initialize All ======
   function initApp() {
     initStickyHeader();
@@ -866,6 +887,7 @@
     initScrollers();
     initMockupToggle();
     initFaqAccordion();
+    initHeroVideo();
     initStatCounters();
     initEntranceAnimations();
     initFilters();

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NeoEventize — Autonomous Event Ticketing &amp; Gate Scanning | Neopath Technologies</title>
+    <meta name="description"
+        content="NeoEventize by Neopath Technologies: autonomous event ticketing, high-speed QR gate scanning, direct zero-escrow settlements, and automated attendee certificate generation.">
+    <meta name="theme-color" content="#080808">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/pages/product.css?v=1">
+    <link rel="stylesheet" href="css/pages/neoeventize.css?v=1">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.remove('no-js'); d.classList.add('js');
+            // preloader only on the first page of a visit
+            try { if (sessionStorage.getItem('np2-loaded')) d.classList.add('no-preloader'); else sessionStorage.setItem('np2-loaded', '1'); } catch (e) { d.classList.add('no-preloader'); }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="preloader" aria-hidden="true">
+        <svg class="preloader-mark" viewBox="0 70 710 525" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z" />
+            <path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z" />
+        </svg>
+    </div>
+
+    <!-- ===== Navigation (floating pill) ===== -->
+    <header class="nav-wrap">
+        <nav class="nav" aria-label="Primary">
+            <a class="nav-logo" href="index.html" aria-label="Neopath Technologies — home">
+                <svg viewBox="0 70 710 525" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z" />
+                    <path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z" />
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-drop">
+                    <button class="nav-drop-btn" type="button" aria-expanded="false">Services
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="nav-panel">
+                        <a href="digital-marketing.html"><strong>Digital Marketing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Branding, Video, SEO &amp; Social</span></a>
+                        <a href="technology.html"><strong>Technology <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Software, IT &amp; Consulting</span></a>
+                    </div>
+                </div>
+                <div class="nav-drop">
+                    <button class="nav-drop-btn" type="button" aria-expanded="false">Products
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="nav-panel">
+                        <a href="powercampus.html"><strong>PowerCampus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Educational ERP &amp; Pricing</span></a>
+                        <a href="neoeventize.html" aria-current="page"><strong>NeoEventize <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Event Ticketing</span></a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-link" href="blog.html">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <a class="btn btn--dark btn--sm nav-book" href="contact.html">Book a call</a>
+                <a class="btn btn--accent btn--sm" href="contact.html">Contact</a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="digital-marketing.html">Digital Marketing</a>
+        <a href="technology.html">Technology</a>
+        <a class="sub" href="powercampus.html">PowerCampus</a>
+        <a class="sub" href="neoeventize.html">NeoEventize</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-menu-foot">
+            <a href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+            <a href="tel:+918257000220">+91 8257000220</a>
+        </div>
+    </div>
+
+    <a class="float-cta" href="contact.html">Book a call
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></span>
+    </a>
+
+    <main id="main">
+        <!-- ===== Hero: headline numbers in a tilting frame ===== -->
+        <section class="hero product-hero ne-hero" data-parallax-zone>
+            <div class="container hero-copy">
+                <span class="pill" data-reveal><span class="pill-dot pill-dot--violet"></span>NeoEventize · Event Ticketing</span>
+                <h1 class="h-hero balance" data-split>Zero Escrow. Sub-Second Gate Entry. <span class="tone">Total Organizer Autonomy.</span></h1>
+                <p class="lead" data-reveal style="--d:.25s">NeoEventize empowers event creators, festivals, and academic conclaves to sell tickets directly, process real-time payments into their own accounts, and verify every attendee at the gate with fast QR scanning.</p>
+                <div class="btn-actions btn-actions--center" data-reveal style="--d:.35s">
+                    <a class="btn btn--accent" href="contact.html?division=NeoEventize+Partnership">Onboard Your Event</a>
+                    <a class="btn btn--dark" href="#deployments">View Featured Deployments</a>
+                </div>
+            </div>
+
+            <div class="container container--wide hero-stage" data-reveal="fade" style="--d:.45s">
+                <div class="widget w-1" data-depth="26" aria-hidden="true">
+                    <div class="widget-title">Indian Payments</div>
+                    <div class="widget-big" style="font-size:24px">Instamojo</div>
+                    <div style="color:#BDBDBD;margin-top:6px">UPI, cards &amp; netbanking</div>
+                </div>
+                <div class="widget widget--accent widget--circle w-2" data-depth="40" aria-hidden="true">
+                    <div><div class="widget-big" style="font-size:22px">QR</div><div style="font-size:11px;opacity:.85">gate check-in</div></div>
+                </div>
+                <div class="widget w-3" data-depth="22" aria-hidden="true">
+                    <div class="widget-title">1st AHPICON NE-II 2025</div>
+                    <div class="widget-big">650+</div>
+                    <div style="color:#BDBDBD;margin-top:6px">delegates</div>
+                </div>
+                <div class="widget widget--violet w-4" data-depth="34" aria-hidden="true">
+                    <div class="widget-big" style="font-size:24px">Stripe</div>
+                    <div style="opacity:.85;margin-top:4px">card checkout</div>
+                </div>
+                <div class="widget widget--light w-5" data-depth="18" aria-hidden="true">
+                    <div class="widget-title">POP CITY 2026</div>
+                    <div style="font-size:15px">27–29 March 2026</div>
+                </div>
+
+                <div class="hero-frame ne-board" data-tilt>
+                    <div class="ne-board-top">
+                        <span class="ne-board-brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /><path d="M13 5v2" /><path d="M13 17v2" /><path d="M13 11v2" /></svg>NeoEventize</span>
+                        <span class="ne-board-tag">Event Ticketing</span>
+                    </div>
+                    <dl class="ne-stats">
+                        <div class="ne-stat ne-stat--accent"><dt>Direct Settlements (Zero Escrow)</dt><dd><span data-count="100">100</span>%</dd></div>
+                        <div class="ne-stat"><dt>QR Gate Check-In Velocity</dt><dd>&lt; 500ms</dd></div>
+                        <div class="ne-stat"><dt>Passes, Combos &amp; Early Bird</dt><dd>Multi-Tier</dd></div>
+                        <div class="ne-stat ne-stat--violet"><dt>PDF &amp; Certificate Generator</dt><dd>Instant</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Statement ===== -->
+        <section class="section">
+            <div class="container">
+                <p class="statement" data-scroll-lit>Say goodbye to high platform take-rates and delayed payouts. NeoEventize gives you complete control over your ticketing revenue and customer relationship.</p>
+            </div>
+        </section>
+
+        <!-- ===== Features ===== -->
+        <section class="section section--flush-top" id="features">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="eyebrow" data-reveal>Engineered for Organizers &amp; Attendees</span>
+                    <h2 class="h-2 balance" data-split>Everything required to launch, sell, <span class="tone">and verify autonomously.</span></h2>
+                </div>
+                <div class="grid-3 feature-grid" data-stagger="0.07">
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /><path d="M13 5v2" /><path d="M13 17v2" /><path d="M13 11v2" /></svg></span>
+                        <div>
+                            <h3>Multi-Tier Ticketing &amp; Passes</h3>
+                            <p>Configure single-day passes, multi-day all-access badges, VIP/Platinum tiers, early bird pricing, and hidden promo codes.</p>
+                        </div>
+                    </article>
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" /><path d="M2 10h20" /></svg></span>
+                        <div>
+                            <h3>Direct Indian &amp; Global Payments</h3>
+                            <p>Integrate directly with Instamojo (UPI, cards, netbanking) and Stripe. No commission middleman fees, and settlement is instant.</p>
+                        </div>
+                    </article>
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /><rect width="5" height="5" x="16" y="3" rx="1" /><rect width="5" height="5" x="3" y="16" rx="1" /><path d="M21 16h-3a2 2 0 0 0-2 2v3" /><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path d="M3 12h.01" /><path d="M12 3h.01" /><path d="M12 16v.01" /><path d="M16 12h1" /><path d="M21 12v.01" /><path d="M12 21v-1" /></svg></span>
+                        <div>
+                            <h3>Lightning QR Gate Check-In</h3>
+                            <p>Mobile and camera-based attendee validation at the gate, in under 500ms. Stops fraudulent passes and keeps entry queues short.</p>
+                        </div>
+                    </article>
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6" /><path d="M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg></span>
+                        <div>
+                            <h3>Automated Digital Certificates</h3>
+                            <p>Automatically generate and dispatch personalized PDF attendance and participation certificates for academic conferences, symposia, and workshops.</p>
+                        </div>
+                    </article>
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></svg></span>
+                        <div>
+                            <h3>Dynamic Agenda &amp; Zone Showcases</h3>
+                            <p>Interactive multi-day timelines, hourly artist schedules, and responsive zone carousels that showcase your event.</p>
+                        </div>
+                    </article>
+                    <article class="card feature-card">
+                        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></span>
+                        <div>
+                            <h3>SMS OTP &amp; Feedback Surveys</h3>
+                            <p>Integrated MSG91 gateway for instant SMS verification, ticket re-delivery, and post-event attendee satisfaction questionnaires.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== How it works (paper) ===== -->
+        <section class="section paper paper--rounded" id="how-it-works">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <span class="eyebrow" data-reveal>How It Works</span>
+                        <h2 class="h-2 balance" data-split style="margin-top:18px">From first ticket <span class="tone">to last certificate.</span></h2>
+                    </div>
+                    <p class="lead head-aside" data-reveal>A self-hosted ticketing and attendee operations platform that covers the whole event, not just the checkout.</p>
+                </div>
+                <ol class="steps" role="list" data-stagger="0.08">
+                    <li class="step">
+                        <span class="step-num">01</span>
+                        <h3>Set up your passes</h3>
+                        <p>Single-day and multi-day all-access passes, VIP and Platinum tiers, early bird pricing and hidden promo codes.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">02</span>
+                        <h3>Sell and get paid directly</h3>
+                        <p>Attendees pay by UPI, card or netbanking, and the money settles straight into your own account.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">03</span>
+                        <h3>Check in at the gate</h3>
+                        <p>Every attendee gets a QR pass. Gate staff scan it with a phone camera in under 500ms.</p>
+                    </li>
+                    <li class="step step--accent">
+                        <span class="step-num">04</span>
+                        <h3>Certify and follow up</h3>
+                        <p>Send personalised PDF certificates and a feedback survey once the event is over.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===== Organisers & attendees (paper) ===== -->
+        <section class="section paper section--flush-top" id="organisers-attendees">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <span class="eyebrow" data-reveal>Built for Both Sides of the Gate</span>
+                        <h2 class="h-2 balance" data-split style="margin-top:18px">Organisers stay in control. <span class="tone">Attendees walk straight in.</span></h2>
+                    </div>
+                    <p class="lead head-aside" data-reveal>The same platform runs your box office and your front door, so sales, passes and check-ins always match.</p>
+                </div>
+                <div class="sides" data-stagger="0.1">
+                    <article class="side-panel side-panel--dark">
+                        <div class="side-panel-head">
+                            <h3 class="h-3">For organisers</h3>
+                            <span class="pill pill--sm"><span class="pill-dot"></span>Box office</span>
+                        </div>
+                        <p class="side-panel-desc">Launch, sell and verify on your own terms, with full control of your revenue and your attendee list.</p>
+                        <ul class="check-list check-list--detail">
+                            <li><div><strong>Direct payouts</strong><span>Ticket money goes to your account, with no middleman holding it in escrow.</span></div></li>
+                            <li><div><strong>Flexible pass tiers</strong><span>Day passes, combos, all-access, VIP, early bird and promo codes.</span></div></li>
+                            <li><div><strong>Fraud-proof entry</strong><span>QR validation at the gate stops fake passes and keeps queues short.</span></div></li>
+                            <li><div><strong>Live agenda pages</strong><span>Multi-day timelines, hourly artist schedules and zone showcases.</span></div></li>
+                            <li><div><strong>Certificates on autopilot</strong><span>Attendance and participation certificates generated as PDFs.</span></div></li>
+                            <li><div><strong>Feedback surveys</strong><span>Post-event questionnaires to measure attendee satisfaction.</span></div></li>
+                        </ul>
+                    </article>
+                    <article class="side-panel">
+                        <div class="side-panel-head">
+                            <h3 class="h-3">For attendees</h3>
+                            <span class="pill pill--sm"><span class="pill-dot pill-dot--violet"></span>Front door</span>
+                        </div>
+                        <p class="side-panel-desc">A simple checkout, a pass on their phone and a quick walk through the gate.</p>
+                        <ul class="check-list check-list--detail check-list--violet">
+                            <li><div><strong>Pay your way</strong><span>UPI, cards and netbanking for Indian payments, plus Stripe.</span></div></li>
+                            <li><div><strong>Pass on your phone</strong><span>A QR pass that gets you through the gate in seconds.</span></div></li>
+                            <li><div><strong>Verified by SMS</strong><span>One-time passwords confirm your number and booking.</span></div></li>
+                            <li><div><strong>Shorter queues</strong><span>Camera-based scanning keeps the entry line moving.</span></div></li>
+                            <li><div><strong>The full schedule</strong><span>Stages, sessions and timings for every day of the event.</span></div></li>
+                            <li><div><strong>Your certificate</strong><span>A personalised PDF certificate for conferences and workshops.</span></div></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Integrations (paper) ===== -->
+        <section class="section paper paper-end section--flush-top" id="integrations">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <span class="eyebrow" data-reveal>Integrations</span>
+                        <h2 class="h-2 balance" data-split style="margin-top:18px">Built on payment and messaging partners <span class="tone">you already trust.</span></h2>
+                    </div>
+                    <p class="lead head-aside" data-reveal>Payments and messages run through established providers, so money and OTPs reach the right people.</p>
+                </div>
+                <div class="rows integration-rows" data-stagger="0.08">
+                    <div class="row-item">
+                        <h3 class="h-4">Instamojo</h3>
+                        <span>Indian Payments</span>
+                        <span class="row-title">UPI, cards and netbanking, settled directly to the organiser.</span>
+                    </div>
+                    <div class="row-item">
+                        <h3 class="h-4">Stripe</h3>
+                        <span>Card Payments</span>
+                        <span class="row-title">Card checkout through Stripe alongside Indian payment methods.</span>
+                    </div>
+                    <div class="row-item">
+                        <h3 class="h-4">MSG91</h3>
+                        <span>SMS</span>
+                        <span class="row-title">SMS OTP verification for attendee sign-up and bookings.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Featured deployments: stacking cards ===== -->
+        <section class="section" id="deployments">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <span class="eyebrow" data-reveal>Proven at Real Events</span>
+                        <h2 class="h-2 balance" data-split style="margin-top:18px">Featured event <span class="tone">deployments.</span></h2>
+                    </div>
+                    <p class="lead head-aside" data-reveal>A three-day festival and a healthcare conclave, both ticketed, checked in and wrapped up on NeoEventize.</p>
+                </div>
+                <div class="stack">
+                    <article class="stack-card">
+                        <div class="stack-card-copy">
+                            <span class="pill pill--sm" style="align-self:flex-start"><span class="pill-dot"></span>Festival</span>
+                            <h3 class="h-2">POP CITY 2026</h3>
+                            <p>Manipur’s three-day youth, lifestyle and music festival across seven zones, with ticketing by Neopath Technologies.</p>
+                            <ul class="check-list check-list--detail">
+                                <li><div><strong>7-zone showcase</strong><span>A hero carousel introducing each of the festival’s seven zones.</span></div></li>
+                                <li><div><strong>Pass matrix</strong><span>Single-day, concert combo and all-access passes side by side.</span></div></li>
+                                <li><div><strong>Hourly stage timelines</strong><span>Artist schedules for every stage across all three days.</span></div></li>
+                                <li><div><strong>Tiered sponsor grids</strong><span>Title, Gold, Silver and Strategic Partner placements.</span></div></li>
+                            </ul>
+                        </div>
+                        <dl class="stack-card-side event-facts">
+                            <div class="mini-card"><dt>Organiser</dt><dd>The Rise Up Foundation &amp; Nekotai Noble</dd></div>
+                            <div class="mini-card"><dt>Venue</dt><dd>YAC Ground (Range), Imphal</dd></div>
+                            <div class="mini-card"><dt>Dates</dt><dd>27–29 March 2026</dd></div>
+                            <div class="mini-card mini-card--accent"><dt>Passes</dt><dd>₹99 single day · ₹400 concert combo · ₹500 all-access</dd></div>
+                        </dl>
+                    </article>
+                    <article class="stack-card">
+                        <div class="stack-card-copy">
+                            <span class="pill pill--sm" style="align-self:flex-start"><span class="pill-dot pill-dot--violet"></span>Conclave</span>
+                            <h3 class="h-2">1st AHPICON NE-II 2025</h3>
+                            <p>An academic and healthcare conclave on the theme “Impact of Climate Change on Human Health”.</p>
+                            <ul class="check-list check-list--detail check-list--violet">
+                                <li><div><strong>Designation-based passes</strong><span>Separate passes for students, PG residents, interns, faculty and VIPs.</span></div></li>
+                                <li><div><strong>Live session survey</strong><span>Real-time feedback on the scientific sessions.</span></div></li>
+                                <li><div><strong>Automated certificates</strong><span>PDF certificates for every registered doctor and delegate.</span></div></li>
+                                <li><div><strong>Digital check-in</strong><span>100% attendance tracking at the venue.</span></div></li>
+                            </ul>
+                        </div>
+                        <dl class="stack-card-side event-facts">
+                            <div class="mini-card"><dt>Organiser</dt><dd>AHPI NE INDIA II</dd></div>
+                            <div class="mini-card"><dt>Venue</dt><dd>City Convention Centre, Imphal</dd></div>
+                            <div class="mini-card"><dt>Date</dt><dd>15 February 2025</dd></div>
+                            <div class="mini-card mini-card--violet"><dt>Delegates</dt><dd>650+ healthcare professionals</dd></div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section section--flush-top" id="faq">
+            <div class="container">
+                <div class="faq-split">
+                    <div class="faq-split-head">
+                        <span class="eyebrow" data-reveal>FAQ</span>
+                        <h2 class="h-2 balance" data-split>Questions organisers ask us.</h2>
+                        <p class="lead" data-reveal>Planning something specific? Our event team will walk you through setup for your venue and passes.</p>
+                        <div data-reveal><a class="btn btn--dark" href="contact.html?division=NeoEventize+Partnership">Talk to the Event Team</a></div>
+                    </div>
+                    <div class="faq" data-reveal>
+                        <div class="faq-item is-open">
+                            <h3 class="faq-h"><button class="faq-q" type="button">Do you hold our ticket money?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>No. Payments settle directly into your own Instamojo or Stripe account, with no middleman holding the money in escrow. Talk to us about platform pricing for your event.</p></div></div>
+                        </div>
+                        <div class="faq-item">
+                            <h3 class="faq-h"><button class="faq-q" type="button">Which payment methods can attendees use?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>UPI, debit and credit cards and netbanking through Instamojo, plus card payments through Stripe.</p></div></div>
+                        </div>
+                        <div class="faq-item">
+                            <h3 class="faq-h"><button class="faq-q" type="button">How does gate check-in work?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>Every ticket comes with a QR pass. Your gate staff scan it with a phone or camera and the pass is validated in under 500ms, which keeps queues short and stops fake passes at the door.</p></div></div>
+                        </div>
+                        <div class="faq-item">
+                            <h3 class="faq-h"><button class="faq-q" type="button">What kinds of tickets can we sell?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>Single-day passes, multi-day all-access badges, VIP and Platinum tiers, combos, early bird pricing and hidden promo codes.</p></div></div>
+                        </div>
+                        <div class="faq-item">
+                            <h3 class="faq-h"><button class="faq-q" type="button">Can we issue certificates to delegates?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>Yes. NeoEventize generates personalised PDF attendance and participation certificates, which suits conferences, conclaves and workshops.</p></div></div>
+                        </div>
+                        <div class="faq-item">
+                            <h3 class="faq-h"><button class="faq-q" type="button">What events has it been used for?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+                            <div class="faq-a"><div><p>Everything from POP CITY 2026, a three-day music and lifestyle festival in Imphal, to the 1st AHPICON NE-II, a healthcare conclave for 650+ delegates.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section section--flush-top" id="onboard">
+            <div class="container container--wide">
+                <div class="cta-card cta-card--product" data-reveal="scale">
+                    <div>
+                        <h2 class="h-giant" data-split>Planning an Event, Festival, <span class="tone">or Conclave?</span></h2>
+                        <p class="lead">Get custom branded ticketing, QR gate scanning and direct payment routing set up for your event.</p>
+                        <div class="btn-actions">
+                            <a class="btn btn--accent btn--lg" href="contact.html?division=NeoEventize+Partnership">Schedule Event Onboarding</a>
+                            <a class="btn btn--dark btn--lg" href="powercampus.html">Looking for School ERP? View PowerCampus</a>
+                        </div>
+                    </div>
+                    <div class="cta-art ne-cta-art" aria-hidden="true">
+                        <div class="widget widget--light" style="left:2%;top:8%;--rot:-4deg">
+                            <div class="widget-title">Direct payouts</div>
+                            <div class="ne-cta-text">Ticket money goes to your account</div>
+                        </div>
+                        <div class="widget widget--accent widget--circle" style="right:8%;top:2%;--delay:-2s">
+                            <div><div class="widget-big">&lt; 500ms</div><div style="font-size:12px;opacity:.85">QR check-in</div></div>
+                        </div>
+                        <div class="widget" style="left:26%;top:40%;--delay:-1s;--rot:3deg">
+                            <div class="widget-title">Pass on your phone</div>
+                            <div class="widget-big">QR pass</div>
+                        </div>
+                        <div class="widget widget--violet" style="right:2%;top:56%;--delay:-3s">
+                            <div class="widget-big">Instant</div>
+                            <div style="opacity:.85;margin-top:6px">PDF certificates</div>
+                        </div>
+                        <div class="widget" style="left:4%;bottom:4%;--delay:-4s;--rot:-2deg">
+                            <div class="widget-title">Integrations</div>
+                            <div class="ne-cta-text">Instamojo · Stripe · MSG91</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-cols">
+                    <nav aria-label="Digital Marketing">
+                        <h3>Digital Marketing</h3>
+                        <ul>
+                            <li><a href="digital-marketing.html#branding">Branding</a></li>
+                            <li><a href="digital-marketing.html#video-production">Video Production</a></li>
+                            <li><a href="digital-marketing.html#seo">SEO</a></li>
+                            <li><a href="digital-marketing.html#social-media-marketing">Social Media</a></li>
+                            <li><a href="digital-marketing.html#influencer-marketing">Influencer Marketing</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Technology">
+                        <h3>Technology</h3>
+                        <ul>
+                            <li><a href="technology.html#software-development">Software Development</a></li>
+                            <li><a href="technology.html#it-infrastructure">IT Infrastructure</a></li>
+                            <li><a href="technology.html#management-consulting">Management Consulting</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Products">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="powercampus.html">PowerCampus</a></li>
+                            <li><a href="neoeventize.html">NeoEventize</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Company">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer-contact">
+                    <a class="footer-mail" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+                    <div class="footer-socials">
+                        <a class="social" href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                        <a class="social" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></svg></a>
+                    </div>
+                    <address class="footer-address">RIMS Road, Canara Bank Building,<br>3rd Floor, Imphal West – 795001,<br>Manipur, INDIA<br><a href="tel:+918257000220">+91 8257000220</a></address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <a class="footer-logo" href="index.html"><img src="assets/Neopath_logo_light.svg" alt="Neopath Technologies — new ways with technology" width="2670" height="806"></a>
+                <span>© <span data-year>2026</span> Neopath Technologies Pvt. Ltd. · ISO 9001:2015 Certified</span>
+                <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+            </div>
+            <div class="footer-word" aria-hidden="true">neopath</div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=1" defer></script>
+</body>
+
+</html>

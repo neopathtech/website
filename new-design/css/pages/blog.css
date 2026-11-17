@@ -1,0 +1,125 @@
+/* Neopath — blog.html only. Loaded after css/style.css. */
+
+.blog-section {
+    padding-top: clamp(56px, 7vw, 104px);
+}
+
+/* ---------- Filter chips ---------- */
+.blog-toolbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(36px, 4.5vw, 64px);
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    padding: 0 22px;
+    border-radius: var(--r-pill);
+    box-shadow: inset 0 0 0 1px var(--line-strong);
+    font-size: 16px;
+    color: var(--text);
+    transition: background-color 0.35s var(--ease), color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.filter-chip:hover {
+    background: var(--surface);
+}
+
+.filter-chip[aria-pressed="true"] {
+    background: var(--ink);
+    color: #fff;
+    box-shadow: none;
+}
+
+.filter-count {
+    font-size: 13px;
+    color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+}
+
+.filter-chip[aria-pressed="true"] .filter-count {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 760px) {
+    .filter-chip {
+        height: 44px;
+        padding: 0 18px;
+        font-size: 15px;
+    }
+}
+
+/* ---------- Posts ---------- */
+.post-card[hidden] {
+    display: none;
+}
+
+.post-card {
+    gap: 16px;
+}
+
+.post-card h2 {
+    font-size: clamp(21px, 1.8vw, 25px);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+}
+
+.post-cover {
+    margin-bottom: 6px;
+}
+
+.post-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post-tag::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.post-tag--violet::before {
+    background: var(--violet);
+}
+
+/* posts brought back by a filter rise in */
+.post-card.is-shown {
+    animation: post-in 0.8s var(--ease) both;
+    animation-delay: var(--fd, 0s);
+}
+
+@keyframes post-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+}
+
+/* ---------- Closing CTA ---------- */
+.page-cta .h-giant {
+    font-size: clamp(40px, 6.2vw, 100px);
+}
+
+.page-cta-side .lead {
+    margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .post-card.is-shown {
+        animation: none;
+    }
+}

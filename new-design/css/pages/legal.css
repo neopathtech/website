@@ -1,0 +1,106 @@
+/* =====================================================================
+   Legal pages (privacy.html, terms.html) — page-only styles.
+   Shorter page hero + the shared .prose on a paper band, with a sticky
+   "On this page" list beside it on wide screens.
+   ===================================================================== */
+
+.legal-hero {
+    padding-bottom: clamp(48px, 6vw, 96px);
+}
+
+.legal-hero .page-hero-inner .h-hero {
+    max-width: none;
+}
+
+.legal-band {
+    padding-block: clamp(64px, 8vw, 128px);
+}
+
+.legal-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 112px);
+    align-items: start;
+}
+
+.legal-toc {
+    position: sticky;
+    top: 112px;
+}
+
+.legal-toc-title {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: var(--ink-3);
+}
+
+.legal-toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+    border-left: 1px solid var(--paper-line);
+}
+
+.legal-toc a {
+    display: block;
+    margin-left: -1px;
+    padding: 7px 0 7px 16px;
+    border-left: 1px solid transparent;
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.35;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.legal-toc a:hover {
+    color: var(--ink);
+    border-left-color: var(--accent);
+}
+
+.legal-prose {
+    margin-inline: 0;
+}
+
+.legal-prose>h2:first-child {
+    margin-top: 0;
+}
+
+.legal-prose strong {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.legal-prose ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.legal-prose li {
+    position: relative;
+    padding-left: 24px;
+}
+
+.legal-prose li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.72em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+@media (max-width: 960px) {
+    .legal-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .legal-toc {
+        display: none;
+    }
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services — Neopath Technologies</title>
+    <meta name="robots" content="noindex">
+    <script>
+        (function () {
+            var tech = ["software-development", "it-infrastructure", "management-consulting", "tech"];
+            var h = location.hash.slice(1);
+            location.replace((tech.indexOf(h) > -1 ? "technology.html" : "digital-marketing.html") + location.hash);
+        })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=digital-marketing.html">
+</head>
+
+<body>
+    <p>Our services are now on two pages: <a href="digital-marketing.html">Digital Marketing</a> and
+        <a href="technology.html">Technology</a>.</p>
+</body>
+
+</html>

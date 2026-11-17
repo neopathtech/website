@@ -1,0 +1,484 @@
+/* Neopath — about.html only. Loaded after css/style.css (+ css/pages/lightbox.css). */
+
+/* ---------- ISO certification card ---------- */
+.iso-card-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.iso-pill {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.iso-seal-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.iso-seal {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.6);
+    text-align: center;
+    line-height: 1.1;
+}
+
+.iso-seal b {
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+}
+
+.iso-seal span {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.iso-seal-label {
+    max-width: 130px;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.iso-title {
+    font-weight: 500;
+}
+
+.iso-title .stat-num {
+    display: block;
+    font-size: clamp(52px, 6.4vw, 96px);
+}
+
+.iso-sub {
+    display: block;
+    margin-top: 16px;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.stat-card.iso-card p {
+    max-width: 560px;
+    margin-top: 16px;
+}
+
+/* ---------- Who we are: sticky copy + division cards ---------- */
+.about-split-copy {
+    display: grid;
+    gap: 22px;
+    align-content: start;
+}
+
+.about-split-copy .lead {
+    max-width: 480px;
+}
+
+@media (min-width: 861px) {
+    .about-split-copy {
+        position: sticky;
+        top: 120px;
+    }
+}
+
+.division-list {
+    display: grid;
+    gap: 16px;
+}
+
+.division-card {
+    gap: 18px;
+    padding: clamp(28px, 3.4vw, 44px);
+}
+
+.division-card p {
+    font-size: 16px;
+}
+
+.division-icon {
+    background: #fff;
+}
+
+.division-icon--violet {
+    color: var(--violet);
+}
+
+.division-icon--ink {
+    color: var(--ink);
+}
+
+/* paper band with rounded lower corners where it meets the dark canvas again */
+.paper--round-bottom {
+    border-radius: 0 0 var(--r-xl) var(--r-xl);
+}
+
+/* ---------- Mission & Vision ---------- */
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.mv-card {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: clamp(28px, 4vw, 56px);
+    border-radius: var(--r-xl);
+    background: var(--paper-2);
+    color: var(--ink);
+}
+
+.mv-pill {
+    align-self: flex-start;
+    background: #fff;
+    color: var(--ink);
+}
+
+.mv-list {
+    display: grid;
+    margin-top: 6px;
+}
+
+.mv-list li {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 8px;
+    padding: 20px 0;
+    border-top: 1px solid var(--paper-line);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-2);
+}
+
+.mv-num {
+    padding-top: 2px;
+    font-size: 15px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.mv-card--vision {
+    background: var(--violet);
+    color: #fff;
+}
+
+.mv-card--vision .mv-pill {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.mv-quote {
+    font-size: clamp(24px, 2.3vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.mv-card--vision p {
+    margin-top: auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+    .mv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .mv-list li {
+        grid-template-columns: 36px 1fr;
+        font-size: 16px;
+    }
+}
+
+/* ---------- Awards rows ---------- */
+.award-rows .row-item {
+    grid-template-columns: 64px 1fr 1.25fr;
+    gap: 32px;
+    padding-block: 34px;
+}
+
+.award-rows .award-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+}
+
+.award-rows .award-icon--violet {
+    background: var(--violet);
+}
+
+.award-rows .award-icon--lime {
+    background: var(--lime);
+    color: var(--ink);
+}
+
+.award-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.award-head {
+    display: grid;
+    gap: 8px;
+}
+
+.award-desc {
+    color: var(--text-2);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 520px;
+}
+
+@media (max-width: 860px) {
+    .award-rows .row-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-block: 28px;
+    }
+}
+
+/* ---------- Operating principles ---------- */
+.principle-card {
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 340px;
+}
+
+.principle-card h3 {
+    margin-bottom: 12px;
+}
+
+.principle-card p {
+    font-size: 16px;
+}
+
+.principle-num {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+}
+
+.principle-num--accent {
+    color: var(--accent);
+}
+
+.principle-num--violet {
+    color: var(--violet);
+}
+
+.principle-num--ink {
+    color: var(--ink);
+}
+
+@media (max-width: 960px) {
+    .principle-card {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 640px) {
+    .principle-card {
+        min-height: 0;
+    }
+}
+
+/* ---------- NEo Social ---------- */
+.neo-intro {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: end;
+    margin-bottom: clamp(72px, 9vw, 140px);
+}
+
+.neo-title {
+    margin-top: 22px;
+}
+
+.neo-tagline {
+    max-width: 17em;
+    margin-top: 28px;
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--text-3);
+}
+
+.neo-body {
+    display: grid;
+    gap: 28px;
+}
+
+.neo-body .lead {
+    color: var(--text);
+}
+
+.neo-rail-head {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 860px) {
+    .neo-intro {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+}
+
+.story-rail {
+    grid-auto-columns: min(300px, 72vw);
+    padding-block: 6px 10px;
+}
+
+.story-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-snap-align: start;
+    user-select: none;
+}
+
+.story-open {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface-2);
+}
+
+.story-open img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    transition: transform 1.2s var(--ease);
+}
+
+.story-count {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: var(--r-pill);
+    background: rgba(8, 8, 8, 0.55);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1;
+}
+
+.story-count svg {
+    width: 14px;
+    height: 14px;
+}
+
+.story-zoom {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink);
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.story-zoom svg {
+    width: 18px;
+    height: 18px;
+}
+
+.story-open:focus-visible .story-zoom {
+    opacity: 1;
+    transform: none;
+}
+
+@media (hover: hover) {
+    .story-open:hover img {
+        transform: scale(1.05);
+    }
+
+    .story-open:hover .story-zoom {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.story-card figcaption {
+    display: grid;
+    gap: 4px;
+    padding-inline: 4px;
+}
+
+.story-card figcaption span {
+    font-size: 13px;
+    color: var(--text-3);
+}
+
+.story-card figcaption strong {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Closing CTA ---------- */
+.page-cta .h-giant {
+    font-size: clamp(40px, 6.2vw, 100px);
+}
+
+.page-cta-side .lead {
+    margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .story-open img,
+    .story-zoom {
+        transition: none;
+    }
+}
+
+/* ---------- Hero title: one phrase per line on wide screens ---------- */
+.page-hero-inner .about-title {
+    max-width: 22ch;
+}
+
+.principle-card .h-4 {
+    font-size: clamp(21px, 1.8vw, 25px);
+}
+
+/* hide alt text while lazy story thumbnails load (the button keeps its aria-label) */
+.story-open img {
+    color: transparent;
+}

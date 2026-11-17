@@ -1,0 +1,231 @@
+/* Neopath — shared image / story viewer (js/pages/lightbox.js).
+   Used by about.html (NEo Social stories) and gallery.html. */
+
+html.lb-lock {
+    overflow: hidden;
+}
+
+.lb {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+}
+
+.lb[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
+    animation: lb-in 0.5s var(--ease) both;
+}
+
+.lb::backdrop {
+    background: rgba(8, 8, 8, 0.94);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+@keyframes lb-in {
+    from {
+        opacity: 0;
+    }
+}
+
+.lb-top {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 20px var(--gutter) 16px;
+}
+
+/* story progress: one segment per slide */
+.lb-progress {
+    display: none;
+    gap: 4px;
+}
+
+.lb--story .lb-progress {
+    display: flex;
+}
+
+.lb-progress i {
+    position: relative;
+    flex: 1;
+    height: 3px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.lb-progress i::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s var(--ease);
+}
+
+.lb-progress i.is-done::after,
+.lb-progress i.is-current::after {
+    transform: scaleX(1);
+}
+
+.lb-progress i.is-current::after {
+    background: var(--accent);
+}
+
+.lb-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.lb-caption {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+}
+
+.lb-caption strong {
+    font-weight: 500;
+    font-size: clamp(17px, 1.6vw, 21px);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.lb-caption span {
+    font-size: 14px;
+    color: #A3A3A3;
+}
+
+.lb-btn {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.lb-btn:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+.lb-btn[hidden] {
+    display: none;
+}
+
+.lb-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.lb-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 var(--gutter);
+    touch-action: pan-y;
+}
+
+.lb-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--r-md);
+    user-select: none;
+    -webkit-user-drag: none;
+    opacity: 0;
+}
+
+.lb-img.is-in {
+    animation: lb-img 0.7s var(--ease) both;
+}
+
+@keyframes lb-img {
+    from {
+        opacity: 0;
+        transform: translateX(var(--dx, 0)) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.lb-foot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 48px;
+    padding: 16px var(--gutter) 24px;
+}
+
+.lb-counter {
+    min-width: 56px;
+    text-align: center;
+    font-size: 15px;
+    color: #A3A3A3;
+    font-variant-numeric: tabular-nums;
+}
+
+/* wide screens: arrows sit at the sides of the image */
+@media (min-width: 900px) {
+    .lb-stage {
+        padding-inline: 104px;
+    }
+
+    .lb-prev,
+    .lb-next {
+        position: fixed;
+        top: 50%;
+        margin-top: -24px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .lb-prev {
+        left: 32px;
+    }
+
+    .lb-next {
+        right: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lb[open],
+    .lb-img.is-in {
+        animation: none;
+        opacity: 1;
+    }
+
+    .lb-progress i::after {
+        transition: none;
+    }
+}

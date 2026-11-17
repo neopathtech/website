@@ -3350,7 +3350,7 @@ a.blog-post:hover h3 {
     /* fallback size; script.js widens the wordmark to the full screen and fits the text to it */
     font-size: 9.88cqi;
     line-height: 1;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.02em;
     white-space: nowrap;
     color: rgba(var(--rgb-overlay), 0.06);
     user-select: none;
@@ -4064,5 +4064,90 @@ body:has(.site-header.header-hidden) .service-stack {
 @media (max-width: 900px) {
     .hero-video::after {
         background: rgba(10, 25, 47, 0.8);
+    }
+}
+
+/* ---------- Homepage hero: refined typography ---------- */
+.hero-eyebrow {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 28px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #CBD5E1;
+}
+
+.hero-eyebrow-rule {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: var(--brand-crimson, #E11D48);
+}
+
+.hero-section .hero-title {
+    font-size: clamp(44px, 7.6vw, 116px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    text-wrap: balance;
+}
+
+.hero-section .hero-line {
+    display: inline-block;
+}
+
+.hero-amp {
+    font-weight: 300;
+    color: #94A3B8;
+    letter-spacing: -0.02em;
+    padding: 0 0.02em;
+}
+
+.hero-dot {
+    color: var(--brand-crimson, #E11D48);
+}
+
+.hero-section .hero-subtext {
+    max-width: 560px;
+    font-size: clamp(17px, 1.35vw, 20px);
+    line-height: 1.65;
+    color: #CBD5E1;
+    text-wrap: pretty;
+}
+
+.hero-subtext strong {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* secondary hero button: crisp white outline on footage */
+.hero-section .hero-actions .btn:not(.btn-primary) {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+}
+
+.hero-section .hero-actions .btn:not(.btn-primary):hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--brand-navy, #0A192F);
+}
+
+@media (max-width: 600px) {
+    .hero-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        margin-bottom: 20px;
+    }
+
+    .hero-eyebrow-rule {
+        width: 28px;
     }
 }

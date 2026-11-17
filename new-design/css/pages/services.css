@@ -1,0 +1,338 @@
+/* =====================================================================
+   Service detail pages: digital-marketing.html + technology.html
+   Loaded after css/style.css. Shared components (page hero, stacking
+   cards, rail, CTA card) come from style.css; this file only adds the
+   page-level pieces those two pages need.
+   ===================================================================== */
+
+/* current page inside the Services dropdown
+   (style.css only highlights top-level .nav-link[aria-current]) */
+.nav-panel a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.nav-panel a[aria-current="page"] strong svg {
+    opacity: 1;
+}
+
+/* ---------- hero ---------- */
+.svc-hero--wide .page-hero-inner .h-hero {
+    max-width: 22ch;
+}
+
+/* jump links to each service card */
+.svc-jump {
+    justify-content: center;
+    max-width: 780px;
+    margin-top: 6px;
+}
+
+.svc-jump .pill {
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.svc-jump .pill:hover {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+/* ---------- pillars (digital marketing) ---------- */
+.pillar-card {
+    justify-content: space-between;
+    gap: 56px;
+    min-height: 320px;
+}
+
+.pillar-card .pill {
+    align-self: flex-start;
+}
+
+.pillar-card h3 {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+    .pillar-card {
+        min-height: 0;
+        gap: 36px;
+    }
+}
+
+.pillar-card:nth-child(4n+2) .pill-dot {
+    background: var(--violet);
+}
+
+.pillar-card:nth-child(4n+3) .pill-dot {
+    background: var(--lime);
+}
+
+.pillar-card:nth-child(4n+4) .pill-dot {
+    background: var(--sun);
+}
+
+/* ---------- stacking service cards ----------
+   Each card's id lives on an empty .stack-anchor just before it: a sticky
+   card that is currently stuck (or piled at the end of the stack) reports
+   its stuck position, so jumping to it from further down the page would
+   land in the wrong place. The anchor always sits at the card's natural
+   position, and its scroll margin matches the card's sticky offset. */
+.svc-stack {
+    gap: 0;
+}
+
+.stack-anchor {
+    display: block;
+    height: 0;
+    scroll-margin-top: calc(96px + var(--i, 0) * 18px);
+}
+
+.svc-stack .stack-card+.stack-anchor {
+    margin-top: 24px;
+}
+
+.svc-card {
+    min-height: min(72vh, 640px);
+}
+
+.svc-card .stack-card-copy {
+    gap: 20px;
+}
+
+.svc-card .service-index {
+    font-size: 15px;
+}
+
+.svc-card .stack-card-copy>p {
+    max-width: 480px;
+}
+
+.svc-card em {
+    font-style: normal;
+    color: var(--text);
+}
+
+.svc-card h4 {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--text-2);
+    margin-bottom: 16px;
+}
+
+/* "What's included" sits at the foot of the copy column */
+.svc-included {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.check-list--violet li::before {
+    background-color: var(--violet);
+}
+
+/* decorative cover: colour field, orbit rings and a large line icon */
+.svc-cover {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 260px;
+    background:
+        radial-gradient(ellipse 70% 60% at 20% 0%, rgba(255, 255, 255, 0.22), transparent 70%),
+        var(--cover-bg, var(--accent));
+    color: var(--cover-fg, #fff);
+    --ring: rgba(255, 255, 255, 0.24);
+    isolation: isolate;
+}
+
+.svc-cover::before,
+.svc-cover::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--ring);
+    transform: translate(-50%, -50%);
+}
+
+.svc-cover::before {
+    width: clamp(170px, 46%, 300px);
+}
+
+.svc-cover::after {
+    width: clamp(260px, 74%, 480px);
+    border-style: dashed;
+    animation: svc-orbit 80s linear infinite;
+}
+
+.svc-cover svg {
+    width: clamp(76px, 8vw, 116px);
+    height: auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: bob 6s var(--ease-in-out) infinite alternate;
+}
+
+.svc-cover--violet {
+    --cover-bg: var(--violet);
+}
+
+.svc-cover--light {
+    --cover-bg: #fff;
+    --cover-fg: var(--ink);
+    --ring: rgba(8, 8, 8, 0.14);
+}
+
+.svc-cover--dark {
+    --cover-bg: #262626;
+    --cover-fg: var(--accent);
+    --ring: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes svc-orbit {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .svc-cover::after,
+    .svc-cover svg {
+        animation: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .stack-anchor {
+        scroll-margin-top: 96px;
+    }
+
+    .svc-stack .stack-card+.stack-anchor {
+        margin-top: 16px;
+    }
+
+    /* single column: the decorative cover leads the card, any
+       "Why Neopath" panel stays after the copy */
+    .svc-card .stack-card-side {
+        display: contents;
+    }
+
+    .svc-card .svc-cover {
+        order: -1;
+    }
+
+    .svc-cover {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    @media (min-width: 600px) {
+        .svc-cover {
+            aspect-ratio: 21 / 9;
+        }
+    }
+
+    .svc-included {
+        margin-top: 4px;
+    }
+}
+
+/* laptop-height screens: tighten the cards so each one still fits
+   below its sticky offset (otherwise its foot would never be seen) */
+@media (min-width: 861px) and (max-height: 820px) {
+    .svc-card {
+        min-height: min(62vh, 520px);
+        padding: clamp(28px, 2.8vw, 40px);
+    }
+
+    .svc-card .stack-card-copy {
+        gap: 14px;
+    }
+
+    .svc-card .stack-card-copy .h-2 {
+        font-size: clamp(30px, 3.2vw, 44px);
+    }
+
+    .svc-card .stack-card-copy>p {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .svc-card .check-list {
+        gap: 8px;
+    }
+
+    .svc-card h4 {
+        margin-bottom: 12px;
+    }
+
+    .svc-included {
+        padding-top: 18px;
+    }
+
+    .svc-card .mini-card {
+        padding: 18px 20px;
+    }
+
+    .svc-cover {
+        min-height: 150px;
+    }
+}
+
+/* very short screens: a stuck card still would not fit,
+   so the cards simply scroll there */
+@media (min-width: 861px) and (max-height: 600px) {
+    .svc-stack .stack-card {
+        position: relative;
+        top: 0;
+    }
+}
+
+/* ---------- testimonials ---------- */
+/* a single quote reads as a feature card rather than a lone rail item */
+.rail--feature {
+    grid-auto-columns: min(760px, calc(100vw - var(--gutter) * 2));
+}
+
+.rail--feature .quote-card {
+    min-height: 0;
+    gap: 40px;
+    padding: clamp(28px, 4vw, 48px);
+}
+
+.rail--feature .quote-card blockquote {
+    font-size: clamp(24px, 2.6vw, 38px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+/* hide rail arrows when every card already fits */
+.rail-controls:not(:has(.rail-btn:not(:disabled))) {
+    visibility: hidden;
+}
+
+/* ---------- closing CTA (single column, centred) ---------- */
+.svc-cta {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    min-height: 0;
+    padding-block: clamp(64px, 9vw, 128px);
+}
+
+.svc-cta .lead {
+    margin-inline: auto;
+    max-width: 560px;
+}
+
+.svc-cta .btn-actions {
+    justify-content: center;
+}

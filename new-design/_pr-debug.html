@@ -1,0 +1,7 @@
+<!doctype html><html><body style="margin:0"><iframe id="f" style="border:0"></iframe><pre id="o"></pre>
+<script>
+var q=new URLSearchParams(location.search);var f=document.getElementById('f');f.style.width=q.get('iw')+'px';f.style.height='800px';f.src=q.get('p');
+f.onload=function(){setTimeout(function(){var w=f.contentWindow,d=w.document;var W=w.innerWidth,bad=[];
+d.querySelectorAll('body *').forEach(function(e){var r=e.getBoundingClientRect(); if(r.right>W+1&&r.width>0&&w.getComputedStyle(e).position!=='fixed') bad.push(e.tagName+'.'+String(e.className))});
+document.getElementById('o').textContent='W='+W+' scrollW='+d.documentElement.scrollWidth+' bad='+bad.slice(0,6).join(' | ');},800);};
+</script></body></html>

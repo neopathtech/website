@@ -1,0 +1,413 @@
+/* =====================================================================
+   PowerCampus page — page-only styles (after style.css + product.css).
+   ===================================================================== */
+
+/* ---------- "one platform, three jobs" ---------- */
+@media (min-width: 961px) {
+    .jobs-grid .stat-card {
+        min-height: 380px;
+    }
+}
+
+@media (max-width: 600px) {
+    .jobs-grid .stat-card {
+        min-height: 0;
+    }
+}
+
+.jobs-grid .h-4 {
+    font-size: clamp(26px, 2.4vw, 34px);
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+    .jobs-grid .stat-card:last-child {
+        grid-column: span 12;
+    }
+}
+
+/* ---------- modules ---------- */
+.module-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.module {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 230px;
+    padding: clamp(22px, 2.2vw, 30px);
+    border-radius: var(--r-lg);
+    background: var(--paper-2);
+}
+
+.module:hover {
+    background: var(--paper-3);
+}
+
+.module-num {
+    padding-bottom: clamp(24px, 3vw, 44px);
+    font-size: 14px;
+    color: var(--ink-3);
+}
+
+.module h3 {
+    font-size: 21px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.module p {
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+    .module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .module-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .module {
+        min-height: 0;
+    }
+
+    .module-num {
+        padding-bottom: 12px;
+    }
+}
+
+/* ---------- mobile apps: phone preview between the two app panels ---------- */
+.app-layout {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "parent stage staff";
+    gap: 16px;
+    align-items: stretch;
+}
+
+.app-stage {
+    grid-area: stage;
+}
+
+.app-panel--parent {
+    grid-area: parent;
+}
+
+.app-panel--staff {
+    grid-area: staff;
+}
+
+.app-stage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: clamp(28px, 3vw, 44px) 20px 24px;
+    border-radius: var(--r-xl);
+    background:
+        radial-gradient(ellipse 80% 55% at 50% 38%, rgba(119, 77, 255, 0.5), transparent 70%),
+        #0E0E0E;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.6s var(--ease);
+}
+
+/* light preview: a pale backdrop fades in over the dark one */
+.app-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse 80% 55% at 50% 38%, rgba(254, 74, 35, 0.32), transparent 70%),
+        #E2E2E2;
+    opacity: 0;
+    transition: opacity 0.7s var(--ease);
+}
+
+.app-stage[data-mode="light"] {
+    color: var(--ink);
+}
+
+.app-stage[data-mode="light"]::before {
+    opacity: 1;
+}
+
+.app-phone {
+    position: relative;
+    margin-block: auto;
+    width: min(250px, 72%);
+    aspect-ratio: 453 / 912;
+}
+
+.app-phone img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+    filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.4));
+    transition: opacity 0.5s var(--ease), transform 0.8s var(--ease);
+}
+
+.app-phone img.is-active {
+    opacity: 1;
+    transform: none;
+}
+
+.app-toggle {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+}
+
+.app-toggle-label {
+    font-size: 14px;
+    opacity: 0.65;
+}
+
+.seg {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.6s var(--ease);
+}
+
+.app-stage[data-mode="light"] .seg {
+    background: rgba(8, 8, 8, 0.08);
+}
+
+.seg-btn {
+    height: 40px;
+    padding: 0 18px;
+    border-radius: var(--r-pill);
+    font-size: 15px;
+    white-space: nowrap;
+    opacity: 0.75;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease), opacity 0.3s;
+}
+
+.seg-btn:hover {
+    opacity: 1;
+}
+
+.seg-btn[aria-pressed="true"] {
+    background: #fff;
+    color: var(--ink);
+    opacity: 1;
+}
+
+.app-stage[data-mode="light"] .seg-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: #fff;
+}
+
+.no-js .app-toggle {
+    display: none;
+}
+
+.app-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: clamp(24px, 2.6vw, 36px);
+    border-radius: var(--r-xl);
+    background: var(--paper-2);
+}
+
+.app-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.app-panel-head .pill {
+    background: #fff;
+    color: var(--ink);
+}
+
+.app-panel-desc {
+    color: var(--ink-2);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.app-panel .check-list {
+    margin-top: 6px;
+    padding-top: 24px;
+    border-top: 1px solid var(--paper-line);
+}
+
+@media (max-width: 1100px) {
+    .app-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: "stage stage" "parent staff";
+    }
+
+    .app-stage {
+        flex-direction: row;
+        justify-content: center;
+        gap: clamp(28px, 6vw, 72px);
+        padding: 36px 24px;
+    }
+
+    .app-phone {
+        width: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    .app-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "stage" "parent" "staff";
+    }
+
+    .app-stage {
+        flex-direction: column;
+        gap: 24px;
+        padding: 32px 16px 20px;
+    }
+
+    .app-phone {
+        width: min(220px, 62%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .app-phone img,
+    .app-stage::before {
+        transition: none;
+    }
+}
+
+/* ---------- testimonials ---------- */
+.quote-grid .quote-card {
+    min-height: 0;
+}
+
+/* ---------- pricing ---------- */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.price-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: clamp(24px, 2.4vw, 34px);
+    border-radius: var(--r-xl);
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.price-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 30px;
+}
+
+.price-tier {
+    font-size: 21px;
+    letter-spacing: -0.01em;
+}
+
+.price-amount {
+    font-size: clamp(48px, 4.4vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+}
+
+.price-unit {
+    margin-top: 12px;
+    color: var(--text-3);
+    font-size: 15px;
+}
+
+.price-card .check-list {
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.price-card .check-list li {
+    font-size: 15px;
+}
+
+.price-card .btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+.price-card--featured {
+    background: #fff;
+    color: var(--ink);
+    --text: var(--ink);
+    --text-2: var(--ink-2);
+    --text-3: var(--ink-3);
+    --line: var(--paper-line);
+    box-shadow: 0 40px 90px rgba(254, 74, 35, 0.16);
+}
+
+.price-flag {
+    background: var(--accent);
+    color: #fff;
+}
+
+@media (max-width: 1100px) {
+    .price-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .price-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ---------- CTA: the two app previews, fanned ---------- */
+.cta-phones img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(42%, 220px);
+    height: auto;
+    translate: -50% -50%;
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.55));
+}
+
+.cta-phones img:first-child {
+    transform: translateX(-34%) rotate(-8deg);
+}
+
+.cta-phones img:last-child {
+    transform: translateX(34%) translateY(-4%) rotate(7deg);
+}

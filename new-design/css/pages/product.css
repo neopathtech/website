@@ -1,0 +1,188 @@
+/* =====================================================================
+   Product pages (PowerCampus, NeoEventize): shared page-only styles.
+   Linked after css/style.css on powercampus.html and neoeventize.html;
+   page-specific pieces live in powercampus.css / neoeventize.css.
+   ===================================================================== */
+
+/* current product inside the Products dropdown (style.css only marks .nav-link) */
+.nav-panel a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- hero ---------- */
+/* product headlines are longer than the homepage's, so give them a wider measure */
+.product-hero .hero-copy .h-hero {
+    max-width: 19ch;
+}
+
+.product-hero .hero-copy .lead {
+    max-width: 620px;
+}
+
+/* the hero frame as a browser window around a product screenshot */
+.hero-frame--browser {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.hero-frame--browser::after {
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0) 72%, rgba(8, 8, 8, 0.16));
+}
+
+.hero-frame--browser img {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+    object-position: 0 0;
+}
+
+.browser-bar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: clamp(28px, 3vw, 44px);
+    padding-inline: clamp(12px, 1.6vw, 20px);
+    background: #1A1A1A;
+    color: #8A8A8A;
+    font-size: clamp(9px, 0.9vw, 13px);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.browser-bar i {
+    flex: none;
+    width: clamp(7px, 0.7vw, 10px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #3A3A3A;
+}
+
+.browser-bar i:nth-child(1) {
+    background: var(--accent);
+}
+
+.browser-bar i:nth-child(2) {
+    background: var(--sun);
+}
+
+.browser-bar i:nth-child(3) {
+    background: var(--lime);
+}
+
+.browser-bar span {
+    margin-left: clamp(6px, 1vw, 14px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* a paper band that hands back to the dark canvas with rounded bottom corners */
+.paper-end {
+    border-radius: 0 0 var(--r-xl) var(--r-xl);
+}
+
+/* ---------- section heads ---------- */
+.head-aside {
+    max-width: 440px;
+}
+
+/* ---------- feature cards (icon top, copy bottom) ---------- */
+.feature-card {
+    gap: clamp(36px, 4vw, 56px);
+}
+
+.feature-card:hover {
+    background: var(--surface-2);
+}
+
+.feature-card h3 {
+    font-size: clamp(22px, 2vw, 27px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 16px;
+}
+
+/* ---------- check list with a bold title + description per item ---------- */
+.check-list--detail {
+    gap: 18px;
+}
+
+.check-list--detail li>div {
+    display: grid;
+    gap: 3px;
+}
+
+.check-list--detail strong {
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--text);
+}
+
+.check-list--detail span {
+    color: var(--text-2);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.check-list--violet li::before {
+    background-color: var(--violet);
+}
+
+/* ---------- FAQ: heading + CTA left, accordion right ---------- */
+.faq-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(40px, 6vw, 112px);
+    align-items: start;
+}
+
+.faq-split-head {
+    position: sticky;
+    top: 120px;
+    display: grid;
+    justify-items: start;
+    gap: 22px;
+}
+
+.faq-split-head .lead {
+    max-width: 400px;
+}
+
+.faq-h {
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+@media (max-width: 860px) {
+    .faq-split {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-split-head {
+        position: static;
+    }
+}
+
+/* ---------- closing CTA ---------- */
+.cta-card--product .h-giant {
+    font-size: clamp(46px, 6vw, 96px);
+}
+
+@media (max-width: 600px) {
+    .cta-card--product .btn--lg {
+        width: 100%;
+        padding-inline: 24px;
+        font-size: 17px;
+        height: auto;
+        min-height: 60px;
+        padding-block: 16px;
+        white-space: normal;
+        text-align: center;
+    }
+}

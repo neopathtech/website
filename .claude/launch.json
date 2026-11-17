@@ -4,14 +4,38 @@
     {
       "name": "site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "src"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "src"
+      ],
       "port": 8765
     },
     {
       "name": "link-page",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "5178", "--directory", "/Users/neopath/Desktop/projects/Link-page"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5178",
+        "--directory",
+        "/Users/neopath/Desktop/projects/Link-page"
+      ],
       "port": 5178
+    },
+    {
+      "name": "new-design",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--directory",
+        "new-design"
+      ],
+      "port": 8766
     }
   ]
 }

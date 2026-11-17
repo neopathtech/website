@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog | Insights from Neopath Technologies</title>
+    <meta name="description"
+        content="Articles from Neopath Technologies on school ERP, IT infrastructure, event technology and digital marketing.">
+    <meta name="theme-color" content="#080808">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/pages/blog.css?v=1">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.remove('no-js'); d.classList.add('js');
+            // preloader only on the first page of a visit
+            try { if (sessionStorage.getItem('np2-loaded')) d.classList.add('no-preloader'); else sessionStorage.setItem('np2-loaded', '1'); } catch (e) { d.classList.add('no-preloader'); }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="preloader" aria-hidden="true">
+        <svg class="preloader-mark" viewBox="0 70 710 525" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z" />
+            <path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z" />
+        </svg>
+    </div>
+
+    <!-- ===== Navigation (floating pill) ===== -->
+    <header class="nav-wrap">
+        <nav class="nav" aria-label="Primary">
+            <a class="nav-logo" href="index.html" aria-label="Neopath Technologies — home">
+                <svg viewBox="0 70 710 525" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M0 142C0.000449043 101.5 60.4997 64.5005 99.4229 109L104 114.011L509.081 592H400.5C370 592 342 571.501 330 556.108L114 301.822V592C60 592 0 546.5 0 490V142Z" />
+                    <path d="M708.538 591L376.484 201L604.5 200.298C649 201 701.207 153.5 701.207 90H264.5C207.007 90 178.487 140.5 207 179L526.857 554C552.993 583 572.993 591 596.5 591H708.538Z" />
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-drop">
+                    <button class="nav-drop-btn" type="button" aria-expanded="false">Services
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="nav-panel">
+                        <a href="digital-marketing.html"><strong>Digital Marketing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Branding, Video, SEO &amp; Social</span></a>
+                        <a href="technology.html"><strong>Technology <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Software, IT &amp; Consulting</span></a>
+                    </div>
+                </div>
+                <div class="nav-drop">
+                    <button class="nav-drop-btn" type="button" aria-expanded="false">Products
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="nav-panel">
+                        <a href="powercampus.html"><strong>PowerCampus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Educational ERP &amp; Pricing</span></a>
+                        <a href="neoeventize.html"><strong>NeoEventize <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></strong><span>Event Ticketing</span></a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-link" href="blog.html" aria-current="page">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <a class="btn btn--dark btn--sm nav-book" href="contact.html">Book a call</a>
+                <a class="btn btn--accent btn--sm" href="contact.html">Contact</a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="digital-marketing.html">Digital Marketing</a>
+        <a href="technology.html">Technology</a>
+        <a class="sub" href="powercampus.html">PowerCampus</a>
+        <a class="sub" href="neoeventize.html">NeoEventize</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-menu-foot">
+            <a href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+            <a href="tel:+918257000220">+91 8257000220</a>
+        </div>
+    </div>
+
+    <a class="float-cta" href="contact.html">Book a call
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg></span>
+    </a>
+
+    <main id="main">
+        <!-- ===== Page hero ===== -->
+        <section class="page-hero">
+            <div class="container page-hero-inner">
+                <span class="pill" data-reveal><span class="pill-dot"></span>Blog</span>
+                <h1 class="h-hero balance" data-split>Insights &amp; <span class="tone">Ideas.</span></h1>
+                <p class="lead" data-reveal style="--d:.25s">Notes from our engineers and marketers on building, running and growing digital products, written from projects across schools, healthcare and events.</p>
+            </div>
+        </section>
+
+        <!-- ===== Posts (paper) =====
+             Sample posts: replace with real articles. When a post page exists, change its
+             <article class="post-card"> to <a class="post-card" href="…"> and drop the "Coming soon" pill.
+             Keep the filter chip counts in sync with the posts. -->
+        <section class="section paper paper--rounded-both blog-section" id="posts">
+            <div class="container">
+                <div class="blog-toolbar" data-reveal>
+                    <div class="filter-bar" role="group" aria-label="Filter posts" data-filter-group="posts">
+                        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All posts <span class="filter-count">3</span></button>
+                        <button class="filter-chip" type="button" data-filter="tech" aria-pressed="false">Tech <span class="filter-count">2</span></button>
+                        <button class="filter-chip" type="button" data-filter="marketing" aria-pressed="false">Digital Marketing <span class="filter-count">1</span></button>
+                    </div>
+                </div>
+                <p class="sr-only" role="status" data-filter-status="posts"></p>
+
+                <div class="post-grid" data-filter-target="posts">
+                    <article class="post-card" data-category="tech" data-reveal>
+                        <div class="post-cover"><span class="pill pill--sm">Coming soon</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+                        </div>
+                        <div class="post-meta"><span class="post-tag post-tag--violet">Tech · EdTech</span><span>6 min read</span></div>
+                        <h2>What a school ERP should actually save your teachers</h2>
+                        <p>Attendance, fees, report cards and parent updates: where the hours go in a typical week, and which ones software can realistically give back.</p>
+                    </article>
+                    <article class="post-card" data-category="marketing" data-reveal style="--d:.08s">
+                        <div class="post-cover"><span class="pill pill--sm">Coming soon</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                        </div>
+                        <div class="post-meta"><span class="post-tag post-tag--accent">Digital Marketing</span><span>5 min read</span></div>
+                        <h2>Local SEO for clinics and hospitals: a practical checklist</h2>
+                        <p>The listings, pages and review habits that help patients nearby find you first, without paying for every click.</p>
+                    </article>
+                    <article class="post-card" data-category="tech" data-reveal style="--d:.16s">
+                        <div class="post-cover"><span class="pill pill--sm">Coming soon</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4h-4" /></svg>
+                        </div>
+                        <div class="post-meta"><span class="post-tag post-tag--violet">Tech · Events</span><span>7 min read</span></div>
+                        <h2>Running a smooth gate: QR ticket check-in at scale</h2>
+                        <p>Lessons from ticketing a three-day festival and a 650-delegate conclave, from pass design to queue flow at the gate.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Suggest a topic ===== -->
+        <section class="section" id="suggest">
+            <div class="container container--wide">
+                <div class="cta-card page-cta" data-reveal="scale">
+                    <h2 class="h-giant" data-split>Got a question <span class="tone">we should answer?</span></h2>
+                    <div class="page-cta-side">
+                        <p class="lead">Suggest a topic on software, IT infrastructure or digital marketing, and we may turn it into our next post.</p>
+                        <div class="btn-actions">
+                            <a class="btn btn--accent btn--lg" href="contact.html">Suggest a Topic</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-cols">
+                    <nav aria-label="Digital Marketing">
+                        <h3>Digital Marketing</h3>
+                        <ul>
+                            <li><a href="digital-marketing.html#branding">Branding</a></li>
+                            <li><a href="digital-marketing.html#video-production">Video Production</a></li>
+                            <li><a href="digital-marketing.html#seo">SEO</a></li>
+                            <li><a href="digital-marketing.html#social-media-marketing">Social Media</a></li>
+                            <li><a href="digital-marketing.html#influencer-marketing">Influencer Marketing</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Technology">
+                        <h3>Technology</h3>
+                        <ul>
+                            <li><a href="technology.html#software-development">Software Development</a></li>
+                            <li><a href="technology.html#it-infrastructure">IT Infrastructure</a></li>
+                            <li><a href="technology.html#management-consulting">Management Consulting</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Products">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="powercampus.html">PowerCampus</a></li>
+                            <li><a href="neoeventize.html">NeoEventize</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Company">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer-contact">
+                    <a class="footer-mail" href="mailto:contact@neopathtech.com">contact@neopathtech.com</a>
+                    <div class="footer-socials">
+                        <a class="social" href="https://www.facebook.com/Neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                        <a class="social" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener" aria-label="Neopath Technologies on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></svg></a>
+                    </div>
+                    <address class="footer-address">RIMS Road, Canara Bank Building,<br>3rd Floor, Imphal West – 795001,<br>Manipur, INDIA<br><a href="tel:+918257000220">+91 8257000220</a></address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <a class="footer-logo" href="index.html"><img src="assets/Neopath_logo_light.svg" alt="Neopath Technologies — new ways with technology" width="2670" height="806"></a>
+                <span>© <span data-year>2026</span> Neopath Technologies Pvt. Ltd. · ISO 9001:2015 Certified</span>
+                <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+            </div>
+            <div class="footer-word" aria-hidden="true">neopath</div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=1" defer></script>
+    <script src="js/pages/blog.js?v=1" defer></script>
+</body>
+
+</html>

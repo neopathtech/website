@@ -1,0 +1,192 @@
+/* Neopath — contact.html only. Loaded after css/style.css. */
+
+.page-hero-inner .contact-title {
+    max-width: 24ch;
+}
+
+/* ---------- Enquiry form + office details ---------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+}
+
+.contact-card {
+    padding: clamp(28px, 4vw, 56px);
+    border-radius: var(--r-xl);
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.contact-card-intro {
+    margin: 12px 0 clamp(28px, 3vw, 40px);
+    max-width: 520px;
+    color: var(--text-2);
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.contact-form {
+    gap: 18px 14px;
+}
+
+.contact-form ::placeholder {
+    color: #6F6F6F;
+    opacity: 1;
+}
+
+.contact-form .field select option {
+    background: var(--surface-2);
+    color: #fff;
+}
+
+.contact-submit {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.contact-info {
+    display: grid;
+}
+
+@media (min-width: 961px) {
+    .contact-info {
+        position: sticky;
+        top: 120px;
+    }
+}
+
+.info-row {
+    display: grid;
+    gap: 12px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+}
+
+.info-row:first-child {
+    border-top: 0;
+    padding-top: 6px;
+}
+
+.info-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: var(--text-2);
+}
+
+.info-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.info-text {
+    font-style: normal;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.info-big {
+    justify-self: start;
+    font-size: clamp(22px, 2.3vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+    padding-bottom: 4px;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.6s var(--ease), color 0.3s;
+}
+
+.info-big:hover {
+    background-size: 100% 1px;
+}
+
+.info-hours {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.info-hours li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-2);
+}
+
+.info-hours .pill-dot {
+    position: relative;
+    top: -2px;
+}
+
+.info-hours strong {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.info-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.info-social .pill {
+    height: 44px;
+    padding: 0 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.info-social .pill svg {
+    width: 16px;
+    height: 16px;
+}
+
+.info-social .pill:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+@media (max-width: 960px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- FAQ ---------- */
+.faq-head {
+    display: grid;
+    gap: 22px;
+    align-content: start;
+}
+
+.faq-head .lead {
+    max-width: 440px;
+}
+
+@media (min-width: 861px) {
+    .faq-split {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .faq-head {
+        position: sticky;
+        top: 120px;
+    }
+}
+
+/* keep long division names clear of the select's chevron */
+.contact-form .field select {
+    padding-right: 48px;
+    text-overflow: ellipsis;
+}

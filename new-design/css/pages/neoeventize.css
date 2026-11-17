@@ -9,7 +9,7 @@
     gap: clamp(12px, 2vw, 24px);
     padding: clamp(14px, 3vw, 40px);
     background:
-        radial-gradient(ellipse 55% 75% at 0% 0%, rgba(254, 74, 35, 0.26), transparent 70%),
+        radial-gradient(ellipse 55% 75% at 0% 0%, rgba(250, 50, 40, 0.26), transparent 70%),
         radial-gradient(ellipse 55% 75% at 100% 100%, rgba(119, 77, 255, 0.34), transparent 70%),
         #101010;
 }

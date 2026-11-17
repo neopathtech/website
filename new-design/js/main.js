@@ -75,14 +75,31 @@
             if (!e.target.closest('.nav-drop')) $$('.nav-drop.is-open').forEach(function (d) { d.classList.remove('is-open'); $('.nav-drop-btn', d).setAttribute('aria-expanded', 'false'); });
         });
 
-        // compact pill after the first screen, while scrolling down
+        // compact pill after the first screen: it shrinks while scrolling down and only opens
+        // again near the top, on hover (CSS), or on a quick flick upwards — a slow scroll up
+        // keeps it compact
+        var FAST_UP = 1.2;          // upward speed (px per ms, ~1200 px/s) that counts as "fast"
         var lastY = window.scrollY;
+        var samples = [];           // recent [scrollY, time] pairs, for the scroll speed
         onScroll(function () {
             var y = window.scrollY;
-            var compact = y > 320 && y > lastY - 2;
-            if (y < 320) compact = false;
-            if (Math.abs(y - lastY) > 4) {
-                wrap.classList.toggle('is-compact', compact);
+            var t = performance.now();
+            samples.push([y, t]);
+            while (samples.length > 2 && t - samples[0][1] > 150) samples.shift();
+
+            if (y < 320) {
+                wrap.classList.remove('is-compact');
+                lastY = y;
+                return;
+            }
+            var dy = y - lastY;
+            if (dy > 4) {
+                wrap.classList.add('is-compact');
+                lastY = y;
+            } else if (dy < -4) {
+                var span = t - samples[0][1];
+                var speedUp = span > 0 ? (samples[0][0] - y) / span : 0;
+                if (span >= 30 && speedUp > FAST_UP) wrap.classList.remove('is-compact');
                 lastY = y;
             }
         });

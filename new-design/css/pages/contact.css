@@ -70,21 +70,9 @@
 }
 
 .info-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     font-size: 14px;
     letter-spacing: 0.01em;
     color: var(--text-2);
-}
-
-.info-label::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    flex: none;
-    border-radius: 50%;
-    background: var(--accent);
 }
 
 .info-text {
@@ -117,17 +105,9 @@
 }
 
 .info-hours li {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
     font-size: 16px;
     line-height: 1.5;
     color: var(--text-2);
-}
-
-.info-hours .pill-dot {
-    position: relative;
-    top: -2px;
 }
 
 .info-hours strong {

@@ -67,19 +67,14 @@ html.lb-lock {
     overflow: hidden;
 }
 
+/* --p (0 → 1) is set by lightbox.js as the slide's time runs */
 .lb-progress i::after {
     content: '';
     position: absolute;
     inset: 0;
     background: #fff;
-    transform: scaleX(0);
+    transform: scaleX(var(--p, 0));
     transform-origin: left;
-    transition: transform 0.6s var(--ease);
-}
-
-.lb-progress i.is-done::after,
-.lb-progress i.is-current::after {
-    transform: scaleX(1);
 }
 
 .lb-progress i.is-current::after {
@@ -91,6 +86,29 @@ html.lb-lock {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+}
+
+.lb-actions {
+    display: flex;
+    gap: 10px;
+    flex: none;
+}
+
+/* story: press and hold pauses and hides the controls, like a social-media status */
+.lb-head,
+.lb-foot {
+    transition: opacity 0.25s;
+}
+
+.lb.is-held .lb-head,
+.lb.is-held .lb-foot {
+    opacity: 0;
+    transition-delay: 0.2s;
+}
+
+.lb--story .lb-img {
+    cursor: pointer;
+    -webkit-touch-callout: none;
 }
 
 .lb-caption {

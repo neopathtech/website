@@ -134,7 +134,7 @@
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(ellipse 80% 55% at 50% 38%, rgba(254, 74, 35, 0.32), transparent 70%),
+        radial-gradient(ellipse 80% 55% at 50% 38%, rgba(250, 50, 40, 0.32), transparent 70%),
         #E2E2E2;
     opacity: 0;
     transition: opacity 0.7s var(--ease);
@@ -373,7 +373,7 @@
     --text-2: var(--ink-2);
     --text-3: var(--ink-3);
     --line: var(--paper-line);
-    box-shadow: 0 40px 90px rgba(254, 74, 35, 0.16);
+    box-shadow: 0 40px 90px rgba(250, 50, 40, 0.16);
 }
 
 .price-flag {

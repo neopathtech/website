@@ -1,7 +1,7 @@
 /* =====================================================================
    Neopath Technologies — new design (2026)
    Design language: near-black canvas, white "paper" sections, one hot
-   accent (orange-red) + one violet accent, large geometric type at a
+   accent (red #FA3228) + one violet accent, large geometric type at a
    single medium weight, soft 24px-radius cards, generous section rhythm,
    and slow, eased motion (word rises, scroll-lit statements, tilting
    frames, floating widgets).
@@ -33,8 +33,8 @@
     --paper-line: #E2E2E2;
 
     /* accents */
-    --accent: #FE4A23;
-    --accent-hover: #FF6A48;
+    --accent: #FA3228;
+    --accent-hover: #FF554C;
     --violet: #774DFF;
     --violet-hover: #8A65FF;
     --lime: #C8F169;
@@ -663,26 +663,38 @@ ol[role="list"] {
     backdrop-filter: blur(14px) saturate(1.4);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 12px 40px rgba(0, 0, 0, 0.35);
     color: #fff;
-    transition: transform 0.6s var(--ease);
+    transition: transform 0.6s var(--ease), gap 0.7s var(--ease);
 }
 
 .nav-logo {
-    display: grid;
-    place-items: center;
-    width: 46px;
+    display: flex;
+    align-items: center;
     height: 42px;
+    padding-inline: 8px;
     border-radius: 10px;
     transition: background-color 0.3s;
 }
 
-.nav-logo svg {
+.nav-logo img {
+    display: block;
+    flex: none;
     width: 30px;
     height: auto;
-    fill: #fff;
 }
 
-.nav-logo svg path:last-child {
-    fill: var(--accent);
+/* "Neopath" wordmark: hidden in the full bar, slides in when the bar collapses */
+.nav-logo-text {
+    display: block;
+    max-width: 0;
+    margin-left: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    transition: max-width 0.7s var(--ease), margin 0.7s var(--ease), opacity 0.5s var(--ease);
 }
 
 .nav-logo:hover {
@@ -695,7 +707,7 @@ ol[role="list"] {
     gap: 2px;
     overflow: hidden;
     max-width: 760px;
-    transition: max-width 0.7s var(--ease), opacity 0.5s var(--ease);
+    transition: max-width 0.7s var(--ease), opacity 0.5s var(--ease), gap 0.7s var(--ease);
 }
 
 .nav-link,
@@ -704,20 +716,35 @@ ol[role="list"] {
     align-items: center;
     gap: 5px;
     height: 42px;
+    max-width: 200px;
     padding: 0 14px;
+    overflow: hidden;
     border-radius: 10px;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.86);
     white-space: nowrap;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, max-width 0.7s var(--ease), padding 0.7s var(--ease), opacity 0.5s var(--ease);
 }
 
 .nav-link:hover,
 .nav-drop-btn:hover,
-.nav-drop.is-open .nav-drop-btn,
-.nav-link[aria-current="page"] {
+.nav-drop.is-open .nav-drop-btn {
     background: rgba(255, 255, 255, 0.08);
     color: #fff;
+}
+
+/* active tab: the current page's link (Contact included — it is a regular tab at the end of
+   the bar), or the dropdown (Services / Products) that holds it, is the one accent pill */
+.nav-link[aria-current="page"],
+.nav-drop-btn.is-current,
+.nav-drop.is-open .nav-drop-btn.is-current {
+    background: var(--accent);
+    color: #fff;
+}
+
+.nav-link[aria-current="page"]:hover,
+.nav-drop-btn.is-current:hover {
+    background: var(--accent-hover);
 }
 
 .nav-drop-btn svg {
@@ -806,33 +833,67 @@ ol[role="list"] {
     gap: 4px;
 }
 
-.nav-book {
-    display: none;
-}
-
 .nav .btn--sm {
     height: 42px;
 }
 
-/* compact state after scrolling: links fold away, "Book a call" appears */
+/* compact state after scrolling: every link except the active tab folds away (Contact too,
+   unless it is the active tab), and the "Neopath" wordmark appears */
 .nav-wrap.is-compact .nav-links {
+    gap: 0;
+}
+
+.nav-wrap.is-compact .nav-link:not([aria-current="page"]),
+.nav-wrap.is-compact .nav-drop-btn:not(.is-current) {
     max-width: 0;
+    padding-inline: 0;
     opacity: 0;
 }
 
-.nav-wrap.is-compact .nav-book {
-    display: inline-flex;
-}
-
-.nav-wrap.is-compact .nav:hover .nav-links,
-.nav-wrap.is-compact .nav:focus-within .nav-links {
-    max-width: 760px;
+.nav-wrap.is-compact .nav-logo-text {
+    max-width: 110px;
+    margin-left: 10px;
+    margin-right: 6px;
     opacity: 1;
 }
 
-.nav-wrap.is-compact .nav:hover .nav-book,
-.nav-wrap.is-compact .nav:focus-within .nav-book {
-    display: none;
+/* desktop only: hovering (or tabbing into) the compact bar brings all the links back and
+   hides the wordmark. Phones always show just the active tab (see the 960px block), and a
+   tap would leave :hover stuck on, so none of this applies there. */
+@media (min-width: 961px) {
+
+    .nav-wrap.is-compact .nav:hover .nav-links,
+    .nav-wrap.is-compact .nav:focus-within .nav-links {
+        gap: 2px;
+    }
+
+    .nav-wrap.is-compact .nav:hover .nav-link,
+    .nav-wrap.is-compact .nav:hover .nav-drop-btn,
+    .nav-wrap.is-compact .nav:focus-within .nav-link,
+    .nav-wrap.is-compact .nav:focus-within .nav-drop-btn {
+        max-width: 200px;
+        padding-inline: 14px;
+        opacity: 1;
+    }
+
+    .nav-wrap.is-compact .nav:hover .nav-logo-text,
+    .nav-wrap.is-compact .nav:focus-within .nav-logo-text {
+        max-width: 0;
+        margin-left: 0;
+        margin-right: 0;
+        opacity: 0;
+    }
+
+    /* the compact bar drops its gap so the folded tabs (Contact included) leave no extra
+       space; the wordmark's own margin spaces it from the active tab */
+    .nav-wrap.is-compact .nav {
+        gap: 0;
+    }
+
+    .nav-wrap.is-compact .nav:hover,
+    .nav-wrap.is-compact .nav:focus-within {
+        gap: 4px;
+    }
 }
 
 .nav-toggle {
@@ -912,6 +973,11 @@ ol[role="list"] {
     opacity: 1;
 }
 
+/* current page in the phone menu */
+.mobile-menu a[aria-current="page"] {
+    color: var(--accent);
+}
+
 .mobile-menu-foot {
     margin-top: auto;
     padding-top: 32px;
@@ -934,10 +1000,23 @@ body.menu-open {
 
 @media (max-width: 960px) {
 
-    .nav-links,
-    .nav-book,
-    .nav-wrap.is-compact .nav-book {
-        display: none;
+    /* phone bar: logo + "Neopath" on the left; on the right only the active tab (Contact
+       included) next to the menu button — every other tab folds away */
+    .nav-links {
+        gap: 0;
+        margin-left: auto;
+    }
+
+    .nav-link:not([aria-current="page"]),
+    .nav-drop-btn:not(.is-current) {
+        max-width: 0;
+        padding-inline: 0;
+        opacity: 0;
+    }
+
+    /* a folded Contact leaves no extra gap before the menu button */
+    .nav-actions .nav-link:not([aria-current="page"]) {
+        margin-right: -4px;
     }
 
     .nav-toggle {
@@ -948,6 +1027,14 @@ body.menu-open {
         width: 100%;
         max-width: 560px;
         justify-content: space-between;
+    }
+
+    /* phones and tablets: the "Neopath" wordmark is always shown */
+    .nav-logo-text {
+        max-width: 110px;
+        margin-left: 10px;
+        margin-right: 6px;
+        opacity: 1;
     }
 }
 
@@ -1174,7 +1261,7 @@ body.menu-open {
 
 .widget--accent {
     background: var(--accent);
-    box-shadow: 0 24px 50px rgba(254, 74, 35, 0.35);
+    box-shadow: 0 24px 50px rgba(250, 50, 40, 0.35);
 }
 
 .widget--violet {

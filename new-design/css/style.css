@@ -2737,3 +2737,18 @@ a.service-card:hover .service-visual img {
 [id] {
     scroll-margin-top: 96px;
 }
+
+/* small group label inside the mobile menu */
+.mobile-menu-label {
+    margin-top: 14px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+/* current page inside a nav dropdown */
+.nav-panel a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}

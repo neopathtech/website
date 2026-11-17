@@ -807,9 +807,11 @@ ol[role="list"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
 }
 
 .nav-panel strong svg {
+    flex: none;
     width: 15px;
     height: 15px;
     opacity: 0.5;
@@ -960,12 +962,6 @@ ol[role="list"] {
     transform: translateY(24px);
     opacity: 0;
     transition: transform 0.7s var(--ease), opacity 0.7s var(--ease), color 0.3s;
-}
-
-.mobile-menu a.sub {
-    font-size: 20px;
-    color: var(--text-2);
-    padding-left: 18px;
 }
 
 .menu-open .mobile-menu a {
@@ -2825,17 +2821,20 @@ a.service-card:hover .service-visual img {
     scroll-margin-top: 96px;
 }
 
-/* small group label inside the mobile menu */
-.mobile-menu-label {
-    margin-top: 14px;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-3);
+/* current page inside a nav dropdown: accent, like the active tab */
+.nav-panel a[aria-current="page"] {
+    background: var(--accent);
+    color: #fff;
 }
 
-/* current page inside a nav dropdown */
-.nav-panel a[aria-current="page"] {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+.nav-panel a[aria-current="page"]:hover {
+    background: var(--accent-hover);
+}
+
+.nav-panel a[aria-current="page"] span {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-panel a[aria-current="page"] strong svg {
+    opacity: 1;
 }

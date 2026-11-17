@@ -4,12 +4,6 @@
    page-specific pieces live in powercampus.css / neoeventize.css.
    ===================================================================== */
 
-/* current product inside the Products dropdown (style.css only marks .nav-link) */
-.nav-panel a[aria-current="page"] {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
 /* ---------- hero ---------- */
 /* product headlines are longer than the homepage's, so give them a wider measure */
 .product-hero .hero-copy .h-hero {
